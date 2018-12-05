@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import PrintRecipeList from './recipes/PrintRecipeList';
 import firebase from 'firebase';
 
 // Initialize Firebase
@@ -17,132 +18,84 @@ firebase.initializeApp(config);
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
-const apiKey = '0597bff901b9ddc58daad4093dbda18a'
-const apiId = '0acc9a47'
-const searchRecipesUrl = 'http://api.yummly.com/v1/api/recipes'
-const getRecipeUrl = 'http://api.yummly.com/v1/api/recipe/'
-
 class App extends Component {
   constructor() {
     super();
-    this.state={
-      input:'',
-      recipes: [],
-      user: null,
-      // images: [],
-      newParty: '',
-      cookingParties: {}
+    this.state = {
+      recipeSearch: '',
+      recipeList: []
     }
   }
 
-// captures value of user input
-handleChange = (e) => {
-  this.setState({
-    [e.target.name]: e.target.value
-  })
-}
+  // function to login
+  logIn = () => {
+    auth.signInWithPopup(provider)
+      .then((res) => {
+        console.log(res)
+        this.setState({
+          user: res.user
+        })
+      })
+  }
 
-// calls axios to search recipes with what user inputs
-handleSubmit = (e) => {
-  e.preventDefault();
-  axios({
-    method: 'GET',
-    url: searchRecipesUrl,
-    dataResponse: 'json',
-    params: {
-      _app_id: apiId,
-      _app_key: apiKey,
-      q: this.state.input,
-    }
-  }).then((res) => {
-    res = res.data.matches
-    console.log(res);
-    this.setState({
-      recipes: res,
+  // function to logout
+  logOut = () => {
+    auth.signOut()
+      .then(() => {
+        this.setState({
+          user: null,
+        })
+      })
+  }
+
+  // search for recipes based on search query
+  searchForRecipes = (searchterm) => {
+    axios.get(`https://api.yummly.com/v1/api/recipes?_app_id=df8e14a9&_app_key=a3cc287f6d68e263afd8945e586bea51&`, {
+      params: {
+        q: searchterm
+      }
+    }).then((res) => {
+      console.log(res.data.matches)
+      this.setState({
+        recipeList: res.data.matches
+      })
     })
-  })
-}
+  }
 
-// captures value of recipeid the user clicked on and gets the recipe info for that specific recipeid
-handleClick = (e) => {
-  this.setState ({
-    [e.target.name]: [e.target.value]
-  })
-  let recipeid = [e.target.value]
-  axios({
-    method: 'GET',
-    url: getRecipeUrl + recipeid,
-    dataResponse: 'json',
-    params: {
-      _app_id: apiId,
-      _app_key: apiKey,
-    }
-  }).then((res)=>{
-    res = res.data.images[0].imageUrlsBySize[360]
-    // res1 = res.data.ingredientLines
-    console.log(res);
-    // console.log(res1);
-  })
-}
-
-// function to login
-logIn = () => {
-  auth.signInWithPopup(provider)
-  .then((res) => {
+  // saving search term to state
+  handleChange = (e) => {
     this.setState({
-      user:res.user
+      [e.target.id]: e.target.value
     })
-  })
-}
+  }
 
-// function to logout
-logOut = () => {
-  auth.signOut()
-  .then(() => {
+  // submitting form to search for recipes
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const recipe = this.state.recipeSearch;
     this.setState({
-      user:null,
+      recipeSearch: ''
+    }, () => {
+      this.searchForRecipes(recipe);
     })
-  })
-}
-
+  }
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Cooking Party</h1>
-          {/* LOGIN BUTTONS */}
-          {
-            this.state.user
-            ? <button onClick={this.logOut}>Log Out</button>
-            : <button onClick={this.logIn}>Log In</button>
-          }
-        </header>
-
-        {/* {
+        {
           this.state.user
-          ?  // if the user is logged in, display their cooking parties
-          : // if this user is not logged in don't display it
-        } */}
-
-        {/* FORM - THIS SHOULD GO INTO TERNERARY OPERATOR*/}
+            ? <button onClick={this.logOut}>Log Out</button>
+            // display the list of parties associated with that specific users login USE UID
+        
+            : <button onClick={this.logIn}>Log In</button>
+        }
         <form action="" onSubmit={this.handleSubmit}>
-          <label htmlFor="input"></label> 
-          <input type="text" name="input" id="userInput" onChange={this.handleChange} value={this.state.input}/>
+          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes"/>
+          <label htmlFor="recipeSearch"></label>
+          <input type="submit" id="submit" value="Search"/>
           <label htmlFor="submit"></label>
-          <input type="submit" id="submit" value="See Recipes" />
         </form>
-
-
-        {/* DISPLAY RECIPES */}
-        {this.state.recipes.map(recipe => {
-          return(
-            <div>
-              <h2>{recipe.recipeName}</h2>
-              <button onClick={this.handleClick} name="recipeid" value={recipe.id}>Look at recipes</button>
-            </div>
-          )
-        })}
-
+        <PrintRecipeList recipeList={this.state.recipeList} />
       </div>
     );
   }
