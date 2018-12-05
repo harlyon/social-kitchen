@@ -5,17 +5,6 @@ import PrintRecipeList from './recipes/PrintRecipeList';
 import firebase from 'firebase';
 import CreateCookingParty from './cookingParty/CreateCookingParty.js';
 
-// Initialize Firebase
-// var config = {
-//   apiKey: "AIzaSyAS1abiWo5s9dkd3nYV2OFNh8m9Q4dpj2Y",
-//   authDomain: "cooking-party.firebaseapp.com",
-//   databaseURL: "https://cooking-party.firebaseio.com",
-//   projectId: "cooking-party",
-//   storageBucket: "",
-//   messagingSenderId: "409593497714"
-// };
-// firebase.initializeApp(config);
-
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
