@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import PrintRecipeList from './PrintRecipeList';
+import PrintRecipeList from './recipes/PrintRecipeList';
 
 class App extends Component {
   constructor() {
@@ -41,9 +41,9 @@ class App extends Component {
     return (
       <div className="App">
         <form action="" onSubmit={this.handleSubmit}>
-          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange}/>
+          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes"/>
           <label htmlFor="recipeSearch"></label>
-          <input type="submit" id="submit"/>
+          <input type="submit" id="submit" value="Search"/>
           <label htmlFor="submit"></label>
         </form>
         <PrintRecipeList recipeList={this.state.recipeList} />

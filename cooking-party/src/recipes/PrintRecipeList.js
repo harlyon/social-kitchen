@@ -39,7 +39,7 @@ class PrintRecipeList extends Component {
         return (
           <div key={recipe.id}>
             <h2>{recipe.recipeName}</h2>
-            <button value={recipe.id} onClick={this.handleClick}>Click here to get recipe</button>
+            <button value={recipe.id} onClick={this.handleClick}>See recipe</button>
           </div>
         )
       })

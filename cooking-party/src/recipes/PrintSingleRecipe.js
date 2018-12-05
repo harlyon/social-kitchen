@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import firebase
 
 class PrintSingleRecipe extends Component {
   printRecipe = () => {
@@ -6,7 +7,7 @@ class PrintSingleRecipe extends Component {
       <div>
         <h2>{this.props.recipeName}</h2>
         <p>Servings: {this.props.numberOfServings}</p>
-        <a href={this.props.source} target="_blank">Directions</a>
+        <a href={this.props.source} target="_blank" rel="noopener noreferrer">Directions</a>
         <p>Ingredients:</p>
         <ul>
           {this.props.ingredients.map((ingredient) => {
