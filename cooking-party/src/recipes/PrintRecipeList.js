@@ -19,7 +19,7 @@ class PrintRecipeList extends Component {
     }, () => {
       axios.get(`https://api.yummly.com/v1/api/recipe/${this.state.recipeid}?_app_id=df8e14a9&_app_key=a3cc287f6d68e263afd8945e586bea51`, {
       }).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         const tempIngredientsArray = [];
         tempIngredientsArray.push(...res.data.ingredientLines);
         this.setState({
