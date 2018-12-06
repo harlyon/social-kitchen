@@ -27,12 +27,12 @@ class DisplayCookingParties extends Component {
       <div>
         <h1>I am the display cooking parties</h1>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
-          console.log(party)
           return (
             <div>
               <Link to={`/party/${party[0]}`}>
                 <div key={party[0]} >
                   <h2>{party[1].name}</h2>
+                  <button id={party[0]} onClick={this.deleteParty}>Delete this party</button>
                 </div>
               </Link>
             </div>

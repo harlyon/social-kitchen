@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import { Route, Link, NavLink } from "react-router-dom";
 import firebase from '../firebase/firebase.js';
-
-// `/${this.props.match.params.party_id}`
-// const dbRef = firebase.database().ref();
-// console.log(dbRef);
+import SearchForRecipe from '../recipes/SearchForRecipe';
 
 
 class PartyDetails extends Component {
   constructor() {
     super();
     this.state = {
-      partyDetails: {}
+      partyDetails: {},
+      // firebaseKey: ''
     }
   }
   componentDidUpdate(prevProps) {
@@ -19,7 +17,8 @@ class PartyDetails extends Component {
     if (this.props.match.params.party_id !== prevProps.match.params.party_id) {
       dbRef.on('value', (snapshot) => {
         this.setState({
-          partyDetails: snapshot.val() || {}
+          partyDetails: snapshot.val() || {},
+          // firebaseKey: this.props.match.params.party_id
         })
       })
     }
@@ -27,10 +26,16 @@ class PartyDetails extends Component {
   render() {
     return (
       <div>
-        <h1>This is the party details page for {this.props.match.params.party_id}</h1>
-        <p>{this.state.partyDetails.name}</p>
-
+        <h1>{this.state.partyDetails.name}</h1>
+        <p>Date: {this.state.partyDetails.date}</p>
+        <p>Invitees:</p>
+        <ul>
+        </ul>
+        {
+          <SearchForRecipe firebaseKey={this.props.match.params.party_id}/>
+        }
       </div>
+      
     )
   }
 }
