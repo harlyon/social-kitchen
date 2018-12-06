@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import CreateCookingParty from './cookingParty/CreateCookingParty';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import SearchForRecipe from './recipes/SearchForRecipe';
+import PartyDetails from './cookingParty/PartyDetails';
 
 
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -56,19 +57,20 @@ class App extends Component {
             this.state.user
               ? <button onClick={this.logOut}>Log Out</button>
               : <button onClick={this.logIn}>Log In</button>
-          }
+            }
           {
             this.state.user
-              ?
-              (
-                <div>
+            ?
+            (
+              <div>
                   <h1>Hello {this.state.user.displayName}!</h1>
                   <CreateCookingParty />
                 </div>
               )
               :
               <p>You must be logged in.</p>
-          }
+            }
+          <Route exact path={'/party/:party_id'} render={(props) => <PartyDetails {...props} />} />
         </div>
       </Router>
     );

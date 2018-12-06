@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import firebase from '../firebase/firebase';
+import PartyDetails from './PartyDetails';
+import { Route, Link, NavLink } from "react-router-dom";
 
 class DisplayCookingParties extends Component {
   constructor() {
@@ -27,10 +29,12 @@ class DisplayCookingParties extends Component {
         {Object.entries(this.props.listOfCookingParties).map((party) => {
           console.log(party)
           return (
-            <div key={party[0]} >
-              <h2>{party[1].name}</h2>
-              <p>Date:{party[1].date}</p>
-              <button id={party[0]} onClick={this.deleteParty}>Delete This Party</button>
+            <div>
+              <Link to={`/party/${party[0]}`}>
+                <div key={party[0]} >
+                  <h2>{party[1].name}</h2>
+                </div>
+              </Link>
             </div>
           );
         })}
