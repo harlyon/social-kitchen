@@ -9,7 +9,7 @@ class CreateCookingParty extends Component {
     this.state = {
       makePartyName: '',
       makePartyDate: '',
-      makePartyEmail: '',
+      makePartyEmail: [],
     }
   }
   handleSubmit = (e) => {
@@ -23,7 +23,7 @@ class CreateCookingParty extends Component {
     this.setState({
       makePartyName: '',
       makePartyDate: '',
-      makePartyEmail: '',
+      makePartyEmail: [],
     })
   }
   handleChange = (e) => {
@@ -38,9 +38,9 @@ class CreateCookingParty extends Component {
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
           <input type="text" id="makePartyName" onChange={this.handleChange} value={this.state.makePartyName}/>
           <label htmlFor="makePartyName">Enter Party Name</label>
-          <input type="date" id="makePartyDate" onChange={this.handleChange}/>
+          <input type="date" id="makePartyDate" onChange={this.handleChange} value={this.state.makePartyDate}/>
           <label htmlFor="makePartyDate">Enter date of Party</label>
-          <input type="email" id="makePartyEmail" onChange={this.handleChange}/>
+          <input type="email" id="makePartyEmail" onChange={this.handleChange} value={this.state.makePartyEmail}/>
           <label htmlFor="makePartyEmail">Enter your one friend's email</label>
           <input type="submit"/>
         </form>
