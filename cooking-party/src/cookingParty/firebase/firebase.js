@@ -17,10 +17,9 @@ var config = {
   authDomain: "social-kitchen-e80b3.firebaseapp.com",
   databaseURL: "https://social-kitchen-e80b3.firebaseio.com",
   projectId: "social-kitchen-e80b3",
-  storageBucket: "",
+  storageBucket: "social-kitchen-e80b3.appspot.com",
   messagingSenderId: "344305376967"
 };
 firebase.initializeApp(config);
-
 
 export default firebase;
