@@ -1,7 +1,6 @@
 import React, { Component }from 'react';
-import firebase from '../firebase';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import UserParties from '../UserParties';
+import firebase from './firebase/firebase';
+import DisplayCookingParties from './DisplayCookingParties';
 
 const dbRef = firebase.database().ref();
 
@@ -11,22 +10,31 @@ class CreateCookingParty extends Component {
     this.state = {
       makePartyName: '',
       makePartyDate: '',
-      makePartyEmail: '',
+      makePartyEmail: [],
+      listOfCookingParties: {}
     }
   }
-
+  componentDidMount() {
+    dbRef.on("value", snapshot => {
+      const newPartyList = snapshot.val() === null ? {} : snapshot.val();
+      this.setState({
+        listOfCookingParties: newPartyList
+      });
+    });
+  }
   handleSubmit = (e) => {
     e.preventDefault();
+    const emailArray = this.state.makePartyEmail.split(', ');
     const newParty = {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
-      email: this.state.makePartyEmail
+      email: emailArray
     }
     dbRef.push(newParty);
     this.setState({
       makePartyName: '',
       makePartyDate: '',
-      makePartyEmail: '',
+      makePartyEmail: [],
     })
   }
 
@@ -45,17 +53,33 @@ class CreateCookingParty extends Component {
       <div>
         <h1>Create Cooking Party</h1>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
-          <input type="text" id="makePartyName" onChange={this.handleChange} value={this.state.makePartyName}/>
+          <input
+            type="text"
+            id="makePartyName"
+            required
+            onChange={this.handleChange}
+            value={this.state.makePartyName}/>
           <label htmlFor="makePartyName">Enter Party Name</label>
-          <input type="date" id="makePartyDate" onChange={this.handleChange}/>
-          <label htmlFor="makePartyDate">Enter date of Party</label>
-          <input type="email" id="makePartyEmail" onChange={this.handleChange}/>
-          <label htmlFor="makePartyEmail">Enter your one friend's email</label>
-          <input type="submit" onClick={this.clearForm}/>
-        </form>
 
-        <Link to="/userparties">See Parties!</Link>
-        <Route path="/userparties" component={UserParties} />
+          <input
+            type="date"
+            id="makePartyDate"
+            required
+            onChange={this.handleChange}
+            value={this.state.makePartyDate}/>
+          <label htmlFor="makePartyDate">Enter date of Party</label>
+
+          <input
+            type="text"
+            id="makePartyEmail"
+            required
+            onChange={this.handleChange}
+            value={this.state.makePartyEmail}
+            pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"/>
+          <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
+          <input type="submit"/>
+        </form>
+        <DisplayCookingParties listOfCookingParties={this.state.listOfCookingParties}/>
       </div>
 
       
