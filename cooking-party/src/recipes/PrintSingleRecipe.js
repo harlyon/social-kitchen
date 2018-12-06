@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 
 class PrintSingleRecipe extends Component {
   printRecipe = () => {
+    const filteredIngredientList = new Set(this.props.ingredients);
+    const newIngredients = Array.from(filteredIngredientList)
     return (
       <div>
         <h2>{this.props.recipeName}</h2>
@@ -10,7 +12,7 @@ class PrintSingleRecipe extends Component {
         <a href={this.props.source} target="_blank" rel="noopener noreferrer">Directions</a>
         <p>Ingredients:</p>
         <ul>
-          {this.props.ingredients.map((ingredient) => {
+          {newIngredients.map((ingredient) => {
             return (
               <li>
                 {ingredient}

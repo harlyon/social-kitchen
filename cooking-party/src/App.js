@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PrintRecipeList from './recipes/PrintRecipeList';
 import firebase from 'firebase';
-
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyAS1abiWo5s9dkd3nYV2OFNh8m9Q4dpj2Y",
-  authDomain: "cooking-party.firebaseapp.com",
-  databaseURL: "https://cooking-party.firebaseio.com",
-  projectId: "cooking-party",
-  storageBucket: "",
-  messagingSenderId: "409593497714"
-};
-firebase.initializeApp(config);
+import CreateCookingParty from './cookingParty/CreateCookingParty.js';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -81,22 +72,32 @@ class App extends Component {
   }
   render() {
     return (
+      <Router>
+
       <div className="App">
-        {
-          this.state.user
-            ? <button onClick={this.logOut}>Log Out</button>
-            // display the list of parties associated with that specific users login USE UID
-        
-            : <button onClick={this.logIn}>Log In</button>
-        }
-        <form action="" onSubmit={this.handleSubmit}>
-          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes"/>
-          <label htmlFor="recipeSearch"></label>
-          <input type="submit" id="submit" value="Search"/>
-          <label htmlFor="submit"></label>
-        </form>
-        <PrintRecipeList recipeList={this.state.recipeList} />
-      </div>
+          {
+            this.state.user
+              ? <button onClick={this.logOut}>Log Out</button>
+              // display the list of parties associated with that specific users login USE UID
+              : <button onClick={this.logIn}>Log In</button>
+          }
+
+          <form action="" onSubmit={this.handleSubmit}>
+            <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes" />
+            <label htmlFor="recipeSearch"></label>
+            <input type="submit" id="submit" value="Search" />
+            <label htmlFor="submit"></label>
+          </form>
+
+          <Link to="/">Home</Link>
+          <Link to="/createcookingparty">Create cooking party!</Link>     
+          <Route path="/createcookingparty" component={CreateCookingParty} /> 
+
+          <PrintRecipeList recipeList={this.state.recipeList} />
+
+        </div>
+
+      </Router>
     );
   }
 }
