@@ -8,8 +8,7 @@ class PartyDetails extends Component {
   constructor() {
     super();
     this.state = {
-      partyDetails: {},
-      // firebaseKey: ''
+      partyDetails: {}
     }
   }
   componentDidUpdate(prevProps) {
@@ -17,8 +16,7 @@ class PartyDetails extends Component {
     if (this.props.match.params.party_id !== prevProps.match.params.party_id) {
       dbRef.on('value', (snapshot) => {
         this.setState({
-          partyDetails: snapshot.val() || {},
-          // firebaseKey: this.props.match.params.party_id
+          partyDetails: snapshot.val() || {}
         })
       })
     }
@@ -32,7 +30,7 @@ class PartyDetails extends Component {
         <ul>
         </ul>
         {
-          <SearchForRecipe firebaseKey={this.props.match.params.party_id}/>
+          <SearchForRecipe />
         }
       </div>
       
