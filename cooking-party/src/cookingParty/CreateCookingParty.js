@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import firebase from './firebase/firebase';
+import firebase from '../firebase/firebase';
 import DisplayCookingParties from './DisplayCookingParties';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -18,18 +18,26 @@ class CreateCookingParty extends Component {
   componentDidMount() {
     dbRef.on("value", snapshot => {
       const newPartyList = snapshot.val() === null ? {} : snapshot.val();
+      console.log(newPartyList);
+
+      const newState = [];
+      for (let itemKey in newPartyList) {
+        newPartyList[itemKey].key = itemKey
+        newState.push(newPartyList[itemKey])
+      }
       this.setState({
-        listOfCookingParties: newPartyList
+        listOfCookingParties: newState
       });
     });
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.split(', ');
     const newParty = {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
-      email: emailArray
+      email: emailArray,
     }
     dbRef.push(newParty);
     this.setState({
