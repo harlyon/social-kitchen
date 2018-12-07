@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route, Link, NavLink } from "react-router-dom";
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
 
@@ -8,15 +7,22 @@ class PartyDetails extends Component {
   constructor() {
     super();
     this.state = {
-      partyDetails: {}
+      partyDetails: {},
+      firebaseKey: ''
     }
+  }
+  componentDidMount() {
+    this.setState({
+      firebaseKey: this.props.match.params.party_id
+    })
   }
   componentDidUpdate(prevProps) {
     const dbRef = firebase.database().ref(`/${this.props.match.params.party_id}`);
     if (this.props.match.params.party_id !== prevProps.match.params.party_id) {
       dbRef.on('value', (snapshot) => {
         this.setState({
-          partyDetails: snapshot.val() || {}
+          partyDetails: snapshot.val() || {},
+          firebaseKey: this.props.match.params.party_id
         })
       })
     }
@@ -30,7 +36,7 @@ class PartyDetails extends Component {
         <ul>
         </ul>
         {
-          <SearchForRecipe />
+          <SearchForRecipe firebaseKey={this.state.firebaseKey}/>
         }
       </div>
       

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import firebase
+import firebase from 'firebase';
 
 class PrintSingleRecipe extends Component {
   constructor() {
@@ -15,10 +15,8 @@ class PrintSingleRecipe extends Component {
       source: this.props.source,
       ingredients: Array.from(new Set(this.props.ingredients))
     }
-    // const dbRef = firebase.database().ref()
-    // this.setState({
-
-    // })
+    const recipeRef = firebase.database().ref(`/${this.props.firebaseKey}/dishes`)
+    recipeRef.push(selectedRecipe);
   }
   printRecipe = () => {
     const filteredIngredientList = new Set(this.props.ingredients);
