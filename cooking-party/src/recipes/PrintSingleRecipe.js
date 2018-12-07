@@ -2,6 +2,24 @@ import React, {Component} from 'react';
 // import firebase
 
 class PrintSingleRecipe extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedRecipe: {}
+    }
+  }
+  handleClick = (props) => {
+    const selectedRecipe = {
+      name: this.props.recipeName,
+      servings: this.props.numberOfServings,
+      source: this.props.source,
+      ingredients: Array.from(new Set(this.props.ingredients))
+    }
+    // const dbRef = firebase.database().ref()
+    // this.setState({
+
+    // })
+  }
   printRecipe = () => {
     const filteredIngredientList = new Set(this.props.ingredients);
     const newIngredients = Array.from(filteredIngredientList)
@@ -20,6 +38,7 @@ class PrintSingleRecipe extends Component {
             )
           })}
         </ul>
+        <button onClick={this.handleClick}>Add to Party</button>
       </div>
     )
   }
