@@ -34,12 +34,21 @@ class PartyDetails extends Component {
       })
     }
   }
+  handleClick = (e) => {
+    // delete dish from firebase
+    const dishFirebaseKey = e.target.id;
+    const dishRef = firebase.database().ref(`/${this.state.firebaseKey}/dishes/${dishFirebaseKey}`);
+    dishRef.remove();
+  }
   printDishes = () => {
     return (
       Object.entries(this.state.partyDetails.dishes).map((dish) => {
         // console.log(dish);
         return (
-          <Link to={`/party/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
+          <div>
+            <Link to={`/party/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
+            <button onClick={this.handleClick} id={dish[0]}>DELETE</button>
+          </div>
         )
       })
     )

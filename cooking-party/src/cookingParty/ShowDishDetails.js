@@ -18,7 +18,10 @@ class ShowDishDetails extends Component {
   }
   render() {
     return (
-      <h1>I am the show dish details page for {this.state.currentDish.name}</h1>
+      <div>
+        <h1>I am the show dish details page for {this.state.currentDish.name}</h1>
+      </div>
+      
     )
   }
 }
