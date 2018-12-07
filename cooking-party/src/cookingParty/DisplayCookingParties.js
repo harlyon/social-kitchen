@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import firebase from '../firebase/firebase';
-import PartyDetails from './PartyDetails';
-import { Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class DisplayCookingParties extends Component {
-  constructor() {
-    super();
-  }
   deleteParty = (e) => {
     //delete the party from firebase
     const firebaseKey = e.target.id;

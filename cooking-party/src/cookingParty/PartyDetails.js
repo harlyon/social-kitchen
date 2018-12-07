@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route, Link, NavLink } from "react-router-dom";
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
 

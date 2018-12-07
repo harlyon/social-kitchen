@@ -11,6 +11,7 @@ class CreateCookingParty extends Component {
       makePartyName: '',
       makePartyDate: '',
       makePartyEmail: [],
+      dishes: {},
       listOfCookingParties: {}
     }
   }
@@ -18,10 +19,6 @@ class CreateCookingParty extends Component {
     dbRef.on("value", snapshot => {
       const newPartyList = snapshot.val() === null ? {} : snapshot.val();
       const newState = [];
-      // for (let itemKey in newPartyList) {
-      //   newPartyList[itemKey].key = itemKey
-      //   newState.push(newPartyList[itemKey])
-      // }
       for (let itemKey in newPartyList) {
         newPartyList[itemKey].key = itemKey
         newState.push(newPartyList[itemKey])
@@ -33,11 +30,12 @@ class CreateCookingParty extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    const emailArray = this.state.makePartyEmail.split(', ');
+    const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
     const newParty = {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
-      email: emailArray
+      email: emailArray,
+      dishes: this.state.dishes
     }
     dbRef.push(newParty);
     this.setState({
@@ -80,7 +78,7 @@ class CreateCookingParty extends Component {
             value={this.state.makePartyEmail}
             pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"/>
           <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
-          <input type="submit"/>
+          <input type="submit" value="Create Party"/>
         </form>
         <DisplayCookingParties listOfCookingParties={this.state.listOfCookingParties}/>
       </div>
