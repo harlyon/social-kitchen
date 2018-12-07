@@ -17,7 +17,6 @@ class SearchForRecipe extends Component {
         q: searchterm
       }
     }).then((res) => {
-      console.log(res.data.matches)
       this.setState({
         recipeList: res.data.matches
       })
@@ -48,7 +47,7 @@ class SearchForRecipe extends Component {
           <input type="submit" id="submit" value="Search" />
           <label htmlFor="submit"></label>
         </form>
-        <PrintRecipeList recipeList={this.state.recipeList} /> 
+        <PrintRecipeList recipeList={this.state.recipeList} firebaseKey={this.props.firebaseKey} /> 
       </div>
     )
   }

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import PrintRecipeList from './recipes/PrintRecipeList';
 import firebase from 'firebase';
 import CreateCookingParty from './cookingParty/CreateCookingParty';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SearchForRecipe from './recipes/SearchForRecipe';
 import PartyDetails from './cookingParty/PartyDetails';
-import DisplayCookingParties from './cookingParty/DisplayCookingParties';
 
 
 const provider = new firebase.auth.GoogleAuthProvider();
