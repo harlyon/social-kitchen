@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import firebase from 'firebase';
-import CreateCookingParty from './cookingParty/CreateCookingParty';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import SearchForRecipe from './recipes/SearchForRecipe';
-import PartyDetails from './cookingParty/PartyDetails';
 
+import CreateCookingParty from './cookingParty/CreateCookingParty';
+import PartyDetails from './cookingParty/PartyDetails';
+import ShowDishDetails from './cookingParty/ShowDishDetails';
+
+import SearchForRecipe from './recipes/SearchForRecipe';
+
+import './App.css';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -66,6 +69,7 @@ class App extends Component {
                 <h1>Hello {this.state.user.displayName}!</h1>
                 <Route path="/" component={CreateCookingParty} />
                 <Route exact path={'/party/:party_id'} render={(props) => <PartyDetails {...props} />} />
+                <Route exact path={'/party/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetails {...props} />} />
               </div>
               )
             :
