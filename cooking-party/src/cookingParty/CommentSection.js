@@ -8,21 +8,23 @@ class CommentSection extends Component {
       name: '',
       comment: '',
       date: '',
-      newPost: []
+      newPost: {}
     }
   }
-  componentDidUpdate() {
-    const dbRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`);
-    dbRef.on('value', (snapshot) => {
-      this.setState({
-        newPost: snapshot.val()
+  componentDidUpdate(prevProps) {
+    if (this.props.firebaseKey !== prevProps.firebaseKey && this.props.firebaseKey !== null) {
+      const dbRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`);
+      dbRef.on('value', (snapshot) => {
+        this.setState({
+          newPost: snapshot.val()
+        })
       })
-    })
+    }
   }
   componentDidMount() {
     const currentDate = this.getDate();
     this.setState({
-      date: currentDate
+      date: currentDate,
     })
   }
   getDate = () => {
@@ -47,21 +49,13 @@ class CommentSection extends Component {
       comment: this.state.comment,
       date: this.state.date,
     }
-    const dbRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`)
-    dbRef.push(comment);
+    const commentRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`)
+    commentRef.push(comment);
     this.setState({
       name: '',
       comment: ''
     })
   }
-  // printComments = () => {
-  //   const dbRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`);
-  //   dbRef.on('value', (snapshot) => {
-  //     this.setState({
-  //       newPost: snapshot.val()
-  //     })
-  //   })
-  // }
   render() {
     return (
       <div>
@@ -76,6 +70,15 @@ class CommentSection extends Component {
 
           <input type="submit"/>
         </form>
+        {Object.entries(this.state.newPost).map((post) => {
+          return (
+            <div key={post[0]}>
+              <h2>{post[1].name}</h2>
+              <p>{post[1].date}</p>
+              <p>{post[1].comment}</p>
+            </div>
+          )
+        })}
       </div>
     )
   }
