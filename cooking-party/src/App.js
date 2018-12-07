@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PrintRecipeList from './recipes/PrintRecipeList';
 import firebase from 'firebase';
 import CreateCookingParty from './cookingParty/CreateCookingParty';
@@ -28,7 +27,7 @@ class App extends Component {
       }
     });
   }
-  
+
   // function to login
   logIn = () => {
     auth.signInWithPopup(provider)

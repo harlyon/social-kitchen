@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import firebase from './firebase/firebase';
 import DisplayCookingParties from './DisplayCookingParties';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const dbRef = firebase.database().ref();
 
@@ -79,6 +80,7 @@ class CreateCookingParty extends Component {
           <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
           <input type="submit"/>
         </form>
+  
         <DisplayCookingParties listOfCookingParties={this.state.listOfCookingParties}/>
       </div>
 
