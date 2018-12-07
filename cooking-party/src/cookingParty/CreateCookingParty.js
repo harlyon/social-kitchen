@@ -17,8 +17,11 @@ class CreateCookingParty extends Component {
   componentDidMount() {
     dbRef.on("value", snapshot => {
       const newPartyList = snapshot.val() === null ? {} : snapshot.val();
-      console.log(newPartyList);
       const newState = [];
+      // for (let itemKey in newPartyList) {
+      //   newPartyList[itemKey].key = itemKey
+      //   newState.push(newPartyList[itemKey])
+      // }
       for (let itemKey in newPartyList) {
         newPartyList[itemKey].key = itemKey
         newState.push(newPartyList[itemKey])
@@ -34,13 +37,13 @@ class CreateCookingParty extends Component {
     const newParty = {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
-      email: emailArray,
+      email: emailArray
     }
     dbRef.push(newParty);
     this.setState({
       makePartyName: '',
       makePartyDate: '',
-      makePartyEmail: [],
+      makePartyEmail: []
     })
   }
   handleChange = (e) => {

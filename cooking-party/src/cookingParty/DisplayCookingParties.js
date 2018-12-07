@@ -6,20 +6,11 @@ import { Route, Link, NavLink } from "react-router-dom";
 class DisplayCookingParties extends Component {
   constructor() {
     super();
-    this.state = {
-
-    }
-  }
-  componentDidMount() {
-    
   }
   deleteParty = (e) => {
     //delete the party from firebase
-    console.log("deleteParty")
     const firebaseKey = e.target.id;
-    console.log(e.target.id);
     const partyRef = firebase.database().ref(`/${firebaseKey}`);
-    console.log(partyRef);
     partyRef.remove();
   };
   render() {
@@ -28,11 +19,11 @@ class DisplayCookingParties extends Component {
         <h1>I am the display cooking parties</h1>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
           return (
-            <div>
-              <Link to={`/party/${party[0]}`}>
-                <div key={party[0]} >
+            <div key={party[1].key}>
+              <Link to={`/party/${party[1].key}`}>
+                <div key={party[1].key} >
                   <h2>{party[1].name}</h2>
-                  <button id={party[0]} onClick={this.deleteParty}>Delete this party</button>
+                  <button id={party[1].key} onClick={this.deleteParty}>Delete this party</button>
                 </div>
               </Link>
             </div>
