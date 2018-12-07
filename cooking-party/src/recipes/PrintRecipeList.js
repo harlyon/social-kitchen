@@ -58,7 +58,8 @@ class PrintRecipeList extends Component {
           recipeName={this.state.recipeName}
           numberOfServings={this.state.numberOfServings}
           ingredients={this.state.ingredients}
-          source={this.state.source} />
+          source={this.state.source}
+          firebaseKey={this.props.firebaseKey} />
       </div>
 
     )
