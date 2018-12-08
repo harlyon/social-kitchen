@@ -59,8 +59,8 @@ class EventCommentSection extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>I am the comment section</h1>
+      <div className="eventCommentSection">
+        <h2>I am the comment section</h2>
         {
           this.state.newPost &&
           (
