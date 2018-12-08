@@ -19,8 +19,8 @@ class ShowDishDetailsInEvent extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>{this.state.currentDish.name}</h1>
+      <div className="showDishDetailsInEvent">
+        <h2>{this.state.currentDish.name}</h2>
         <p>Number of servings: {this.state.currentDish.servings}</p>
         <p>Ingredients:</p>
         <ul>

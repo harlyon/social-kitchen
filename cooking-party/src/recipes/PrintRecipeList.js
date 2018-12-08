@@ -60,7 +60,7 @@ class PrintRecipeList extends Component {
   }
   render() {
     return (
-      <div className="recipe-container">
+      <div className="printRecipeList">
         <PrintSingleRecipe
           recipeid={this.state.recipeid}
           recipeName={this.state.recipeName}

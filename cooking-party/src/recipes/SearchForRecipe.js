@@ -41,7 +41,7 @@ class SearchForRecipe extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="searchForRecipe">
         <form action="" onSubmit={this.handleSubmit}>
           <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes" />
           <label htmlFor="recipeSearch"></label>

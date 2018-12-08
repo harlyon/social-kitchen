@@ -53,8 +53,8 @@ class EventDetails extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>{this.state.partyDetails.name}</h1>
+      <div className="eventDetails">
+        <h2>{this.state.partyDetails.name}</h2>
         <p>Date: {this.state.partyDetails.date}</p>
         {
           this.state.partyDetails.email && (
