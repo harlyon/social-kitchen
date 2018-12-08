@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 
-class CommentSection extends Component {
+class EventCommentSection extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,7 +45,8 @@ class CommentSection extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const comment = {
-      name: this.state.name,
+      // name: this.state.name,
+      name: this.props.user.displayName,
       comment: this.state.comment,
       date: this.state.date,
     }
@@ -60,28 +61,30 @@ class CommentSection extends Component {
     return (
       <div>
         <h1>I am the comment section</h1>
-
+        {
+          this.state.newPost &&
+          (
+            Object.entries(this.state.newPost).map((post) => {
+              return (
+                <div key={post[0]}>
+                  <p>On {post[1].date} {post[1].name} said:</p>
+                  <p>{post[1].comment}</p>
+                </div>
+              )
+            })
+          )
+        }
         <form action="" className="commentSection" onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" value={this.state.name} onChange={this.handleChange}/>
+          <p>Posting as {this.props.user.displayName}</p>
           
-          <label htmlFor="comment">Comment</label>
+          <label htmlFor="comment">Comment: </label>
           <input type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange}/>
 
-          <input type="submit"/>
+          <input type="submit" value="Post comment"/>
         </form>
-        {Object.entries(this.state.newPost).map((post) => {
-          return (
-            <div key={post[0]}>
-              <h2>{post[1].name}</h2>
-              <p>{post[1].date}</p>
-              <p>{post[1].comment}</p>
-            </div>
-          )
-        })}
       </div>
     )
   }
 }
 
-export default CommentSection;
+export default EventCommentSection;

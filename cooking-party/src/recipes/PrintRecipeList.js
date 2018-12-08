@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PrintSingleRecipe from './PrintSingleRecipe';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 class PrintRecipeList extends Component {
   constructor() {
@@ -10,10 +11,20 @@ class PrintRecipeList extends Component {
       recipeName: '',
       numberOfServings: 0,
       ingredients: [],
-      source: ''
+      source: '',
+      firebaseKey: ''
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.firebaseKey !== prevProps.firebaseKey && this.props.firebaseKey !== null) {
+      this.setState({
+        firebaseKey: this.props.firebaseKey
+      })
     }
   }
   handleClick = (e) => {
+    console.log('i am being clicked');
+    
     this.setState({
       recipeid: e.target.value
     }, () => {
@@ -49,10 +60,7 @@ class PrintRecipeList extends Component {
   }
   render() {
     return (
-      <div className="recipe-container clearfix">
-        <section className="recipe-list">
-          {this.printRecipes()}
-        </section>
+      <div className="recipe-container">
         <PrintSingleRecipe
           recipeid={this.state.recipeid}
           recipeName={this.state.recipeName}
@@ -60,6 +68,9 @@ class PrintRecipeList extends Component {
           ingredients={this.state.ingredients}
           source={this.state.source}
           firebaseKey={this.props.firebaseKey} />
+        <section className="recipe-list">
+          {this.printRecipes()}
+        </section>
       </div>
 
     )
