@@ -1,10 +1,10 @@
 import React, { Component }from 'react';
 import firebase from '../firebase/firebase';
-import DisplayCookingParties from './DisplayCookingParties';
+import DisplayEvents from './DisplayEvents';
 
 const dbRef = firebase.database().ref();
 
-class CreateCookingParty extends Component {
+class CreateEvent extends Component {
   constructor() {
     super();
     this.state = {
@@ -52,7 +52,7 @@ class CreateCookingParty extends Component {
   render() {
     return (
       <div>
-        <h1>Create Cooking Party</h1>
+        <h1>Create Event</h1>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -80,10 +80,10 @@ class CreateCookingParty extends Component {
           <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
           <input type="submit" value="Create Party"/>
         </form>
-        <DisplayCookingParties listOfCookingParties={this.state.listOfCookingParties}/>
+        <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
       </div>
     )
   }
 }
 
-export default CreateCookingParty;
+export default CreateEvent;

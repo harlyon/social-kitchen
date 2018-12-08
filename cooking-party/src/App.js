@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
-import CreateCookingParty from './cookingParty/CreateCookingParty';
-import PartyDetails from './cookingParty/PartyDetails';
-import ShowDishDetails from './cookingParty/ShowDishDetails';
+import CreateEvent from './cookingParty/CreateEvent';
+import EventDetails from './cookingParty/EventDetails';
+import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 
 import SearchForRecipe from './recipes/SearchForRecipe';
 
 import './App.css';
+import PrintSingleRecipe from './recipes/PrintSingleRecipe';
+import PrintRecipeList from './recipes/PrintRecipeList';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -53,7 +55,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <SearchForRecipe />
+          {/* <SearchForRecipe /> */}
           {
             this.state.user
               ? <button onClick={this.logOut}>Log Out</button>
@@ -65,11 +67,19 @@ class App extends Component {
             (
               <div>
                 {/* <NavLink to="/">Home</NavLink> */}
-                <NavLink to="/">Home</NavLink>
-                <h1>Hello {this.state.user.displayName}!</h1>
-                <Route path="/" component={CreateCookingParty} />
-                <Route exact path={'/party/:party_id'} render={(props) => <PartyDetails {...props} />} />
-                <Route exact path={'/party/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetails {...props} />} />
+                <header>
+                  <NavLink to="/">Home</NavLink>
+                  {/* <NavLink to="/party">Events</NavLink> */}
+                  <h1>Hello {this.state.user.displayName}!</h1>
+                </header>
+                <Route exact path="/" component={CreateEvent} />
+                <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
+                {/* <Route exact path={'/:party_id/search'} render={(props) => <SearchForRecipe {...props} />} /> */}
+                <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
+
+
+                <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+
               </div>
               )
             :
