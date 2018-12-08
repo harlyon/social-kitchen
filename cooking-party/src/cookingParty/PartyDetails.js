@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import CommentSection from './CommentSection';
 
 class PartyDetails extends Component {
   constructor() {
@@ -56,6 +57,7 @@ class PartyDetails extends Component {
   render() {
     return (
       <div>
+        <h1>I am the Party Details Section</h1>
         <h1>{this.state.partyDetails.name}</h1>
         <p>Date: {this.state.partyDetails.date}</p>
         {
@@ -73,11 +75,9 @@ class PartyDetails extends Component {
           )
         }
         {this.state.partyDetails.dishes ? this.printDishes() : null}
-        {
-          <SearchForRecipe firebaseKey={this.state.firebaseKey}/>
-        }
+        {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
+        {<CommentSection firebaseKey={this.state.firebaseKey}/>}
       </div>
-      
     )
   }
 }
