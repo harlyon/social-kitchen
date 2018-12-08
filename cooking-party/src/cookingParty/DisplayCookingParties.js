@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 
 class DisplayCookingParties extends Component {
   deleteParty = (e) => {
-    //delete the party from firebase
     const firebaseKey = e.target.id;
     const partyRef = firebase.database().ref(`/${firebaseKey}`);
     partyRef.remove();
-  };
+  }
   render() {
     return (
       <div>
