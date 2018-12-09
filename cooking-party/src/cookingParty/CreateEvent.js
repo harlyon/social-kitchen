@@ -51,8 +51,8 @@ class CreateEvent extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Create Event</h1>
+      <div className="createEvent">
+        <h2>Create Event</h2>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
           <input
             type="text"

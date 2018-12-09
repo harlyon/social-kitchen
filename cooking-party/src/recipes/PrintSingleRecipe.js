@@ -42,13 +42,13 @@ class PrintSingleRecipe extends Component {
   }
   render() {
     return (
-      <section className="selected-recipe">
+      <div className="printSingleRecipe">
         {this.props.recipeid
           ?
           this.printRecipe()
           :
           null}
-      </section>
+      </div>
     )
   }
 }

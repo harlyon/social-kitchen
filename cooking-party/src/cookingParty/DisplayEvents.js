@@ -10,8 +10,8 @@ class DisplayEvents extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Events</h1>
+      <div className="displayEvents">
+        <h2>Events</h2>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
           console.log(party);
           
