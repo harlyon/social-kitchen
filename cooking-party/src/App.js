@@ -8,7 +8,7 @@ import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 
 import SearchForRecipe from './recipes/SearchForRecipe';
 
-import './App.css';
+import './App.scss';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
 import PrintRecipeList from './recipes/PrintRecipeList';
 
