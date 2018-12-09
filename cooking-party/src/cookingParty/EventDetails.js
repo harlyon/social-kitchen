@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EventCommentSection from './EventCommentSection';
 
 class EventDetails extends Component {
@@ -43,7 +43,7 @@ class EventDetails extends Component {
       Object.entries(this.state.partyDetails.dishes).map((dish) => {
         // console.log(dish);
         return (
-          <div>
+          <div key={dish[0]}>
             <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
             <button onClick={this.handleClick} id={dish[0]}>DELETE</button>
           </div>
@@ -63,7 +63,7 @@ class EventDetails extends Component {
               <ul>
                 {this.state.partyDetails.email.map((person) => {
                   return (
-                    <li>{person}</li>
+                    <li key={person}>{person}</li>
                   )
                 })}
               </ul>

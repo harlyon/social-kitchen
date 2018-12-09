@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class ShowDishDetailsInEvent extends Component {
   constructor() {
@@ -19,8 +19,9 @@ class ShowDishDetailsInEvent extends Component {
   }
   render() {
     return (
-      <div className="showDishDetailsInEvent">
+      <div className="showDishDetailsInEvent wrapper">
         <h2>{this.state.currentDish.name}</h2>
+        <img src={this.state.currentDish.image} alt={this.state.currentDish.name}/>
         <p>Number of servings: {this.state.currentDish.servings}</p>
         <p>Ingredients:</p>
         <ul>
@@ -33,7 +34,7 @@ class ShowDishDetailsInEvent extends Component {
            }) 
           )}
         </ul>
-        <a href={this.state.currentDish.source} target="_blank">Click here for instructions</a>
+        <a href={this.state.currentDish.source} target="_blank" rel="noopener noreferrer">Click here for instructions</a>
         <Link to={`/${this.props.match.params.party_id}`}>Go Back</Link>
       </div>
       

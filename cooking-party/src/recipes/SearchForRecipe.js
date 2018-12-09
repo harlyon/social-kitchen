@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PrintRecipeList from'./PrintRecipeList';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 class SearchForRecipe extends Component {
   constructor() {
