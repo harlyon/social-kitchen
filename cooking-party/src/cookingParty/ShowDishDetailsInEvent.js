@@ -19,25 +19,36 @@ class ShowDishDetailsInEvent extends Component {
   }
   render() {
     return (
-      <div className="showDishDetailsInEvent wrapper">
-        <h2>{this.state.currentDish.name}</h2>
-        <img src={this.state.currentDish.image} alt={this.state.currentDish.name}/>
-        <p>Number of servings: {this.state.currentDish.servings}</p>
-        <p>Ingredients:</p>
-        <ul>
-          {this.state.currentDish.ingredients && 
-          (
-           this.state.currentDish.ingredients.map((ingredient) => {
-             return (
-               <li>{ingredient}</li>
-             )
-           }) 
-          )}
-        </ul>
-        <a href={this.state.currentDish.source} target="_blank" rel="noopener noreferrer">Click here for instructions</a>
-        <Link to={`/${this.props.match.params.party_id}`}>Go Back</Link>
+      <div className="showDishDetailsInEvent">
+        <div className="wrapper">
+          <div className="dish inner-wrapper">
+            <h2 className="dish__title">{this.state.currentDish.name}</h2>
+          </div>
+        </div>
+        <div className="image-container">
+          <div className="dish inner-wrapper">
+            <img src={this.state.currentDish.image} alt={this.state.currentDish.name} className="dish__image"/>
+          </div>
+        </div>
+        <div className="wrapper">
+          <div className="dish inner-wrapper clearfix">
+            <p className="dish__servings">Number of servings: <span>{this.state.currentDish.servings}</span></p>
+            <p className="dish__ingredients-title">Ingredients:</p>
+            <ul className="dish__ingredients-list">
+              {this.state.currentDish.ingredients && 
+              (
+              this.state.currentDish.ingredients.map((ingredient) => {
+                return (
+                  <li className="dish__ingredients-item">{ingredient}</li>
+                )
+              }) 
+              )}
+            </ul>
+            <a href={this.state.currentDish.source} target="_blank" rel="noopener noreferrer" className="dish__directions">Directions</a>
+            <Link to={`/${this.props.match.params.party_id}`} className="dish__back"><i className="fas fa-arrow-left"></i></Link>
+          </div>
+        </div>
       </div>
-      
     )
   }
 }

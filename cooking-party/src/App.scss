@@ -1,9 +1,3 @@
-$primaryColor: #333;
-$secondaryColor: #FEFDFB;
-$neutralShade: #ACACAC; 
-$accentColor: #EFBA3D;
-$accentColorRGBA: rgba(239, 186, 61, 1);
-
 @import 'cookingParty/createEvent';
 @import 'cookingParty/displayEvents';
 @import 'cookingParty/eventCommentSection';
@@ -19,17 +13,83 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .visuallyhidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+// ----- VARIABLES -----
+$primaryColor: #333;
+$secondaryColor: #FEFDFB;
+$neutralShade: #ACACAC; 
+$accentColor: #EFBA3D;
+$accentColorRGBA: rgba(239, 186, 61, 1);
+$primaryFont: 'Assistant', sans-serif;
+$secondaryFont: 'Abril Fatface', cursive;
+
+// ----- MIXINS -----
+
+//h1 SOCIAL KITCHEN LOGO
+@mixin appName {
+  font-family: $secondaryFont;
+  letter-spacing: 1px;
+  color: $primaryColor;
+  font-size: 5rem;
+  text-shadow: 5px 5px 1px rgba(51,51,51,0.1);
+}
+
+//'HELLO user name font
+@mixin userName {
+  font-family: $primaryFont;
+  color: $secondaryColor;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+//h2: Recipe Name / Create Event / Events
+@mixin mainHeadings {
+  color: $primaryColor;
+  text-transform: uppercase;
+  font-size: 3.4rem;
+  font-style: bold;
+  text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
+}
+
+//Recipe List
+@mixin recipeList {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  list-style: none;
+  color: $primaryColor;
+}
+
+@mixin recipeSubHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $primaryColor;
+}
+
+//Directions | Create Event
+@mixin linkButton {
+  font-weight: 700;
+  font-size: 2rem;
+  color: $primaryColor;
+  background: $accentColor;
+  border-radius: 9px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+// ----- GLOBAL STYLES -----
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-family: $primaryFont;
+  letter-spacing: 0.5px;
 }
 
-h1, h2 {
-  font-family: 'Abril Fatface', cursive;
-  letter-spacing: 1px;
+h1 {
+  @include appName;
 }
 
 .wrapper {
@@ -43,14 +103,32 @@ img {
   display: block;
 }
 
-// font-family: 'Abril Fatface', cursive;
-// font-family: 'Assistant', sans-serif;
-
 header {
   border-bottom: 5px solid red;
 }
 
 input, button {
-  border-radius: 10px;
+  border-radius: 9px;
   border: 1px solid $primaryColor;
+}
+
+// --- the following styles are not necessarily GLOBAL, I just put them in as an example to see what they will look like
+// --- note that in order to use the above MIXINS properly we're going to have to give classNames to a bunch of things so they don't target everything (all <h2> , <p> , <a> , <buttons> , etc.) I didn't go in the files to give them classNames in case you guys have touched the other files. Just trying to avoid merge conflicts. There will be more MIXIN'S added. 
+// --- there are some buttons/links that we can rename to shorten them. 
+// --- Jonathan, all these mixins pretty much target all the font styles you need, unless of course you want to adjust/change them to your liking!
+
+h2 {
+  @include mainHeadings;
+}
+
+li {
+  @include recipeList;
+}
+
+p, .dish__servings, .dish__ingredients-title {
+  @include recipeSubHeading;
+}
+
+a {
+  @include linkButton;
 }
