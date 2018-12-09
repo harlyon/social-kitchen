@@ -52,23 +52,23 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header>
-            <h1>Social Kitchen</h1>
-            {
-              this.state.user
-              ?
-              <button onClick={this.logOut}>Log Out</button>
-              :
-              <button onClick={this.logIn}>Log In</button>
-            }
-            <NavLink to="/">Home</NavLink>
-            <h2>Hello {this.state.user.displayName}!</h2>
-          </header>
+          <h1>Social Kitchen</h1>
+          {
+            this.state.user
+            ?
+            <button onClick={this.logOut}>Log Out</button>
+            :
+            <button onClick={this.logIn}>Log In</button>
+          }
           {
             this.state.user
             ?
             (
               <div>
+                <header>
+                  <NavLink to="/">Home</NavLink>
+                  <h2>Hello {this.state.user.displayName}!</h2>
+                </header>
                 <Route exact path="/" component={CreateEvent} />
                 <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
                 <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
@@ -77,7 +77,7 @@ class App extends Component {
               )
             :
             <p>You must be logged in.</p>
-            }
+          }
         </div>
       </Router>
     );
