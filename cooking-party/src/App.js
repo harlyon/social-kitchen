@@ -6,13 +6,6 @@ import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
-<<<<<<< HEAD
-
-import SearchForRecipe from './recipes/SearchForRecipe';
-
-import './App.scss';
-=======
->>>>>>> 93ae758deba752afb409a0e7dcc3e65c737c57fc
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
 
 
@@ -59,32 +52,32 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header>
-            <h1>Social Kitchen</h1>
-            {
-              this.state.user
+          <h1>Social Kitchen</h1>
+          {
+            this.state.user
               ?
               <button onClick={this.logOut}>Log Out</button>
               :
               <button onClick={this.logIn}>Log In</button>
-            }
-            <NavLink to="/">Home</NavLink>
-            <h2>Hello {this.state.user.displayName}!</h2>
-          </header>
+          }
           {
             this.state.user
-            ?
-            (
-              <div>
-                <Route exact path="/" component={CreateEvent} />
-                <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
-                <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
-                <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
-              </div>
+              ?
+              (
+                <div>
+                  <header>
+                    <NavLink to="/">Home</NavLink>
+                    <h2>Hello {this.state.user.displayName}!</h2>
+                  </header>
+                  <Route exact path="/" component={CreateEvent} />
+                  <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
+                  <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
+                  <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+                </div>
               )
-            :
-            <p>You must be logged in.</p>
-            }
+              :
+              <p>You must be logged in.</p>
+          }
         </div>
       </Router>
     );
