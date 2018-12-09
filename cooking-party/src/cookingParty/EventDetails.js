@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import CommentSection from './CommentSection';
+import EventCommentSection from './EventCommentSection';
 
-class PartyDetails extends Component {
+class EventDetails extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,9 +21,6 @@ class PartyDetails extends Component {
       })
     })
   }
-  // componentWillUnmount() {
-  //   console.log('unmounting')
-  // }
   componentDidUpdate(prevProps) {
     const dbRef = firebase.database().ref(`/${this.props.match.params.party_id}`);
     if (this.props.match.params.party_id !== prevProps.match.params.party_id) {
@@ -47,7 +44,7 @@ class PartyDetails extends Component {
         // console.log(dish);
         return (
           <div>
-            <Link to={`/party/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
+            <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
             <button onClick={this.handleClick} id={dish[0]}>DELETE</button>
           </div>
         )
@@ -57,7 +54,6 @@ class PartyDetails extends Component {
   render() {
     return (
       <div>
-        <h1>I am the Party Details Section</h1>
         <h1>{this.state.partyDetails.name}</h1>
         <p>Date: {this.state.partyDetails.date}</p>
         {
@@ -76,10 +72,10 @@ class PartyDetails extends Component {
         }
         {this.state.partyDetails.dishes ? this.printDishes() : null}
         {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
-        {<CommentSection firebaseKey={this.state.firebaseKey}/>}
+        {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
       </div>
     )
   }
 }
 
-export default PartyDetails;
+export default EventDetails;
