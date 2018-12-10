@@ -1,0 +1,11 @@
+.recipeSearch {
+    border: 1px solid $neutralShade;
+    // background: $accentColor;
+    border-radius: 0;
+    width: 70%;
+    padding-left: 30px;
+    &::placeholder{
+        @include placeholderText;
+        // padding-left: 40px;
+    }
+}
