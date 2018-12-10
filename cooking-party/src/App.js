@@ -16,7 +16,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {}
+      user: {},
+
     }
   }
   componentDidMount() {
@@ -89,12 +90,14 @@ class App extends Component {
           <header className="header">
             <div className="wrapper">
               <h1 className="mainTitle">Social Kitchen</h1>
-              <nav className="nav__mobile-button-container">
-                <NavLink to="/">
-                  <button className="nav__mobile-button">Home</button>
-                </NavLink>
-                <button onClick={this.logOut} className="nav__mobile-button">Log Out</button>
-              </nav>
+              {/* <nav className="nav">
+                <div className="nav__mobile-button-container">
+                  <NavLink to="/" className="nav__mobile-link">
+                    <button className="nav__mobile-button">Home</button>
+                  </NavLink>
+                  <button onClick={this.logOut} className="nav__mobile-button">Log Out</button>
+                </div>
+              </nav> */}
               <div>
                 {
                   this.state.user
@@ -108,13 +111,6 @@ class App extends Component {
                         </NavLink>
                         <button onClick={this.logOut} className="nav__button">Log Out</button>
                       </div>
-                      <i className="fas fa-bars nav__mobile-menu"></i>
-                      {/* <div className="nav__mobile-button-container">
-                        <NavLink to="/">
-                          <button className="nav__mobile-button">Home</button>
-                        </NavLink>
-                        <button onClick={this.logOut} className="nav__mobile-button">Log Out</button>
-                      </div> */}
                     </nav>
                   )
                   :

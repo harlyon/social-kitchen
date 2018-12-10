@@ -11,7 +11,7 @@
 
 .nav {
   padding: 15px 0;
-  border: 1px solid black;
+  // border: 1px solid black;
   position: relative;
   a {
     border: none;
@@ -32,7 +32,7 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    border: 1px solid red;
+    // border: 1px solid red;
   }
   &__button, &__mobile-button {
     color: $primaryColor;
@@ -51,6 +51,9 @@
     display: none;
   }
   @media (max-width: 768px) {
+    &__mobile-link {
+      padding: 0;
+    }
     &__greeting {
       width: auto;
     }
@@ -68,18 +71,28 @@
       display: block;
       position: absolute;
       top: 0;
+      width: 100%;
       bottom: 0;
+      // right: -100%;
+      right: 0;
       transform: translateY(0);
+      background: darken($accentColor, 10);
+      z-index: 100;
+      transition: right 0.5s;
     }
+    // &__mobile-button-container--active {
+    //   // right: 0;
+    //   display: block;
+    // }
     &__mobile-button {
-      text-align: center;
+      text-align: right;
       float: right;
       width: 100%;
       position: relative;
-      top: 50%;
-      transform: translateY(-50%);
+      right: 20px;
       margin-top: 10px;
       z-index: 100;
+      // border: 1px solid purple;
     }
   }
 }
