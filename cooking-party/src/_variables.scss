@@ -72,3 +72,17 @@ $secondaryFont: 'Abril Fatface', cursive;
   font-weight: 700;
   color: $color;
 }
+
+@mixin input {
+    padding: 10px 30px;
+    border: 1px solid $neutralShade;
+}
+
+@mixin inputSubmit {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $primaryColor;
+  background: $accentColor;
+  border: none;
+}

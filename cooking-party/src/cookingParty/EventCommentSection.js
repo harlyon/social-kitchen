@@ -68,7 +68,7 @@ class EventCommentSection extends Component {
           {/* changed input to textarea */}
           <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment" cols="40" rows="3" placeholder="Post a Comment" />
 
-          <input type="submit" className="BTN__submit BTN__submit--comment" value="Post" />
+          <input type="submit" className="BTN__submit--comment" value="Post" />
         </form>
         {
           this.state.newPost &&
