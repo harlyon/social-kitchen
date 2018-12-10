@@ -13,8 +13,6 @@ class DisplayEvents extends Component {
       <div className="displayEvents">
         <h2>Events</h2>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
-          console.log(party);
-          
           return (
             <div key={party[1].key}>
               <Link to={`/${party[1].key}`}>

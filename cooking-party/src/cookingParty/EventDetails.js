@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from '../firebase/firebase.js';
 import SearchForRecipe from '../recipes/SearchForRecipe';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EventCommentSection from './EventCommentSection';
 
 class EventDetails extends Component {

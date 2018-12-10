@@ -1,0 +1,98 @@
+.header {
+  background: #EFBA3D;
+  h1 {
+    margin: 0;
+    padding: 20px 0;
+  }
+  @media (max-width: 768px) {
+      position: relative;
+  }
+}
+
+.nav {
+  padding: 15px 0;
+  // border: 1px solid black;
+  position: relative;
+  a {
+    border: none;
+    background: none;
+  }
+  &__greeting {
+    @include userName;
+    float: left;
+    margin: 0;
+    color: $secondaryColor;
+    width: calc(100% - 225px);
+    span {
+      text-transform: none;
+    }
+  }
+  &__button-container, &__mobile-button-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    // border: 1px solid red;
+  }
+  &__button, &__mobile-button {
+    color: $primaryColor;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 3px 4px 1px rgba(51,51,51,0.2);
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  &__mobile-menu {
+    display: none;
+  }
+  &__mobile-button-container {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    &__mobile-link {
+      padding: 0;
+    }
+    &__greeting {
+      width: auto;
+    }
+    &__button-container {
+      display: none;
+    }
+    &__mobile-menu {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+    &__mobile-button-container {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      bottom: 0;
+      // right: -100%;
+      right: 0;
+      transform: translateY(0);
+      background: darken($accentColor, 10);
+      z-index: 100;
+      transition: right 0.5s;
+    }
+    // &__mobile-button-container--active {
+    //   // right: 0;
+    //   display: block;
+    // }
+    &__mobile-button {
+      text-align: right;
+      float: right;
+      width: 100%;
+      position: relative;
+      right: 20px;
+      margin-top: 10px;
+      z-index: 100;
+      // border: 1px solid purple;
+    }
+  }
+}
