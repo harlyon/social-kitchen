@@ -1,7 +1,7 @@
 @import 'setup';
 @import 'variables';
 @import 'global';
-// @import 'header';
+@import 'header';
 @import 'cookingParty/createEvent';
 @import 'cookingParty/displayEvents';
 @import 'cookingParty/eventCommentSection';
@@ -10,4 +10,5 @@
 @import 'recipes/printRecipeList';
 @import 'recipes/printSingleRecipe';
 @import 'recipes/searchForRecipe';
+@import 'footer';
 

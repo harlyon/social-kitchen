@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PrintSingleRecipe from './PrintSingleRecipe';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 class PrintRecipeList extends Component {
   constructor() {
@@ -12,7 +11,8 @@ class PrintRecipeList extends Component {
       numberOfServings: 0,
       ingredients: [],
       source: '',
-      firebaseKey: ''
+      firebaseKey: '',
+      image: ''
     }
   }
   componentDidUpdate(prevProps) {
@@ -23,21 +23,20 @@ class PrintRecipeList extends Component {
     }
   }
   handleClick = (e) => {
-    console.log('i am being clicked');
-    
     this.setState({
       recipeid: e.target.value
     }, () => {
       axios.get(`https://api.yummly.com/v1/api/recipe/${this.state.recipeid}?_app_id=df8e14a9&_app_key=a3cc287f6d68e263afd8945e586bea51`, {
       }).then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         const tempIngredientsArray = [];
         tempIngredientsArray.push(...res.data.ingredientLines);
         this.setState({
           recipeName: res.data.name,
           numberOfServings: res.data.numberOfServings,
           ingredients: tempIngredientsArray,
-          source: res.data.source.sourceRecipeUrl
+          source: res.data.source.sourceRecipeUrl,
+          image: res.data.images[0].hostedLargeUrl
         })
       })
     })
@@ -66,7 +65,8 @@ class PrintRecipeList extends Component {
           numberOfServings={this.state.numberOfServings}
           ingredients={this.state.ingredients}
           source={this.state.source}
-          firebaseKey={this.props.firebaseKey} />
+          firebaseKey={this.props.firebaseKey}
+          image={this.state.image} />
         <section className="recipe-list">
           {this.printRecipes()}
         </section>

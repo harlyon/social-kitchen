@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import './App.scss';
+import { BrowserRouter as Router, Route, NavLink }from "react-router-dom";
 
+import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
-
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -16,9 +15,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {}
+      user: {},
     }
   }
+
   componentDidMount() {
     // persisting user login
     auth.onAuthStateChanged((user) => {
@@ -29,6 +29,7 @@ class App extends Component {
       }
     });
   }
+
   // function to login
   logIn = () => {
     auth.signInWithPopup(provider)
@@ -48,40 +49,59 @@ class App extends Component {
         })
       })
   }
+
   render() {
     return (
       <Router>
         <div className="App">
-          <h1>Social Kitchen</h1>
+          <header className="header">
+            <div className="wrapper">
+              <NavLink to="/" className="mainTitle-link">
+                <h1 className="mainTitle">Social Kitchen</h1>
+              </NavLink>
+              <div>
+                {
+                  this.state.user
+                    ?
+                    (
+                      <nav className="nav clearfix">
+                        <h2 className="nav__greeting">Hello <span>{this.state.user.displayName}</span>!</h2>
+                        <button onClick={this.logOut} className="nav__button">Log Out</button>
+                      </nav>
+                    )
+                    :
+                    (
+                      <nav className="nav clearfix">
+                        <h2 className="nav__greeting">Please log in.</h2>
+                        <button onClick={this.logIn} className="nav__button">Log In</button>
+                      </nav>
+                    )
+                }
+              </div>
+            </div>
+          </header>
           {
-            this.state.user
-              ?
-              <button onClick={this.logOut}>Log Out</button>
-              :
-              <button onClick={this.logIn}>Log In</button>
+            this.state.user &&
+            (
+              <main>
+                <Route exact path="/" component={CreateEvent} />
+                <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
+                <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
+                <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+              </main>
+            )
           }
-          {
-            this.state.user
-              ?
-              (
-                <div>
-                  <header>
-                    <NavLink to="/">Home</NavLink>
-                    <h2>Hello {this.state.user.displayName}!</h2>
-                  </header>
-                  <Route exact path="/" component={CreateEvent} />
-                  <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
-                  <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
-                  <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
-                </div>
-              )
-              :
-              <p>You must be logged in.</p>
-          }
+          {/* <footer>
+            <p>Teresa Vien</p>
+          </footer> */}
         </div>
       </Router>
     );
+
   }
+
 }
+
+
 
 export default App;

@@ -13,17 +13,23 @@ class DisplayEvents extends Component {
       <div className="displayEvents">
         <h2>Events</h2>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
-          console.log(party);
-          
           return (
-            <div key={party[1].key}>
-              <Link to={`/${party[1].key}`}>
-                <div key={party[1].key} >
-                  <h2>{party[1].name}</h2>
-                  <button id={party[1].key} onClick={this.deleteParty}>Delete this party</button>
-                </div>
-              </Link>
+            <div key={party[1].key} className="singleEvent clearfix">
+
+                      <div className="displayEvent">
+                    <Link to={`/${party[1].key}`} className="displayEventName">
+                        {party[1].name}
+                      </Link>
+                      </div>              
+
+                  <div className="eventDelete">
+                    <button className="btn--delete" id={party[1].key} onClick={this.deleteParty}><i class="fas fa-times"></i></button>
+                  </div>
+
+              
+
             </div>
+
           );
         })}
       </div>

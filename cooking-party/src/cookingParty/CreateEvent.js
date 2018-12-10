@@ -58,11 +58,15 @@ class CreateEvent extends Component {
 
   render() {
     return (
+  
       <div className="createEvent">
+      <div className="wrapper">
         <h2>Create Event</h2>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
+
           <input
             type="text"
+            className="partyForm"
             id="makePartyName"
             required
             onChange={this.handleChange}
@@ -72,15 +76,17 @@ class CreateEvent extends Component {
 
           <input
             type="date"
+            className="partyForm"
             id="makePartyDate"
             required
             onChange={this.handleChange}
             value={this.state.makePartyDate}
-              />
+             placeholder="Event Date" />
           <label htmlFor="makePartyDate"></label>
 
           <input
             type="text"
+            className="partyForm partyEmail"
             id="makePartyEmail"
             required
             onChange={this.handleChange}
@@ -88,12 +94,13 @@ class CreateEvent extends Component {
             pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"
             placeholder="Guest Emails (comma seperated)"/>
           <label htmlFor="makePartyEmail"></label>
-          <input type="submit" value="Create Event"/>
-        </form>
-        <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
-      </div>
 
-      
+          <input type="submit" value="Create Event" className="BTN__submit--createEvent" />
+        </form>
+
+        <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
+        </div>
+      </div>
 
     )
   }

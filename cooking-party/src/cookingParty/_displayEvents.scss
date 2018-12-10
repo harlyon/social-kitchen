@@ -1,0 +1,27 @@
+.singleEvent {
+    background:rgba(172,172,172,0.1);
+    padding: 20px 0;
+    margin: 5px 0; // margin subject to change
+    
+
+    .displayEvent {
+        float:left;
+        padding-left:30px;
+        // border:1px solid red;
+        
+    }
+
+    .eventDelete {
+        float:right;
+        padding-right:30px;
+        // padding-top:20px;
+        // border:1px solid red;
+    }
+
+    .displayEventName {
+        padding:0;
+        margin:0;
+        text-decoration:none;
+        @include dishList($primaryColor);
+    }
+}

@@ -8,12 +8,13 @@ class PrintSingleRecipe extends Component {
       selectedRecipe: {}
     }
   }
-  handleClick = (props) => {
+  handleClick = () => {
     const selectedRecipe = {
       name: this.props.recipeName,
       servings: this.props.numberOfServings,
       source: this.props.source,
-      ingredients: Array.from(new Set(this.props.ingredients))
+      ingredients: Array.from(new Set(this.props.ingredients)),
+      image: this.props.image
     }
     const recipeRef = firebase.database().ref(`/${this.props.firebaseKey}/dishes`)
     recipeRef.push(selectedRecipe);
@@ -24,6 +25,7 @@ class PrintSingleRecipe extends Component {
     return (
       <div>
         <h2>{this.props.recipeName}</h2>
+        <img src={this.props.image} alt={this.props.recipeName}/>
         <p>Servings: {this.props.numberOfServings}</p>
         <a href={this.props.source} target="_blank" rel="noopener noreferrer">Directions</a>
         <p>Ingredients:</p>
