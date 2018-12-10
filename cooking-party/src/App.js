@@ -56,7 +56,7 @@ class App extends Component {
         <div className="App">
           <header className="header">
             <div className="wrapper">
-              <NavLink to="/">
+              <NavLink to="/" className="mainTitle-link">
                 <h1 className="mainTitle">Social Kitchen</h1>
               </NavLink>
               <div>
