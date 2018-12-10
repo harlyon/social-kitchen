@@ -1,40 +1,33 @@
 .header {
   background: #EFBA3D;
-  h1 {
-    margin: 0;
-    padding: 20px 0;
-  }
-  @media (max-width: 768px) {
-      position: relative;
-  }
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-bottom: 15px;
+}
+
+.mainTitle {
+  display: inline-block;
+  margin: 0;
+  padding: 20px 0;
 }
 
 .nav {
-  padding: 15px 0;
-  // border: 1px solid black;
   position: relative;
-  a {
-    border: none;
-    background: none;
-  }
   &__greeting {
     @include userName;
     float: left;
     margin: 0;
     color: $secondaryColor;
-    width: calc(100% - 225px);
     span {
       text-transform: none;
     }
   }
-  &__button-container, &__mobile-button-container {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    // border: 1px solid red;
-  }
-  &__button, &__mobile-button {
+  &__button {
+    float: right;
+    padding: 0;
     color: $primaryColor;
     font-size: 2.2rem;
     font-weight: 700;
@@ -44,55 +37,29 @@
     text-transform: uppercase;
     cursor: pointer;
   }
-  &__mobile-menu {
-    display: none;
+}
+
+@media (max-width: 420px) {
+  .header {
+    padding-bottom: 5px;
   }
-  &__mobile-button-container {
-    display: none;
+  .mainTitle {
+    font-size: 3.8rem;
+    padding: 10px 0;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
   }
-  @media (max-width: 768px) {
-    &__mobile-link {
-      padding: 0;
-    }
+  .nav {
     &__greeting {
-      width: auto;
-    }
-    &__button-container {
+      float: none;
+      width: 100%;
+      margin-bottom: 5px;
       display: none;
     }
-    &__mobile-menu {
-      display: block;
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-    }
-    &__mobile-button-container {
-      display: block;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      bottom: 0;
-      // right: -100%;
-      right: 0;
-      transform: translateY(0);
-      background: darken($accentColor, 10);
-      z-index: 100;
-      transition: right 0.5s;
-    }
-    // &__mobile-button-container--active {
-    //   // right: 0;
-    //   display: block;
-    // }
-    &__mobile-button {
-      text-align: right;
-      float: right;
-      width: 100%;
-      position: relative;
-      right: 20px;
-      margin-top: 10px;
-      z-index: 100;
-      // border: 1px solid purple;
+    &__button {
+      // float: none;
+      font-size: 1.8rem;
     }
   }
 }

@@ -55,37 +55,24 @@ class App extends Component {
         <div className="App">
           <header className="header">
             <div className="wrapper">
-              <h1 className="mainTitle">Social Kitchen</h1>
-              {/* <nav className="nav">
-                <div className="nav__mobile-button-container">
-                  <NavLink to="/" className="nav__mobile-link">
-                    <button className="nav__mobile-button">Home</button>
-                  </NavLink>
-                  <button onClick={this.logOut} className="nav__mobile-button">Log Out</button>
-                </div>
-              </nav> */}
+              <NavLink to="/" className="mainTitle-link">
+                <h1 className="mainTitle">Social Kitchen</h1>
+              </NavLink>
               <div>
                 {
                   this.state.user
                   ?
                   (
                     <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Hello <span>{this.state.user.displayName}</span>!</h2>
-                      <div className="nav__button-container">
-                        <NavLink to="/">
-                          <button className="nav__button">Home</button>
-                        </NavLink>
-                        <button onClick={this.logOut} className="nav__button">Log Out</button>
-                      </div>
+                        <h2 className="nav__greeting">Hello <span>{this.state.user.displayName}</span>!</h2>
+                      <button onClick={this.logOut} className="nav__button">Log Out</button>
                     </nav>
                   )
                   :
                   (
                     <nav className="nav clearfix">
                       <h2 className="nav__greeting">Please log in.</h2>
-                      <div className="nav__button-container">
-                        <button onClick={this.logIn} className="nav__button">Log In</button>
-                      </div>
+                      <button onClick={this.logIn} className="nav__button">Log In</button>
                     </nav>
                   )
                 }
