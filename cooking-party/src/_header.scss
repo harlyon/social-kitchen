@@ -58,8 +58,11 @@
       display: none;
     }
     &__button {
-      // float: none;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      float: none;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
     }
   }
 }
