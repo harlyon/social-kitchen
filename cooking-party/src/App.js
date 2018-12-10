@@ -49,40 +49,6 @@ class App extends Component {
         })
       })
   }
-  // render() {
-  //   return (
-  //     <Router>
-  //       <div className="App">
-  //         {
-  //           this.state.user
-  //           ?
-  //           <button onClick={this.logOut}>Log Out</button>
-  //           :
-  //           <button onClick={this.logIn}>Log In</button>
-  //         }
-  //         {
-  //           this.state.user
-  //           ?
-  //           (
-  //             <div>
-  //               <header>
-  //                 <h1>Social Kitchen</h1>
-  //                 <NavLink to="/">Home</NavLink>
-  //                 <h2>Hello {this.state.user.displayName}!</h2>
-  //               </header>
-  //               <Route exact path="/" component={CreateEvent} />
-  //               <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
-  //               <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
-  //               <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
-  //             </div>
-  //             )
-  //           :
-  //           <p>You must be logged in.</p>
-  //           }
-  //       </div>
-  //     </Router>
-  //   );
-  // }
   render() {
     return (
       <Router>
