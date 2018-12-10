@@ -6,10 +6,8 @@ import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
-
-import SearchForRecipe from './recipes/SearchForRecipe';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
-import PrintRecipeList from './recipes/PrintRecipeList';
+
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -18,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      user: {}
     }
   }
   componentDidMount() {
@@ -31,12 +29,10 @@ class App extends Component {
       }
     });
   }
-
   // function to login
   logIn = () => {
     auth.signInWithPopup(provider)
       .then((res) => {
-        console.log(res)
         this.setState({
           user: res.user
         })
@@ -56,37 +52,49 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <SearchForRecipe /> */}
-          {
-            this.state.user
-              ? <button onClick={this.logOut}>Log Out</button>
-              : <button onClick={this.logIn}>Log In</button>
+        <div className="header clearfix">
+            <h1>Social Kitchen</h1>  
+            {
+              this.state.user
+                ?
+                <button onClick={this.logOut}>Log Out</button>
+                :
+                <button onClick={this.logIn}>Log In</button>
             }
-          {
-            this.state.user
-            ?
-            (
-              <div>
-                {/* <NavLink to="/">Home</NavLink> */}
-                <header>
-                  <NavLink to="/">Home</NavLink>
-                  {/* <NavLink to="/party">Events</NavLink> */}
-                  <h1>Hello {this.state.user.displayName}!</h1>
-                </header>
-                <Route exact path="/" component={CreateEvent} />
-                <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
-                {/* <Route exact path={'/:party_id/search'} render={(props) => <SearchForRecipe {...props} />} /> */}
-                <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
 
+            <NavLink className="link" to="/">Home</NavLink>
+            </div>
 
-                <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+            {
+              this.state.user
+                ?
+                (
+                <div>
 
-              </div>
+                <div className="header">
+
+                  <header className="clearfix"> 
+                    {/* <NavLink className="link" to="/">Home</NavLink> */}
+                    
+                    <h2>Hello {this.state.user.displayName}!</h2>     
+                  </header>
+
+                </div>
+
+                 <div className="wrapper"> 
+                  <Route exact path="/" component={CreateEvent} />
+                  <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
+                  <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
+                  <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+                  </div>
+
+                </div>
               )
-            :
-            <p>You must be logged in.</p>
-            }
-        </div>
+              :
+              <p>You must be logged in.</p>
+          }
+          
+          </div>
       </Router>
     );
   }

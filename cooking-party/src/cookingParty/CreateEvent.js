@@ -58,24 +58,26 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Create Event</h1>
+      <div className="createEvent">
+        <h2>Create Event</h2>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
           <input
             type="text"
             id="makePartyName"
             required
             onChange={this.handleChange}
-            value={this.state.makePartyName}/>
-          <label htmlFor="makePartyName">Enter Party Name</label>
+            value={this.state.makePartyName}
+            placeholder="Event Name"/>
+          <label htmlFor="makePartyName"></label>
 
           <input
             type="date"
             id="makePartyDate"
             required
             onChange={this.handleChange}
-            value={this.state.makePartyDate}/>
-          <label htmlFor="makePartyDate">Enter date of Party</label>
+            value={this.state.makePartyDate}
+              />
+          <label htmlFor="makePartyDate"></label>
 
           <input
             type="text"
@@ -83,9 +85,10 @@ class CreateEvent extends Component {
             required
             onChange={this.handleChange}
             value={this.state.makePartyEmail}
-            pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"/>
-          <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
-          <input type="submit" value="Create Party"/>
+            pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"
+            placeholder="Guest Emails (comma seperated)"/>
+          <label htmlFor="makePartyEmail"></label>
+          <input type="submit" value="Create Event"/>
         </form>
         <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
       </div>

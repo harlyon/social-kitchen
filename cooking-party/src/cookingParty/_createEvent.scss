@@ -1,3 +1,25 @@
-div {
-    border:1px solid red;
+.createEvent {
+    // border:1px solid red;
+    
+    form {
+        // border:1px solid red;
+
+        input {
+            margin-right:1%;
+            padding:10px 15px;
+            border-radius:9px;
+            border:1px solid $neutralShade;
+            color: rgba(52,52,52,0.8);
+            font-size:1.8rem;
+            font-weight:bold;
+            font-style: italic;
+        }    
+        #makePartyEmail {
+            width:30%;
+        }
+    }
 }
+
+
+
+
