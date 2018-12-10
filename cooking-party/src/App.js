@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import './App.scss';
+import { BrowserRouter as Router, Route, NavLink }from "react-router-dom";
 
+import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
-
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -17,9 +16,9 @@ class App extends Component {
     super();
     this.state = {
       user: {},
-
     }
   }
+
   componentDidMount() {
     // persisting user login
     auth.onAuthStateChanged((user) => {
@@ -30,6 +29,7 @@ class App extends Component {
       }
     });
   }
+
   // function to login
   logIn = () => {
     auth.signInWithPopup(provider)
@@ -49,6 +49,7 @@ class App extends Component {
         })
       })
   }
+
   render() {
     return (
       <Router>
@@ -98,7 +99,11 @@ class App extends Component {
         </div>
       </Router>
     );
+
   }
+
 }
+
+
 
 export default App;
