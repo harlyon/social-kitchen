@@ -43,9 +43,9 @@ class SearchForRecipe extends Component {
     return (
       <div className="searchForRecipe">
         <form action="" onSubmit={this.handleSubmit}>
-          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} placeholder="Search for recipes" />
+          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} className="recipeSearch" placeholder="Search for recipes" />
           <label htmlFor="recipeSearch"></label>
-          <input type="submit" id="submit" value="Search" />
+          <input type="submit" id="submit" value="Search" className="BTN__submit BTN__submit--search" />
           <label htmlFor="submit"></label>
         </form>
         <PrintRecipeList recipeList={this.state.recipeList} firebaseKey={this.props.firebaseKey} /> 
