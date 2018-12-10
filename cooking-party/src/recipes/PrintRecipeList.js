@@ -48,7 +48,8 @@ class PrintRecipeList extends Component {
       this.props.recipeList.map((recipe) => {
         return (
           <div key={recipe.id}>
-            <button value={recipe.id} onClick={this.handleClick}><h2>{recipe.recipeName}</h2></button>
+            <h2>{recipe.recipeName}</h2>
+            <button value={recipe.id} onClick={this.handleClick}>see recipe</button>
           </div>
         )
       })

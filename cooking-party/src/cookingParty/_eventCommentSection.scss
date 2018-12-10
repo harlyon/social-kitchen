@@ -16,22 +16,24 @@
     resize: none;
     width: 100%;
     padding-left: 30px;
+    @include input;
+    border-radius: 9px 9px 0 0;
+    border-bottom: none;
     &::placeholder {
         @include placeholderText;
     }
 }
 
-.BTN__submit {
-    border: none;
-    background: $accentColor;
-    border-radius: 0;
-    &--comment {
-        width: 100%;
-    }
-    &--search {
-        width: 30%;
-    }
+.BTN__submit--comment {
+    width: 100%;
+    @include inputSubmit;
+    border-radius: 0 0 9px 9px;
 }
+
+// .comment {
+//     @include input;
+//     border-radius: 9px 9px 0 0;
+// }
 
 .commentPosted p {
     padding-left: 30px;
