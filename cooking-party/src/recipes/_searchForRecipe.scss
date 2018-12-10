@@ -1,11 +1,19 @@
 .recipeSearch {
-    border: 1px solid $neutralShade;
-    // background: $accentColor;
-    border-radius: 0;
+    @include input;
+    border-radius: 9px 0 0 9px;
     width: 70%;
     padding-left: 30px;
+    border-right: none;
     &::placeholder{
         @include placeholderText;
-        // padding-left: 40px;
     }
 }
+
+
+.BTN__submit--search {
+    @include inputSubmit;
+    border-radius: 0 9px 9px 0;
+    padding: 11px 0;
+    width: 30%;
+}
+
