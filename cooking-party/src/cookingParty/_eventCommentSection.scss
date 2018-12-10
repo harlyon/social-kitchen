@@ -19,6 +19,7 @@
     @include input;
     border-radius: 9px 9px 0 0;
     border-bottom: none;
+    display: block;
     &::placeholder {
         @include placeholderText;
     }
@@ -29,11 +30,6 @@
     @include inputSubmit;
     border-radius: 0 0 9px 9px;
 }
-
-// .comment {
-//     @include input;
-//     border-radius: 9px 9px 0 0;
-// }
 
 .commentPosted p {
     padding-left: 30px;
