@@ -52,49 +52,33 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <div className="header clearfix">
-            <h1>Social Kitchen</h1>  
-            {
-              this.state.user
-                ?
-                <button onClick={this.logOut}>Log Out</button>
-                :
-                <button onClick={this.logIn}>Log In</button>
-            }
-
-            <NavLink className="link" to="/">Home</NavLink>
-            </div>
-
-            {
-              this.state.user
-                ?
-                (
+          <h1>Social Kitchen</h1>
+          {
+            this.state.user
+              ?
+              <button onClick={this.logOut}>Log Out</button>
+              :
+              <button onClick={this.logIn}>Log In</button>
+          }
+          {
+            this.state.user
+              ?
+              (
                 <div>
-
-                <div className="header">
-
-                  <header className="clearfix"> 
-                    {/* <NavLink className="link" to="/">Home</NavLink> */}
-                    
-                    <h2>Hello {this.state.user.displayName}!</h2>     
+                  <header>
+                    <NavLink to="/">Home</NavLink>
+                    <h2>Hello {this.state.user.displayName}!</h2>
                   </header>
-
-                </div>
-
-                 <div className="wrapper"> 
                   <Route exact path="/" component={CreateEvent} />
                   <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
                   <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
                   <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
-                  </div>
-
                 </div>
               )
               :
               <p>You must be logged in.</p>
           }
-          
-          </div>
+        </div>
       </Router>
     );
   }

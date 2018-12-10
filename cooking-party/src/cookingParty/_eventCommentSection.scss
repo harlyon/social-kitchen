@@ -1,0 +1,38 @@
+.commentPost {
+    background: $secondaryColor;
+    box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
+    //margin subject to change
+    margin-bottom: 20px;
+}
+
+.commentPostDetails {
+    background: rgba(172,172,172,0.1);
+    .sub__text {
+        padding-left: 30px;
+    }
+}
+
+.comment {
+    resize: none;
+    width: 100%;
+    padding-left: 30px;
+    &::placeholder {
+        @include placeholderText;
+    }
+}
+
+.BTN__submit {
+    border: none;
+    background: $accentColor;
+    border-radius: 0;
+    &--comment {
+        width: 100%;
+    }
+    &--search {
+        width: 30%;
+    }
+}
+
+.commentPosted p {
+    padding-left: 30px;
+}
