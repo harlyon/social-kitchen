@@ -43,9 +43,13 @@ class EventDetails extends Component {
       Object.entries(this.state.partyDetails.dishes).map((dish) => {
         // console.log(dish);
         return (
-          <div key={dish[0]}>
-            <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`}>{dish[1].name}</Link>
-            <button onClick={this.handleClick} id={dish[0]}>DELETE</button>
+          <div className="eventDishList clearfix">
+            <div className="dishLink">
+              <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`} className="eventDishName">{dish[1].name}</Link>
+            </div>
+            <div className="dishDelete">
+              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i class="fas fa-times"></i></button>
+            </div>
           </div>
         )
       })
@@ -54,25 +58,31 @@ class EventDetails extends Component {
   render() {
     return (
       <div className="eventDetails">
-        <h2>{this.state.partyDetails.name}</h2>
-        <p>Date: {this.state.partyDetails.date}</p>
-        {
-          this.state.partyDetails.email && (
-            <div>
-              <p>Invitees:</p>
-              <ul>
-                {this.state.partyDetails.email.map((person) => {
-                  return (
-                    <li key={person}>{person}</li>
-                  )
-                })}
-              </ul>
-            </div>
-          )
-        }
-        {this.state.partyDetails.dishes ? this.printDishes() : null}
-        {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
-        {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
+        <div className="wrapper clearfix">
+          <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
+          <aside className="eventDetailsSection">
+            <p><span className="sub__text">Date:</span> {this.state.partyDetails.date}</p>
+            {
+              this.state.partyDetails.email && (
+                <div>
+                  <p><span className="sub__text">Invited:</span></p>
+                  <ul>
+                    {this.state.partyDetails.email.map((person) => {
+                      return (
+                        <li className="detail__text detail__text--invited">{person}</li>
+                        )
+                      })}
+                  </ul>
+                </div>
+              )
+            }
+          </aside>
+          <div className="event__main clearfix">  
+            {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
+            {this.state.partyDetails.dishes ? this.printDishes() : null}
+            {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
+          </div>
+        </div>
       </div>
     )
   }

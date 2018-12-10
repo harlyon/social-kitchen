@@ -60,28 +60,37 @@ class EventCommentSection extends Component {
   render() {
     return (
       <div className="eventCommentSection">
-        <h2>I am the comment section</h2>
+        {/* <h2>Comments</h2> */}
+        <form action="" className="commentSection" onSubmit={this.handleSubmit}>
+          {/* <p>Posting as {this.props.user.displayName}</p> */}
+
+          <label htmlFor="comment" className="visuallyhidden">Comment: </label>
+          {/* changed input to textarea */}
+          <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment" cols="40" rows="3" placeholder="Post a Comment" />
+
+          <input type="submit" className="BTN__submit BTN__submit--comment" value="Post" />
+        </form>
         {
           this.state.newPost &&
           (
             Object.entries(this.state.newPost).map((post) => {
               return (
-                <div key={post[0]}>
-                  <p>On {post[1].date} {post[1].name} said:</p>
-                  <p>{post[1].comment}</p>
+                <div className="commentPost">
+                  <div key={post[0]}>
+                    <div className="commentPostDetails">
+                      <p className="sub__text">{post[1].name}</p>
+                      <p className="detail__text detail__text--date">{post[1].date}</p> 
+                    </div>
+                    <div className="commentPosted">
+                      <p>{post[1].comment}</p>
+                    </div>
+                  </div>
                 </div>
               )
             })
           )
         }
-        <form action="" className="commentSection" onSubmit={this.handleSubmit}>
-          <p>Posting as {this.props.user.displayName}</p>
-          
-          <label htmlFor="comment">Comment: </label>
-          <input type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange}/>
 
-          <input type="submit" value="Post comment"/>
-        </form>
       </div>
     )
   }
