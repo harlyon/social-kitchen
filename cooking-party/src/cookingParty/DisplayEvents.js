@@ -22,6 +22,7 @@ class DisplayEvents extends Component {
               </Link>
               <button id={party[1].key} onClick={this.deleteParty}>Delete this party</button>
             </div>
+
           );
         })}
       </div>

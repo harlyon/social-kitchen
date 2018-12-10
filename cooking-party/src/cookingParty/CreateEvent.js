@@ -28,6 +28,7 @@ class CreateEvent extends Component {
       });
     });
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
@@ -44,44 +45,63 @@ class CreateEvent extends Component {
       makePartyEmail: []
     })
   }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
+
+  clearForm = (e) => {
+    
+  }
+
   render() {
     return (
+  
       <div className="createEvent">
+      <div className="wrapper">
         <h2>Create Event</h2>
         <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
+
           <input
             type="text"
+            className="partyForm"
             id="makePartyName"
             required
             onChange={this.handleChange}
-            value={this.state.makePartyName}/>
-          <label htmlFor="makePartyName">Enter Party Name</label>
+            value={this.state.makePartyName}
+            placeholder="Event Name"/>
+          <label htmlFor="makePartyName"></label>
 
           <input
             type="date"
+            className="partyForm"
             id="makePartyDate"
             required
             onChange={this.handleChange}
-            value={this.state.makePartyDate}/>
-          <label htmlFor="makePartyDate">Enter date of Party</label>
+            value={this.state.makePartyDate}
+             placeholder="Event Date" />
+          <label htmlFor="makePartyDate"></label>
 
           <input
             type="text"
+            className="partyForm partyEmail"
             id="makePartyEmail"
             required
             onChange={this.handleChange}
             value={this.state.makePartyEmail}
-            pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"/>
-          <label htmlFor="makePartyEmail">Enter emails (comma separated)</label>
-          <input type="submit" value="Create Party"/>
+            pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"
+            placeholder="Guest Emails (comma seperated)"/>
+          <label htmlFor="makePartyEmail"></label>
+
+          <input type="submit" value="Create Event" className="BTN__submit--createEvent" />
         </form>
+
         <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
+        </div>
       </div>
+
     )
   }
 }
