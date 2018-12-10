@@ -1,58 +1,51 @@
-.showDishDetailsInEvent {
-  padding-bottom: 18px;
-  .inner-wrapper {
-    max-width: 320px; // this changes the width of the column
+.dish {
+  &__aside-wrapper {
+    border: 1px solid red;
+    width: 80%;
     margin: 0 auto;
   }
-  .image-container {
-    background: rgba(172,172,172,0.1);
-    padding: 20px 0 30px 0;
-    @media (max-width: 400px) {
-      width: 90%;
+  &__aside {
+    border: 1px solid black;
+    float: left;
+    width: 40%;
+    margin-right: 30px;
+  }
+  &__title {
+    margin: 30px 0;
+  }
+  &__main {
+    width: calc(60% - 30px);
+    float: right;
+    padding: 20px 50px;
+    border-radius: 20px;
+    background: lightgrey;
+    margin: 30px 0;
+  }
+  &__ingredients-list {
+    padding: 0;
+  }
+  &__aside {
+    text-align: center;
+    position: sticky;
+    top: 142.8px;
+    left: 0;
+    img {
       margin: 0 auto;
+      border-radius: 6px;
     }
   }
-  .dish {
-    &__title {
-      text-align: center;
-    }
-    &__image {
-      margin: 0 auto;
-      max-width: 320px; // this changes the width of the column
-      width: 100%;
-      box-shadow: 10px 10px 1px rgba(239,186,61,1);
-    }
-    &__servings {
-      span {
-        font-weight: 400;
-      }
-    }
-    &__ingredients-list {
-      padding: 0;
-    }
-    &__ingredients-item {
-      font-size: 1.8rem;
-      font-weight: 400;
-      line-height: 2;
-    }
-    &__directions {
-      float: left;
-      text-transform: none;
-    }
-    &__back {
-      float: right;
-      background-color: rgba(172,172,172,0.5);
-    }
-    &__directions, &__back {
-      @media (max-width: 500px) {
-        float: none;
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-    }
+  &__buttons-container, &__servings {
+    margin-top: 20px;
   }
+  &__servings, &__ingredients-title {
+    @include recipeSubHeading;
+  }
+  &__back-btn, &__directions-btn {
+    @include linkButton;
+  }
+  &__back-btn {
+    background-color: rgba(172,172,172,0.5);
+    float: left;
+  }
+  // &__directions-btn {}
 }
-
-// Notes
-// .inner-wrapper width?
