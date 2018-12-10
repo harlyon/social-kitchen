@@ -4,33 +4,30 @@
   top: 0;
   left: 0;
   right: 0;
-  .mainTitle {
-    display: inline-block;
-    margin: 0;
-    padding: 20px 0;
-  }
+  z-index: 100;
+  padding-bottom: 15px;
+}
+
+.mainTitle {
+  display: inline-block;
+  margin: 0;
+  padding: 20px 0;
 }
 
 .nav {
-  padding: 15px 0;
-  // border: 1px solid black;
   position: relative;
-  a {
-    border: none;
-    background: none;
-  }
   &__greeting {
     @include userName;
     float: left;
     margin: 0;
     color: $secondaryColor;
-    width: calc(100% - 120px);
     span {
       text-transform: none;
     }
   }
   &__button {
     float: right;
+    padding: 0;
     color: $primaryColor;
     font-size: 2.2rem;
     font-weight: 700;
@@ -40,12 +37,32 @@
     text-transform: uppercase;
     cursor: pointer;
   }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 420px) {
+  .header {
+    padding-bottom: 5px;
+  }
+  .mainTitle {
+    font-size: 3.8rem;
+    padding: 10px 0;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  .nav {
     &__greeting {
-      width: auto;
-    }
-    &__button-container {
+      float: none;
+      width: 100%;
+      margin-bottom: 5px;
       display: none;
+    }
+    &__button {
+      font-size: 1.6rem;
+      float: none;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
     }
   }
 }

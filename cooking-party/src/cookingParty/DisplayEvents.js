@@ -18,9 +18,9 @@ class DisplayEvents extends Component {
               <Link to={`/${party[1].key}`}>
                 <div key={party[1].key} >
                   <h2>{party[1].name}</h2>
-                  <button id={party[1].key} onClick={this.deleteParty}>Delete this party</button>
                 </div>
               </Link>
+              <button id={party[1].key} onClick={this.deleteParty}>Delete this party</button>
             </div>
           );
         })}

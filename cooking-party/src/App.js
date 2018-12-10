@@ -55,26 +55,28 @@ class App extends Component {
         <div className="App">
           <header className="header">
             <div className="wrapper">
-              <NavLink to="/">
+              <NavLink to="/" className="mainTitle-link">
                 <h1 className="mainTitle">Social Kitchen</h1>
               </NavLink>
               <div>
                 {
                   this.state.user
-                    ?
-                    (
-                      <nav className="nav clearfix">
-                        <h2 className="nav__greeting">Hello <span>{this.state.user.displayName}</span>!</h2>
+                  ?
+                  (
+                    <nav className="nav clearfix">
+                      <h2 className="nav__greeting">Hello <span>{this.state.user.displayName}</span>!</h2>
+                      <NavLink to="/">
                         <button onClick={this.logOut} className="nav__button">Log Out</button>
-                      </nav>
-                    )
-                    :
-                    (
-                      <nav className="nav clearfix">
-                        <h2 className="nav__greeting">Please log in.</h2>
+                      </NavLink>
+                    </nav>
+                  )
+                  :
+                  (
+                    <nav className="nav clearfix">
+                      <h2 className="nav__greeting">Please log in with Google.</h2>
                         <button onClick={this.logIn} className="nav__button">Log In</button>
-                      </nav>
-                    )
+                    </nav>
+                  )
                 }
               </div>
             </div>
@@ -90,6 +92,9 @@ class App extends Component {
               </main>
             )
           }
+          {/* <footer>
+            <p>testing</p>
+          </footer> */}
         </div>
       </Router>
     );
