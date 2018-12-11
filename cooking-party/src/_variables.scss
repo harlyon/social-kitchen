@@ -1,5 +1,4 @@
 // ----- VARIABLES -----
-
 $primaryColor: #333;
 $secondaryColor: #FEFDFB;
 $neutralShade: #ACACAC; 
@@ -9,7 +8,6 @@ $primaryFont: 'Assistant', sans-serif;
 $secondaryFont: 'Abril Fatface', cursive;
 
 // ----- MIXINS -----
-
 //h1 SOCIAL KITCHEN LOGO
 @mixin appName {
  font-family: $secondaryFont;
@@ -62,6 +60,10 @@ $secondaryFont: 'Abril Fatface', cursive;
  padding: 5px 10px;
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 82493c950a6e9da800415785a75f25d35e490bc4
 @mixin defaultText {
   font-size: 1.8rem;
   color: $primaryColor;
@@ -93,4 +95,16 @@ $secondaryFont: 'Abril Fatface', cursive;
   color: $primaryColor;
   background: $accentColor;
   border: none;
+}
+
+@mixin hoverText ($color){
+  transition: 0.5s;
+  text-shadow: 3px 3px 1px rgba(51,51,51,0.1);
+  color:$color;
+}
+
+@mixin hoverButton {
+  background: $primaryColor;
+  color: $accentColor;
+  transition: 0.5s;
 }
