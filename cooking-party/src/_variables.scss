@@ -1,147 +1,83 @@
 // ----- VARIABLES -----
 
 $primaryColor: #333;
-
 $secondaryColor: #FEFDFB;
-
 $neutralShade: #ACACAC; 
-
 $accentColor: #EFBA3D;
-
 $accentColorRGBA: rgba(239, 186, 61, 1);
-
 $primaryFont: 'Assistant', sans-serif;
-
 $secondaryFont: 'Abril Fatface', cursive;
-
-
 
 // ----- MIXINS -----
 
 //h1 SOCIAL KITCHEN LOGO
-
 @mixin appName {
-
  font-family: $secondaryFont;
-
  letter-spacing: 1px;
-
  color: $primaryColor;
-
  font-size: 5rem;
-
  text-shadow: 5px 5px 1px rgba(51,51,51,0.1);
-
 }
 
 //'HELLO user name font
-
 @mixin userName {
-
  font-family: $primaryFont;
-
  color: $secondaryColor;
-
  font-size: 2.2rem;
-
  font-weight: 700;
-
 }
 
 //h2: Recipe Name / Create Event / Events
-
 @mixin mainHeadings {
-
  color: $primaryColor;
-
  text-transform: uppercase;
-
  font-size: 3.4rem;
-
  font-style: bold;
-
  text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
-
 }
 
 //Recipe List
-
 @mixin recipeList {
-
  font-size: 1.8rem;
-
  line-height: 1.5;
-
  list-style: none;
-
  color: $primaryColor;
-
 }
 
 @mixin recipeSubHeading {
-
  font-size: 2rem;
-
  font-weight: 700;
-
  color: $primaryColor;
-
 }
 
 //Directions | Create Event
-
 @mixin linkButton {
-
  font-weight: 700;
-
  font-size: 2rem;
-
  color: $primaryColor;
-
  background: $accentColor;
-
  border-radius: 9px;
-
  text-decoration: none;
-
  text-transform: uppercase;
-
  padding: 5px 10px;
-
 }
 
-
-
 @mixin defaultText {
-
   font-size: 1.8rem;
-
   color: $primaryColor;
-
 }
 
 //::placeholder
-
 @mixin placeholderText {
-
   font-style: italic;
-
   font-weight: 700;
-
   font-size: 1.6rem;
-
   color: $primaryColor;
-
 }
 
-
-
 @mixin dishList($color){
-
   font-size: 2.2rem;
-
   font-weight: 700;
-
   color: $color;
 }
 
