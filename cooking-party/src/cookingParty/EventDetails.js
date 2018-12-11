@@ -48,7 +48,7 @@ class EventDetails extends Component {
               <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`} className="eventDishName">{dish[1].name}</Link>
             </div>
             <div className="dishDelete">
-              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i class="fas fa-times"></i></button>
+              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i className="fas fa-times" id={dish[0]}></i></button>
             </div>
           </div>
         )
@@ -82,7 +82,9 @@ class EventDetails extends Component {
             </aside>
             <div className="event__main clearfix"> 
               {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
-              {this.state.partyDetails.dishes ? this.printDishes() : null} 
+              <h2>Dishes</h2>
+              {!this.state.partyDetails.dishes && (<p>this event has no dishes</p>)}
+              {this.state.partyDetails.dishes ? this.printDishes() : null}
               {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
             </div>
         </div>
