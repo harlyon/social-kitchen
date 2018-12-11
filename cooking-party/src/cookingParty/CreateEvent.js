@@ -38,7 +38,8 @@ class CreateEvent extends Component {
       date: this.state.makePartyDate,
       email: emailArray,
       dishes: this.state.dishes,
-      creator: this.props.user.displayName
+      creator: this.props.user.displayName,
+      avatar: this.props.user.photoURL
     }
     dbRef.push(newParty);
     this.setState({
@@ -46,7 +47,7 @@ class CreateEvent extends Component {
       makePartyDate: '',
       makePartyEmail: []
     })
-    swal(`${this.state.makePartyName}`, `has been created!` ); 
+      swal(`${this.state.makePartyName}`, `has been created!`);
   }
 
   handleChange = (e) => {

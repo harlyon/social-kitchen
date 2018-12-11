@@ -71,6 +71,7 @@ class PrintRecipeList extends Component {
         </section>
       
         <section className="recipe-list">
+          <h2>Event Dish</h2>
           {this.printRecipes()}
         </section>
       </div>
