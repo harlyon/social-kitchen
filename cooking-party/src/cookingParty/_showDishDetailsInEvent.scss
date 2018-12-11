@@ -1,24 +1,23 @@
 .dish {
-  &__aside-wrapper {
-    border: 1px solid red;
-    width: 80%;
-    margin: 0 auto;
-  }
   &__aside {
-    border: 1px solid black;
     float: left;
     width: 40%;
     margin-right: 30px;
+    margin-bottom: 30px;
+  }
+  &__image {
+    width: 100%;
   }
   &__title {
     margin: 30px 0;
+    text-align: left;
   }
   &__main {
     width: calc(60% - 30px);
     float: right;
     padding: 20px 50px;
-    border-radius: 20px;
-    background: lightgrey;
+    border-radius: 6px;
+    background: rgba(172,172,172,0.5);
     margin: 30px 0;
   }
   &__ingredients-list {
@@ -27,8 +26,7 @@
   &__aside {
     text-align: center;
     position: sticky;
-    top: 142.8px;
-    left: 0;
+    top: 137.8px;
     img {
       margin: 0 auto;
       border-radius: 6px;
@@ -47,5 +45,47 @@
     background-color: rgba(172,172,172,0.5);
     float: left;
   }
-  // &__directions-btn {}
+  &__directions-btn {
+    float: left;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .dish {
+    &__title, &__aside, &__main {
+      float: none;
+      position: static;
+    }
+    &__aside {
+      width: 75%;
+      margin: 0 auto;
+    }
+    &__title {
+      width: 100%;
+      text-align: center;
+    }
+    &__main {
+      width: 75%;
+      margin: 99px auto 30px auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .dish {
+    &__main {
+      padding: 15px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .dish {
+    &__title, &__aside, &__main {
+      width: 100%;
+    }
+  }
 }
