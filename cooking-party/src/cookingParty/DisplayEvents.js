@@ -15,13 +15,11 @@ class DisplayEvents extends Component {
         {Object.entries(this.props.listOfCookingParties).map((party) => {
           return (
             <div key={party[1].key} className="singleEvent clearfix">
-
               <div className="displayEvent">
                 <Link to={`/${party[1].key}`} className="displayEventName">
                   {party[1].name}
                 </Link>
               </div>
-              
               <div className="eventDelete">
                 <button className="btn--delete" id={party[1].key} onClick={this.deleteParty}><i class="fas fa-times"></i></button>
               </div>
