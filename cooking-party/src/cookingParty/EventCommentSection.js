@@ -42,6 +42,7 @@ class EventCommentSection extends Component {
       [e.target.id]: e.target.value
     })
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const name = this.props.user.displayName;
@@ -54,6 +55,10 @@ class EventCommentSection extends Component {
     const finalName = tempNewNameArray.join(' ');
     console.log(finalName);
     const comment = {
+<<<<<<< HEAD
+      // name: this.state.name,
+=======
+>>>>>>> 065b6b797960396c5ad40df43c277be00a3597c4
       name: finalName,
       comment: this.state.comment,
       date: this.state.date,
@@ -66,6 +71,7 @@ class EventCommentSection extends Component {
       comment: ''
     })
   }
+
   render() {
     return (
       <div className="eventCommentSection">

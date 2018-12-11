@@ -93,8 +93,9 @@ $secondaryFont: 'Abril Fatface', cursive;
   border: none;
 }
 
+
+// HOVER MIX-INS
 @mixin hoverText ($color){
-  transition: 0.5s;
   text-shadow: 3px 3px 1px rgba(51,51,51,0.1);
   color:$color;
 }

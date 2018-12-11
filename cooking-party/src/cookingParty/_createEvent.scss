@@ -1,6 +1,4 @@
 form {
-    // margin:0; 
-    // padding:0;
 
 .partyForm {
     width: 22%;
@@ -21,18 +19,34 @@ form {
         padding:11px 0px;
         border-radius:6px;
         width:23%;
+        transition:0.5s
+    }
+
+    .BTN__submit--createEvent:hover {
+        @include hoverButton;
     }
 }
 
 
 // MEDIA QUERIES (768 PX)
-@media (max-width:768px) {
+@media (max-width:1292px) {
+    form {
+        .partyForm {
+            padding:11px;
+        }
+    }
+}
+
+@media (max-width:858px) {
 form {
-    // border:1px solid red;
 
     .partyForm {
-        width:50%;
-        margin-right:0;
+        width:calc(50% - 1%);
+        margin:5px 0;
+    }
+
+    .partyName {
+        margin-right:10px;
     }
 
     .partyEmail {
@@ -42,8 +56,17 @@ form {
     .BTN__submit--createEvent {
         display:block;
         margin:0 auto;
+        width:100%;
     }
 }
+}
+
+@media (max-width:577px) {
+    form {
+        .partyForm {
+            width:100%;
+        }
+    }
 }
 
 

@@ -16,10 +16,11 @@
   display: inline-block;
   margin: 0;
   padding: 20px 0;
+  transition: 0.5s;
 }
 
 .mainTitle:hover {
-  @include hoverText ($secondaryColor);
+  @include hoverText (rgba(254,253,251,0.7));
 }
 
 .nav {
@@ -44,10 +45,11 @@
     background: none;
     text-transform: uppercase;
     cursor: pointer;
+    transition:0.5s;
   }
 
   .nav__button:hover {
-    @include hoverText($secondaryColor);
+    @include hoverText (rgba(254,253,251,0.7));
   }
 }
 

@@ -10,6 +10,11 @@
         background: rgba(172,172,172,0.1);
         border: none;
         @include dishList($primaryColor);
+        transition:0.5s;
+    }
+
+    button:hover {
+        @include hoverButton;
     }
 }
 
