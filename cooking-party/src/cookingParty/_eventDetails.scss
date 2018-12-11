@@ -1,5 +1,8 @@
 .sub__text {
-    @include recipeSubHeading;
+    margin-bottom: 5px;
+    &--heading {
+        @include recipeSubHeading;
+    }
 }
 
 .eventDetails ul, p {
@@ -13,16 +16,29 @@
     float: left;
     max-width: 30%;
     width: 100%;
+    margin-right: 30px;
+    position: sticky;
+    // top: 172.8px;
+    top: 167.8px;
+}
+.eventDetailsSection-wrapper{
+    // border: 1px solid red;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .eventDetails--title {
     @include mainHeadings;
+    margin: 0 0 10px 0;
+
 }
 
 .event__main {
     float: left;
     max-width: 70%;
-    width: 100%;
+    width: calc(70% - 30px);
+    // margin-top: 30px;
 }
 
 .detail__text {
@@ -41,8 +57,9 @@
     background: $primaryColor;
     //padding&margin subject to change
     padding: 20px 0;
+    border-radius: 6px;
     // margin subject to change
-    margin: 5px 0;
+    margin: 10px 0;
     .dishLink {
         float: left;
         padding-left: 30px;
@@ -60,6 +77,7 @@
 
 .btn--delete {
     background: $accentColor;
+
     padding: 3px 3px;
     .fa-times {
         padding: 2px 6px;
@@ -68,4 +86,6 @@
     }
 }
 
-
+.eventDetails {
+    margin: 30px;
+}

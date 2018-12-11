@@ -1,12 +1,17 @@
+.commentSection {
+    margin: 20px 0;
+}
+
 .commentPost {
     background: $secondaryColor;
     box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
     //margin subject to change
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .commentPostDetails {
     background: rgba(172,172,172,0.1);
+    padding: 10px 0;
     .sub__text {
         padding-left: 30px;
     }
@@ -15,9 +20,9 @@
 .comment {
     resize: none;
     width: 100%;
-    padding-left: 30px;
+    padding: 30px;
     @include input;
-    border-radius: 9px 9px 0 0;
+    border-radius: 6px 6px 0 0;
     border-bottom: none;
     display: block;
     &::placeholder {
@@ -28,9 +33,13 @@
 .BTN__submit--comment {
     width: 100%;
     @include inputSubmit;
-    border-radius: 0 0 9px 9px;
+    border-radius: 0 0 6px 6px;
 }
 
-.commentPosted p {
-    padding-left: 30px;
+.commentPosted {
+    padding: 20px 30px;
+
+    // p {
+    // padding-left: 30px;
+    // }
 }
