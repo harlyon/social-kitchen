@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase';
 
 class EventCommentSection extends Component {
@@ -55,10 +55,14 @@ class EventCommentSection extends Component {
     const finalName = tempNewNameArray.join(' ');
     console.log(finalName);
     const comment = {
+<<<<<<< HEAD
       // name: this.state.name,
+=======
+>>>>>>> 065b6b797960396c5ad40df43c277be00a3597c4
       name: finalName,
       comment: this.state.comment,
       date: this.state.date,
+      avatar: this.props.user.photoURL
     }
     const commentRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`)
     commentRef.push(comment);
@@ -88,12 +92,14 @@ class EventCommentSection extends Component {
               return (
                 <div className="commentPost">
                   <div key={post[0]}>
-                    <div className="commentAvatar">
-                      {/* <img src={this.props.user.photoURL} alt={`A picture of ${this.props.user.displayName}`} /> */}
-                    </div>
                     <div className="commentPostDetails">
-                      <p className="sub__text">{post[1].name}</p>
-                      <p className="detail__text detail__text--date">{post[1].date}</p> 
+                      <div className="commentAvatar">
+                        <img src={post[1].avatar} alt={`A picture of ${post[1].name}`} className="commentAvatar--img" />
+                      </div>
+                      <div className="commentDetails">
+                        <p className="sub__text">{post[1].name}</p>
+                        <p className="detail__text detail__text--date">{post[1].date}</p>
+                      </div>
                     </div>
                     <div className="commentPosted">
                       <p>{post[1].comment}</p>

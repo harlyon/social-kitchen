@@ -48,7 +48,7 @@ class EventDetails extends Component {
               <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`} className="eventDishName">{dish[1].name}</Link>
             </div>
             <div className="dishDelete">
-              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i class="fas fa-times"></i></button>
+              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i className="fas fa-times" id={dish[0]}></i></button>
             </div>
           </div>
         )
@@ -62,12 +62,12 @@ class EventDetails extends Component {
             <aside className="eventDetailsSection">
               <div className="eventDetailsSection-wrapper">
                 <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
-                <p>Created by: {this.state.partyDetails.creator}</p>
-                <p className="sub__text"><span className="sub__text--heading">Date:</span> {this.state.partyDetails.date}</p>
+                <p><span className="sub__text--eventDetails">Created by:</span> {this.state.partyDetails.creator}</p>
+                <p><span className="sub__text--eventDetails">Date:</span> {this.state.partyDetails.date}</p>
                 {
                   this.state.partyDetails.email && (
                     <div>
-                    <p className="sub__text"><span className="sub__text--heading">Invited:</span></p>
+                    <p className="sub__text"><span className="sub__text--eventDetails">Invited:</span></p>
                       <ul>
                         {this.state.partyDetails.email.map((person) => {
                           return (
@@ -82,7 +82,9 @@ class EventDetails extends Component {
             </aside>
             <div className="event__main clearfix"> 
               {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
-              {this.state.partyDetails.dishes ? this.printDishes() : null} 
+              <h2>Dishes</h2>
+              {!this.state.partyDetails.dishes && (<p>this event has no dishes</p>)}
+              {this.state.partyDetails.dishes ? this.printDishes() : null}
               {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
             </div>
         </div>
