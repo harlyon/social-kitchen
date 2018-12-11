@@ -56,7 +56,7 @@ class CreateEvent extends Component {
       makePartyDate: '',
       makePartyEmail: []
     })
-    swal(`${this.state.makePartyName}`, `has been created!` ); 
+      swal(`${this.state.makePartyName}`, `has been created!`);
   }
 
   handleChange = (e) => {

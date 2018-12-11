@@ -9,12 +9,10 @@
     margin-bottom: 15px;
 }
 
-.commentPostDetails {
-    background: rgba(172,172,172,0.1);
-    padding: 10px 0;
-    .sub__text {
-        padding-left: 30px;
-    }
+.sub__text {
+    @include recipeSubHeading;
+    font-size: 1.8rem;
+    margin-top: 2px;
 }
 
 .comment {
@@ -30,6 +28,8 @@
     }
 }
 
+
+
 .BTN__submit--comment {
     width: 100%;
     @include inputSubmit;
@@ -38,8 +38,21 @@
 
 .commentPosted {
     padding: 20px 30px;
+}
 
-    // p {
+.commentPostDetails {
     // padding-left: 30px;
-    // }
+    background: rgba(172,172,172,0.1);
+    padding: 10px 0;
+
+}
+
+.commentAvatar {
+    float: left;
+    padding-left: 30px;
+    margin-right: 10px;
+    &--img {
+        width: 50px;
+        border-radius: 6px;
+    }
 }

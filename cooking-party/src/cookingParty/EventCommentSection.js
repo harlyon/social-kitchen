@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
+import swal from 'sweetalert';
 
 class EventCommentSection extends Component {
   constructor() {
@@ -65,6 +66,7 @@ class EventCommentSection extends Component {
       name: '',
       comment: ''
     })
+    swal(`${this.props.recipeName}`, 'has been added to your event');
   }
   render() {
     return (
@@ -86,12 +88,14 @@ class EventCommentSection extends Component {
               return (
                 <div className="commentPost">
                   <div key={post[0]}>
-                    <div className="commentAvatar">
-                      {/* <img src={this.props.user.photoURL} alt={`A picture of ${this.props.user.displayName}`} /> */}
-                    </div>
                     <div className="commentPostDetails">
-                      <p className="sub__text">{post[1].name}</p>
-                      <p className="detail__text detail__text--date">{post[1].date}</p> 
+                      <div className="commentAvatar">
+                        <img src={this.props.user.photoURL} alt={`A picture of ${this.props.user.displayName}`} className="commentAvatar--img" />
+                      </div>
+                      <div className="commentDetails">
+                        <p className="sub__text">{post[1].name}</p>
+                        <p className="detail__text detail__text--date">{post[1].date}</p> 
+                      </div>
                     </div>
                     <div className="commentPosted">
                       <p>{post[1].comment}</p>
