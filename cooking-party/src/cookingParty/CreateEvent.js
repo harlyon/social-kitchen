@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import firebase from '../firebase/firebase';
 import DisplayEvents from './DisplayEvents';
+import swal from 'sweetalert';
 
 const dbRef = firebase.database().ref();
 
@@ -44,6 +45,7 @@ class CreateEvent extends Component {
       makePartyDate: '',
       makePartyEmail: []
     })
+    swal(`${this.state.makePartyName}`, `has been created!` ); 
   }
 
   handleChange = (e) => {

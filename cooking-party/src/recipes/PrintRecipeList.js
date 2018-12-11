@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PrintSingleRecipe from './PrintSingleRecipe';
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
+import  {Link, animateScroll as Scroll} from 'react-scroll';
 
 class PrintRecipeList extends Component {
   constructor() {
@@ -60,14 +62,17 @@ class PrintRecipeList extends Component {
   render() {
     return (
       <div className="printRecipeList">
-        <PrintSingleRecipe
-          recipeid={this.state.recipeid}
-          recipeName={this.state.recipeName}
-          numberOfServings={this.state.numberOfServings}
-          ingredients={this.state.ingredients}
-          source={this.state.source}
-          firebaseKey={this.props.firebaseKey}
-          image={this.state.image} />
+        <section id="recipe">
+          <PrintSingleRecipe
+            recipeid={this.state.recipeid}
+            recipeName={this.state.recipeName}
+            numberOfServings={this.state.numberOfServings}
+            ingredients={this.state.ingredients}
+            source={this.state.source}
+            firebaseKey={this.props.firebaseKey}
+            image={this.state.image} />
+        </section>
+      
         <section className="recipe-list">
           {this.printRecipes()}
         </section>

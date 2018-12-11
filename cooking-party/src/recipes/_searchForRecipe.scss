@@ -17,3 +17,7 @@
     width: 30%;
 }
 
+.BTN__submit--search:hover {
+    @include hoverButton;
+}
+

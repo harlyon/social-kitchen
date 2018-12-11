@@ -7,15 +7,15 @@
     .displayEvent {
         float:left;
         padding-left:30px;
-        // border:1px solid red;
-        
+    }
+
+       .displayEventName:hover {
+            @include hoverText ($accentColor);
     }
 
     .eventDelete {
         float:right;
         padding-right:30px;
-        // padding-top:20px;
-        // border:1px solid red;
     }
 
     .displayEventName {
@@ -23,5 +23,26 @@
         margin:0;
         text-decoration:none;
         @include dishList($primaryColor);
+    }
+}
+
+
+// MEDIA QUERIES
+@media (max-width:580px) {
+    .singleEvent {
+        position:relative;
+
+        .displayEvent {
+            padding-left:10px;
+            width:calc(80% - 50px);
+        }
+
+        .eventDelete {
+            width:50px;
+            top:50%;
+            right:10px;
+            position: absolute;
+            transform: translateY(-50%);
+        }
     }
 }
