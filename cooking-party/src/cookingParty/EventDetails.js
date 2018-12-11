@@ -62,12 +62,12 @@ class EventDetails extends Component {
             <aside className="eventDetailsSection">
               <div className="eventDetailsSection-wrapper">
                 <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
-              <p className="sub__text"><span className="sub__text--heading">Created by:</span> {this.state.partyDetails.creator}</p>
-                <p className="sub__text"><span className="sub__text--heading">Date:</span> {this.state.partyDetails.date}</p>
+                <p><span className="sub__text--eventDetails">Created by:</span> {this.state.partyDetails.creator}</p>
+                <p><span className="sub__text--eventDetails">Date:</span> {this.state.partyDetails.date}</p>
                 {
                   this.state.partyDetails.email && (
                     <div>
-                    <p className="sub__text"><span className="sub__text--heading">Invited:</span></p>
+                    <p className="sub__text"><span className="sub__text--eventDetails">Invited:</span></p>
                       <ul>
                         {this.state.partyDetails.email.map((person) => {
                           return (
@@ -82,6 +82,7 @@ class EventDetails extends Component {
             </aside>
             <div className="event__main clearfix"> 
               {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
+              <h2>Event Dish</h2>
               {this.state.partyDetails.dishes ? this.printDishes() : null} 
               {<EventCommentSection firebaseKey={this.state.firebaseKey} user={this.props.user}/>}
             </div>
