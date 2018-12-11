@@ -33,12 +33,21 @@ class CreateEvent extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
+    const name = this.props.user.displayName;
+    const nameArray = name.split(' ');
+    console.log(nameArray);
+    const tempNewNameArray = []
+    for (let i in nameArray) {
+      tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
+    }
+    const finalName = tempNewNameArray.join(' ');
+    console.log(finalName);
     const newParty = {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
       email: emailArray,
       dishes: this.state.dishes,
-      creator: this.props.user.displayName,
+      creator: finalName
     }
     dbRef.push(newParty);
     this.setState({

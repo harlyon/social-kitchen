@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import { Link } from "react-router-dom";
-import swal from 'sweetalert';
 
 class ShowDishDetailsInEvent extends Component {
   constructor() {
@@ -18,14 +17,11 @@ class ShowDishDetailsInEvent extends Component {
       })
     })
   }
-  sweetAlertConfirmation = () => {
-    swal('Dish added!', 'This dish has been added to your event.');
-  }
   render() {
     return (
       <div className="showDishDetailsInEvent">
         <div className="dish wrapper clearfix">
-          <h2 className="dish__title" onClick={this.sweetAlertConfirmation}>{this.state.currentDish.name}</h2>
+          <h2 className="dish__title">{this.state.currentDish.name}</h2>
           <aside className="dish__aside">
             <img src={this.state.currentDish.image} alt={this.state.currentDish.name} className="dish__image" />
             <p className="dish__servings">Number of servings: <span>{this.state.currentDish.servings}</span></p>
