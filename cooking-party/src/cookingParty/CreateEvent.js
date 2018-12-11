@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import firebase from '../firebase/firebase';
 import DisplayEvents from './DisplayEvents';
+import swal from 'sweetalert';
 
 const dbRef = firebase.database().ref();
 
@@ -36,7 +37,8 @@ class CreateEvent extends Component {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
       email: emailArray,
-      dishes: this.state.dishes
+      dishes: this.state.dishes,
+      creator: this.props.user.displayName
     }
     dbRef.push(newParty);
     this.setState({

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
+import swal from 'sweetalert';
 
 class PrintSingleRecipe extends Component {
   constructor() {
@@ -18,7 +19,9 @@ class PrintSingleRecipe extends Component {
     }
     const recipeRef = firebase.database().ref(`/${this.props.firebaseKey}/dishes`)
     recipeRef.push(selectedRecipe);
+    swal( `${this.props.recipeName}`, 'has been added to your event');
   }
+  
   printRecipe = () => {
     const filteredIngredientList = new Set(this.props.ingredients);
     const newIngredients = Array.from(filteredIngredientList)

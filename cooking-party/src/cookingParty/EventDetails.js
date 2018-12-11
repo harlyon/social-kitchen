@@ -62,6 +62,7 @@ class EventDetails extends Component {
             <aside className="eventDetailsSection">
               <div className="eventDetailsSection-wrapper">
                 <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
+                <p>Created by: {this.state.partyDetails.creator}</p>
                 <p className="sub__text"><span className="sub__text--heading">Date:</span> {this.state.partyDetails.date}</p>
                 {
                   this.state.partyDetails.email && (
