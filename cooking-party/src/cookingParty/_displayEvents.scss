@@ -7,6 +7,10 @@
     .displayEvent {
         float:left;
         padding-left:30px;
+
+        .displayEventName {
+            transition:0.5s;
+        }
     }
 
        .displayEventName:hover {
@@ -16,6 +20,17 @@
     .eventDelete {
         float:right;
         padding-right:30px;
+    }
+
+    .btn--delete {
+        border:1px solid $accentColor;
+        transition:0.5s;
+    }
+
+    .btn--delete:hover {
+        @include hoverButton;
+        border:1px solid $primaryColor;
+
     }
 
     .displayEventName {
