@@ -62,12 +62,12 @@ class EventDetails extends Component {
             <aside className="eventDetailsSection">
               <div className="eventDetailsSection-wrapper">
                 <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
-              <p className="sub__text"><span className="sub__text--heading">Created by:</span> {this.state.partyDetails.creator}</p>
-                <p className="sub__text"><span className="sub__text--heading">Date:</span> {this.state.partyDetails.date}</p>
+                <p><span className="sub__text--eventDetails">Created by:</span> {this.state.partyDetails.creator}</p>
+                <p><span className="sub__text--eventDetails">Date:</span> {this.state.partyDetails.date}</p>
                 {
                   this.state.partyDetails.email && (
                     <div>
-                    <p className="sub__text"><span className="sub__text--heading">Invited:</span></p>
+                    <p className="sub__text"><span className="sub__text--eventDetails">Invited:</span></p>
                       <ul>
                         {this.state.partyDetails.email.map((person) => {
                           return (

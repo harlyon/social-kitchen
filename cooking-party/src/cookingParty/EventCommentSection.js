@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase';
 
 class EventCommentSection extends Component {
@@ -92,7 +92,7 @@ class EventCommentSection extends Component {
                       </div>
                       <div className="commentDetails">
                         <p className="sub__text">{post[1].name}</p>
-                        <p className="detail__text detail__text--date">{post[1].date}</p> 
+                        <p className="detail__text detail__text--date">{post[1].date}</p>
                       </div>
                     </div>
                     <div className="commentPosted">
