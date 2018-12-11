@@ -44,9 +44,18 @@ class EventCommentSection extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    const name = this.props.user.displayName;
+    const nameArray = name.split(' ');
+    console.log(nameArray);
+    const tempNewNameArray = []
+    for (let i in nameArray) {
+      tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
+    }
+    const finalName = tempNewNameArray.join(' ');
+    console.log(finalName);
     const comment = {
       // name: this.state.name,
-      name: this.props.user.displayName,
+      name: finalName,
       comment: this.state.comment,
       date: this.state.date,
     }

@@ -48,7 +48,7 @@ class EventDetails extends Component {
               <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`} className="eventDishName">{dish[1].name}</Link>
             </div>
             <div className="dishDelete">
-              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i class="fas fa-times"></i></button>
+              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i className="fas fa-times" id={dish[0]}></i></button>
             </div>
           </div>
         )
