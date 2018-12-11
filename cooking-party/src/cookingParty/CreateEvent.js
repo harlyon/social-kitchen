@@ -34,17 +34,28 @@ class CreateEvent extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
+    // Capitalize creator's name
     const name = this.props.user.displayName;
     const nameArray = name.split(' ');
-    console.log(nameArray);
-    const tempNewNameArray = []
+    const tempNewNameArray = [];
     for (let i in nameArray) {
       tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
     }
     const finalName = tempNewNameArray.join(' ');
     console.log(finalName);
+
+    // Capitalize party name
+    const partyName = this.state.makePartyName;
+    const partyNameArray = partyName.split( ' ');
+    const tempNewPartyNameArray = [];
+    for (let i in partyNameArray) {
+      tempNewPartyNameArray.push(partyNameArray[i].charAt(0).toUpperCase() + partyNameArray[i].slice(1));
+    }
+    const finalPartyName = tempNewPartyNameArray.join(' ');
+    console.log(finalPartyName);
+
     const newParty = {
-      name: this.state.makePartyName,
+      name: finalPartyName,
       date: this.state.makePartyDate,
       email: emailArray,
       dishes: this.state.dishes,
@@ -56,7 +67,7 @@ class CreateEvent extends Component {
       makePartyDate: '',
       makePartyEmail: []
     })
-      swal(`${this.state.makePartyName}`, `has been created!`);
+    swal(`${finalPartyName}`, `has been created!`);
   }
 
   handleChange = (e) => {
