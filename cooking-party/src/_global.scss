@@ -6,6 +6,11 @@ body {
  font-family: $primaryFont;
  letter-spacing: 0.5px;
 }
+
+.App {
+  background: $secondaryColor;
+}
+
 h1 {
  @include appName;
 }
