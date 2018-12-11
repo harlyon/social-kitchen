@@ -77,6 +77,9 @@ class EventCommentSection extends Component {
               return (
                 <div className="commentPost">
                   <div key={post[0]}>
+                    <div className="commentAvatar">
+                      <img src={this.props.user.photoURL} alt={`A picture of ${this.props.user.displayName}`}/>
+                    </div>
                     <div className="commentPostDetails">
                       <p className="sub__text">{post[1].name}</p>
                       <p className="detail__text detail__text--date">{post[1].date}</p> 

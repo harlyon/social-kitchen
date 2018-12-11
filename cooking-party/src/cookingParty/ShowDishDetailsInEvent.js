@@ -34,7 +34,7 @@ class ShowDishDetailsInEvent extends Component {
               <a href={this.state.currentDish.source} target="_blank" rel="noopener noreferrer" className="dish__directions-btn">Directions</a>
             </div>
           </aside>
-          <main className="dish__main">
+          <section className="dish__main">
             <h2 className="dish__ingredients-title">Ingredients:</h2>
             <ul className="dish__ingredients-list">
               {this.state.currentDish.ingredients &&
@@ -46,37 +46,7 @@ class ShowDishDetailsInEvent extends Component {
                   })
                 )}
             </ul>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
-          </main>
+          </section>
         </div>
       </div>
     )
