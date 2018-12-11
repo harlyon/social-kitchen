@@ -1,3 +1,11 @@
+.dish__back-btn, .dish__directions-btn {
+  transition:0.5s;
+}
+
+.dish__directions-btn:hover, .dish__back-btn:hover {
+  @include hoverButton;
+}
+
 .dish {
   &__aside {
     float: left;

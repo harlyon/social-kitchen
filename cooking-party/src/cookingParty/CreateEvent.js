@@ -16,6 +16,7 @@ class CreateEvent extends Component {
       listOfCookingParties: {}
     }
   }
+  
   componentDidMount() {
     dbRef.on("value", snapshot => {
       const newPartyList = snapshot.val() === null ? {} : snapshot.val();
@@ -64,10 +65,6 @@ class CreateEvent extends Component {
     })
   }
 
-  clearForm = (e) => {
-    
-  }
-
   render() {
     return (
   
@@ -78,7 +75,7 @@ class CreateEvent extends Component {
 
           <input
             type="text"
-            className="partyForm"
+            className="partyForm partyName"
             id="makePartyName"
             required
             onChange={this.handleChange}
