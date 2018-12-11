@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PrintSingleRecipe from './PrintSingleRecipe';
-// import AnchorLink from 'react-anchor-link-smooth-scroll';
-import  {Link, animateScroll as Scroll} from 'react-scroll';
 
 class PrintRecipeList extends Component {
   constructor() {
