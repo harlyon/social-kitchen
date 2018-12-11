@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 class ShowDishDetailsInEvent extends Component {
   constructor() {
@@ -17,12 +18,15 @@ class ShowDishDetailsInEvent extends Component {
       })
     })
   }
+  sweetAlertConfirmation = () => {
+    swal('Dish added!', 'This dish has been added to your event.');
+  }
   render() {
     return (
       <div className="showDishDetailsInEvent">
         <div className="dish wrapper clearfix">
           <aside className="dish__aside">
-            <h2 className="dish__title">{this.state.currentDish.name}</h2>
+            <h2 className="dish__title" onClick={this.sweetAlertConfirmation}>{this.state.currentDish.name}</h2>
             <img src={this.state.currentDish.image} alt={this.state.currentDish.name} className="dish__image" />
             <p className="dish__servings">Number of servings: <span>{this.state.currentDish.servings}</span></p>
             <div className="dish__buttons-container">
@@ -32,36 +36,6 @@ class ShowDishDetailsInEvent extends Component {
           </aside>
           <main className="dish__main">
             <h2 className="dish__ingredients-title">Ingredients:</h2>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
-            <ul className="dish__ingredients-list">
-              {this.state.currentDish.ingredients &&
-                (
-                  this.state.currentDish.ingredients.map((ingredient) => {
-                    return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
-                    )
-                  })
-                )}
-            </ul>
             <ul className="dish__ingredients-list">
               {this.state.currentDish.ingredients &&
                 (

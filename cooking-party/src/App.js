@@ -86,7 +86,9 @@ class App extends Component {
             this.state.user &&
             (
               <main>
-                <Route exact path="/" component={CreateEvent} />
+                {/* JONATHAN'S CHANGE */}
+                <Route exact path="/" render={(props) => <CreateEvent {...props} user={this.state.user} />} />
+                {/* JONATHAN'S CHANGE */}
                 <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
                 <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
                 <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />

@@ -36,7 +36,10 @@ class CreateEvent extends Component {
       name: this.state.makePartyName,
       date: this.state.makePartyDate,
       email: emailArray,
-      dishes: this.state.dishes
+      dishes: this.state.dishes,
+      // JONATHAN'S CHANGE
+      creator: this.props.user.displayName
+      // JONATHAN'S CHANGE
     }
     dbRef.push(newParty);
     this.setState({

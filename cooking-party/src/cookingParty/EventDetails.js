@@ -61,6 +61,9 @@ class EventDetails extends Component {
         <div className="wrapper clearfix">
           <h2 className="eventDetails--title">{this.state.partyDetails.name}</h2>
           <aside className="eventDetailsSection">
+            {/* JONATHAN'S CHANGE */}
+            <p>Created by: {this.state.partyDetails.creator}</p>
+            {/* JONATHAN'S CHANGE */}
             <p><span className="sub__text">Date:</span> {this.state.partyDetails.date}</p>
             {
               this.state.partyDetails.email && (
