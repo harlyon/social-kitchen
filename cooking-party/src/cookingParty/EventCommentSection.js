@@ -55,10 +55,6 @@ class EventCommentSection extends Component {
     const finalName = tempNewNameArray.join(' ');
     console.log(finalName);
     const comment = {
-<<<<<<< HEAD
-      // name: this.state.name,
-=======
->>>>>>> 065b6b797960396c5ad40df43c277be00a3597c4
       name: finalName,
       comment: this.state.comment,
       date: this.state.date,
