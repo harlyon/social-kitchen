@@ -93,9 +93,6 @@ class App extends Component {
               </main>
             )
           }
-          {/* <footer>
-            <p>testing</p>
-          </footer> */}
         </div>
       </Router>
     );
