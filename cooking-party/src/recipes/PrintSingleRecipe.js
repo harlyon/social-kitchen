@@ -27,7 +27,7 @@ class PrintSingleRecipe extends Component {
     const newIngredients = Array.from(filteredIngredientList);
     return (
       <div className="searchRecipe--card">
-        <h2 class="searchRecipeHeading">{this.props.recipeName}</h2>
+        <h2 className="searchRecipeHeading">{this.props.recipeName}</h2>
         <img className="searchRecipeImg" src={this.props.image} alt={this.props.recipeName}/>
         <div className="searchRecipeInfo">
           <p className="sub__heading--recipe"><span className="sub__text--headingSearch">Servings:</span> {this.props.numberOfServings}</p>
@@ -35,16 +35,16 @@ class PrintSingleRecipe extends Component {
           <ul>
             {newIngredients.map((ingredient) => {
               return (
-                <li>
+                <li key={ingredient}>
                   {ingredient}
                 </li>
               )
             })}
           </ul>
           <div className="container--searchRecipeLink">
-            <a href={this.props.source} target="_blank" rel="noopener noreferrer" class="searchRecipeLink">Directions</a>
+            <a href={this.props.source} target="_blank" rel="noopener noreferrer" className="searchRecipeLink">Directions</a>
           </div>
-          <button onClick={this.handleClick} class="btn__add--searchRecipe">Add Dish</button>
+          <button onClick={this.handleClick} className="btn__add--searchRecipe">Add Dish</button>
         </div>
       </div>
     )

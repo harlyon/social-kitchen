@@ -41,7 +41,7 @@ class EventDetails extends Component {
     return (
       Object.entries(this.state.partyDetails.dishes).map((dish) => {
         return (
-          <div className="eventDishList clearfix">
+          <div className="eventDishList clearfix" key={dish[0]}>
             <div className="dishLink">
               <Link to={`/${this.state.firebaseKey}/dishes/${dish[0]}`} className="eventDishName">{dish[1].name}</Link>
             </div>
@@ -69,7 +69,7 @@ class EventDetails extends Component {
                       <ul>
                         {this.state.partyDetails.email.map((person) => {
                           return (
-                            <li className="detail__text detail__text--invited">{person}</li>
+                            <li className="detail__text detail__text--invited" key={person}>{person}</li>
                             )
                           })}
                       </ul>

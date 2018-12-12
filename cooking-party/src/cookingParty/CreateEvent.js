@@ -34,6 +34,7 @@ class CreateEvent extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
+    
     // Capitalize creator's name
     const name = this.props.user.displayName;
     const nameArray = name.split(' ');
@@ -42,7 +43,6 @@ class CreateEvent extends Component {
       tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
     }
     const finalName = tempNewNameArray.join(' ');
-    console.log(finalName);
 
     // Capitalize party name
     const partyName = this.state.makePartyName;
@@ -52,7 +52,6 @@ class CreateEvent extends Component {
       tempNewPartyNameArray.push(partyNameArray[i].charAt(0).toUpperCase() + partyNameArray[i].slice(1));
     }
     const finalPartyName = tempNewPartyNameArray.join(' ');
-    console.log(finalPartyName);
 
     const newParty = {
       name: finalPartyName,

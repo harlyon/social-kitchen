@@ -24,12 +24,25 @@
 .eventDishName {
     @include dishList($accentColor);
     text-decoration: none;
+    &:hover {
+        color: lighten($accentColor, 15);
+    }
 }
 
 .btn--delete {
     background: $accentColor;
-    border: none;
+    border: 0px solid $accentColor;
     padding: 3px 3px;
+    transition: all 0.5s;
+    &:hover {
+        @include hoverButton;
+        border: 0px solid rgba(239,186,61,0);
+    }
+
+    &:hover i {
+        color:$accentColor;
+    }
+
     .fa-times {
         padding: 2px 6px;
         font-size: 1.8rem;
@@ -54,7 +67,6 @@
 }
 
 .eventDetailsSection-wrapper{
-    // border: 1px solid red;
     width: 90%;
     margin: 0 auto;
     padding: 20px 0;
@@ -96,7 +108,7 @@
     }
 }
 
-// ------------------------------------------------------
+// MEDIA QUERIES
 
 @media (max-width: 755px) {
     .eventDishName {
@@ -107,8 +119,6 @@
         font-size: 1.6rem;
     }
 }
-
-
 
 @media (max-width: 715px) {
     .eventDetailsSection {

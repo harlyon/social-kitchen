@@ -37,7 +37,7 @@ class ShowDishDetailsInEvent extends Component {
                 (
                   this.state.currentDish.ingredients.map((ingredient) => {
                     return (
-                      <li className="dish__ingredients-item">{ingredient}</li>
+                      <li className="dish__ingredients-item" key={ingredient}>{ingredient}</li>
                     )
                   })
                 )}

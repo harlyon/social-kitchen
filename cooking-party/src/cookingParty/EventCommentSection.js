@@ -47,13 +47,11 @@ class EventCommentSection extends Component {
     e.preventDefault();
     const name = this.props.user.displayName;
     const nameArray = name.split(' ');
-    console.log(nameArray);
     const tempNewNameArray = []
     for (let i in nameArray) {
       tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
     }
     const finalName = tempNewNameArray.join(' ');
-    console.log(finalName);
     const comment = {
       name: finalName,
       comment: this.state.comment,
@@ -83,20 +81,18 @@ class EventCommentSection extends Component {
           (
             Object.entries(this.state.newPost).map((post) => {
               return (
-                <div className="commentPost">
-                  <div key={post[0]}>
-                    <div className="commentPostDetails">
-                      <div className="commentAvatar">
-                        <img src={post[1].avatar} alt={`A picture of ${post[1].name}`} className="commentAvatar--img" />
-                      </div>
-                      <div className="commentDetails">
-                        <p className="sub__text">{post[1].name}</p>
-                        <p className="detail__text detail__text--date">{post[1].date}</p>
-                      </div>
+                <div className="commentPost" key={post[0]}>
+                  <div className="commentPostDetails">
+                    <div className="commentAvatar">
+                      <img src={post[1].avatar} alt={`${post[1].name}`} className="commentAvatar--img" />
                     </div>
-                    <div className="commentPosted">
-                      <p>{post[1].comment}</p>
+                    <div className="commentDetails">
+                      <p className="sub__text">{post[1].name}</p>
+                      <p className="detail__text detail__text--date">{post[1].date}</p>
                     </div>
+                  </div>
+                  <div className="commentPosted">
+                    <p>{post[1].comment}</p>
                   </div>
                 </div>
               )
