@@ -6,6 +6,11 @@ body {
  font-family: $primaryFont;
  letter-spacing: 0.5px;
 }
+
+.App {
+  background: $secondaryColor;
+}
+
 h1 {
  @include appName;
 }
@@ -13,7 +18,7 @@ h1 {
  max-width: 1280px;
  width: 80%;
  margin: 0 auto;
- @media (max-width: 768px) {
+ @media (max-width: 900px) {
   width: 90%;
  }
 }

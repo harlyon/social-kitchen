@@ -67,3 +67,19 @@
     border-radius: 6px;
     padding: 10px 20px;
 }
+
+
+@media (max-width: 755px) {
+    .searchRecipeResult {
+        button {
+            @include dishList($primaryColor);
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media (max-width: 715px) {
+    .searchRecipe--card {
+        margin: 20px 0;
+    }
+}
