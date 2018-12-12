@@ -81,7 +81,7 @@ class EventDetails extends Component {
               </div>
             </aside>
             <div className="event__main clearfix"> 
-              {<SearchForRecipe firebaseKey={this.state.firebaseKey}/>}
+              <SearchForRecipe firebaseKey={this.state.firebaseKey} />
               <h2>Dishes</h2>
               {!this.state.partyDetails.dishes && (<p>This event has no dishes. Let's add some!</p>)}
               {this.state.partyDetails.dishes ? this.printDishes() : null}

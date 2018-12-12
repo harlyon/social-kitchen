@@ -24,7 +24,7 @@ class PrintSingleRecipe extends Component {
   
   printRecipe = () => {
     const filteredIngredientList = new Set(this.props.ingredients);
-    const newIngredients = Array.from(filteredIngredientList)
+    const newIngredients = Array.from(filteredIngredientList);
     return (
       <div className="searchRecipe--card">
         <h2 class="searchRecipeHeading">{this.props.recipeName}</h2>

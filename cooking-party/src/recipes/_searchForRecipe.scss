@@ -25,3 +25,11 @@
 .searchForm {
     margin-bottom: 20px;
 }
+
+
+.toggleSearch {
+    @include linkButton;
+    border: none;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}

@@ -12,7 +12,7 @@ class PrintRecipeList extends Component {
       ingredients: [],
       source: '',
       firebaseKey: '',
-      image: ''
+      image: '',
     }
   }
   componentDidUpdate(prevProps) {
@@ -60,18 +60,22 @@ class PrintRecipeList extends Component {
     return (
       <div className="printRecipeList">
         <section id="recipe">
-          <PrintSingleRecipe
-            recipeid={this.state.recipeid}
-            recipeName={this.state.recipeName}
-            numberOfServings={this.state.numberOfServings}
-            ingredients={this.state.ingredients}
-            source={this.state.source}
-            firebaseKey={this.props.firebaseKey}
-            image={this.state.image} />
+          {this.props.removeSearchResults === false && (
+            <PrintSingleRecipe
+              recipeid={this.state.recipeid}
+              recipeName={this.state.recipeName}
+              numberOfServings={this.state.numberOfServings}
+              ingredients={this.state.ingredients}
+              source={this.state.source}
+              firebaseKey={this.props.firebaseKey}
+              image={this.state.image} />  
+          )}
         </section>
-      
+  
         <section className="recipe-list">
-          {this.printRecipes()}
+          {this.props.removeSearchResults === false && (
+            this.printRecipes()
+          )}
         </section>
       </div>
 

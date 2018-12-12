@@ -7,7 +7,8 @@ class SearchForRecipe extends Component {
     super();
     this.state = {
       recipeSearch: '',
-      recipeList: []
+      recipeList: [],
+      removeSearchResults: false
     }
   }
   // search for recipes based on search query
@@ -33,9 +34,15 @@ class SearchForRecipe extends Component {
     e.preventDefault();
     const recipe = this.state.recipeSearch;
     this.setState({
-      recipeSearch: ''
+      recipeSearch: '',
+      removeSearchResults: false
     }, () => {
       this.searchForRecipes(recipe);
+    })
+  }
+  toggleSearchAndSingle = () => {
+    this.setState({
+      removeSearchResults: !this.state.removeSearchResults
     })
   }
   render() {
@@ -47,7 +54,11 @@ class SearchForRecipe extends Component {
           <input type="submit" id="submit" value="Search" className="BTN__submit--search" />
           <label htmlFor="submit"></label>
         </form>
-        <PrintRecipeList recipeList={this.state.recipeList} firebaseKey={this.props.firebaseKey} /> 
+        <button onClick={this.toggleSearchAndSingle} className="toggleSearch">{this.state.removeSearchResults === false ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}</button>
+        <PrintRecipeList
+          recipeList={this.state.recipeList}
+          firebaseKey={this.props.firebaseKey}
+          removeSearchResults={this.state.removeSearchResults} /> 
       </div>
     )
   }
