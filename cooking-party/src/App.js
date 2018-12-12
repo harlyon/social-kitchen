@@ -83,6 +83,13 @@ class App extends Component {
             </div>
           </header>
           {
+            !this.state.user &&
+            (
+              <div className="notLoggedIn">
+              </div>
+            )
+          }
+          {
             this.state.user &&
             (
               <main>

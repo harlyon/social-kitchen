@@ -37,3 +37,8 @@ button, input[type="submit"] {
   cursor: pointer;
 }
 
+.notLoggedIn {
+  height: calc(100vh - 137.8px);
+  background-image: url('./assets/hero.jpg');
+  background-size: cover;
+}
