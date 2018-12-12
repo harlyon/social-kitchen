@@ -23,9 +23,8 @@
 }
 
 .searchForm {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
-
 
 .toggleSearch {
     @include linkButton;
@@ -33,4 +32,10 @@
     font-size: 1.8rem;
     margin-bottom: 15px;
     float: right;
+}
+
+@media (max-width: 715px) {
+    .searchForm {
+        margin: 20px 0 10px 0;
+    }
 }

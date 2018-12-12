@@ -23,7 +23,9 @@ class DisplayEvents extends Component {
               </div>
               
               <div className="eventDelete">
-                <button className="btn--delete" id={party[1].key} onClick={this.deleteParty}><i className="fas fa-times" id={party[1].key}></i></button>
+                <button className="btn--delete" id={party[1].key} onClick={this.deleteParty}>
+                  <i className="fas fa-times" id={party[1].key}></i>
+                </button>
               </div>
 
             </div>

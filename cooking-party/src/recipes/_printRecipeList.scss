@@ -1,20 +1,18 @@
-
 .searchRecipeResult {
-    // background: $neutralShade;
+
     button {
         margin-bottom: 10px;
         width: 100%;
         text-align: left;
         padding:20px 30px;
-        // background: rgba(172,172,172,0.5);
         background: rgba(172,172,172,0.1);
         border: none;
         @include dishList($primaryColor);
-        transition:0.5s;
+        transition:0.2s;
     }
 
     button:hover {
-        @include hoverButton;
+        background: $neutralShade;
     }
 }
 
@@ -29,7 +27,6 @@
 
 .searchRecipeHeading {
     font-size: 2.6rem;
-    // margin: 30px 0;
     margin: 0 0 30px 0;
     text-align: center;
 }
@@ -37,7 +34,6 @@
 .searchRecipeImg {
     border-radius: 6px;
     margin: 0 auto;
-    // padding-left: 30px;
 }
 
 .sub__heading--recipe {
@@ -50,7 +46,6 @@
 
 .searchRecipeInfo {
     margin: 30px 0 0 0;
-    // padding: 0 30px;
 }
 
 .container--searchRecipeLink {
@@ -58,7 +53,6 @@
 }
 
 .searchRecipeLink {
-    // display: block;
     text-decoration: none;
     @include inputSubmit;
     padding: 5px 10px;
@@ -72,5 +66,20 @@
     @include inputSubmit;
     border-radius: 6px;
     padding: 10px 20px;
-    // font-size: 1.6rem;
+}
+
+
+@media (max-width: 755px) {
+    .searchRecipeResult {
+        button {
+            @include dishList($primaryColor);
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media (max-width: 715px) {
+    .searchRecipe--card {
+        margin: 20px 0;
+    }
 }

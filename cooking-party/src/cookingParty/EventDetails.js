@@ -33,7 +33,6 @@ class EventDetails extends Component {
     }
   }
   handleClick = (e) => {
-    // delete dish from firebase
     const dishFirebaseKey = e.target.id;
     const dishRef = firebase.database().ref(`/${this.state.firebaseKey}/dishes/${dishFirebaseKey}`);
     dishRef.remove();
@@ -41,7 +40,6 @@ class EventDetails extends Component {
   printDishes = () => {
     return (
       Object.entries(this.state.partyDetails.dishes).map((dish) => {
-        // console.log(dish);
         return (
           <div className="eventDishList clearfix">
             <div className="dishLink">

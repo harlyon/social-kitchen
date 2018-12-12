@@ -1,8 +1,8 @@
 .singleEvent {
     background:rgba(172,172,172,0.1);
+    border-radius: 6px;
     padding: 20px 0;
-    margin: 5px 0; // margin subject to change
-    
+    margin: 5px 0;
 
     .displayEvent {
         float:left;
@@ -23,14 +23,10 @@
     }
 
     .btn--delete {
-        border:1px solid $accentColor;
-        transition:0.5s;
-    }
-
-    .btn--delete:hover {
-        @include hoverButton;
-        border:1px solid $primaryColor;
-
+        transition: all 0.5s;
+        &:hover {
+            background: rgba(51,51,51, 0);
+        }
     }
 
     .displayEventName {
@@ -42,22 +38,26 @@
 }
 
 
+
+
+
 // MEDIA QUERIES
 @media (max-width:580px) {
     .singleEvent {
         position:relative;
-
-        .displayEvent {
-            padding-left:10px;
-            width:calc(80% - 50px);
-        }
-
-        .eventDelete {
-            width:50px;
-            top:50%;
-            right:10px;
-            position: absolute;
-            transform: translateY(-50%);
-        }
     }
+
+    .displayEvent {
+        padding-left:10px;
+        width:calc(80% - 50px);
+    }
+
+    .eventDelete {
+        width:50px;
+        top:50%;
+        right:10px;
+        position: absolute;
+        transform: translateY(-50%);
+    }
+
 }
