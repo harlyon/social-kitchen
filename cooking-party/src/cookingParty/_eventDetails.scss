@@ -22,7 +22,6 @@
 }
 
 .eventDetailsSection-wrapper{
-    // border: 1px solid red;
     width: 80%;
     margin: 0 auto;
     padding: 20px 0;
@@ -37,14 +36,12 @@
 .event__main {
     float: left;
     width: calc(100% - 340px);
-    // margin-top: 30px;
 }
 
 .detail__text {
     font-size: 1.6rem;
     &--invited {
         list-style: none;
-        // padding to be determined
     }
     &--date {
         color: rgba(51,51,51,0.8);
@@ -54,10 +51,8 @@
 
 .eventDishList {
     background: $primaryColor;
-    //padding&margin subject to change
     padding: 20px 0;
     border-radius: 6px;
-    // margin subject to change
     margin: 10px 0;
     position: relative;
     .dishLink {
@@ -80,12 +75,24 @@
 .eventDishName {
     @include dishList($accentColor);
     text-decoration: none;
+    &:hover {
+    color: lighten($accentColor, 15);
+}
 }
 
 .btn--delete {
     background: $accentColor;
-
+    border:1px solid $accentColor;
     padding: 3px 3px;
+    &:hover {
+        @include hoverButton;
+        border:1px solid $primaryColor;
+    }
+
+    &:hover i {
+        color:$accentColor;
+    }
+
     .fa-times {
         padding: 2px 6px;
         font-size: 1.8rem;

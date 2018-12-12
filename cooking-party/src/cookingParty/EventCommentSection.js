@@ -55,10 +55,6 @@ class EventCommentSection extends Component {
     const finalName = tempNewNameArray.join(' ');
     console.log(finalName);
     const comment = {
-<<<<<<< HEAD
-      // name: this.state.name,
-=======
->>>>>>> 065b6b797960396c5ad40df43c277be00a3597c4
       name: finalName,
       comment: this.state.comment,
       date: this.state.date,
@@ -75,12 +71,9 @@ class EventCommentSection extends Component {
   render() {
     return (
       <div className="eventCommentSection">
-        {/* <h2>Comments</h2> */}
         <form action="" className="commentSection" onSubmit={this.handleSubmit}>
-          {/* <p>Posting as {this.props.user.displayName}</p> */}
 
           <label htmlFor="comment" className="visuallyhidden">Comment: </label>
-          {/* changed input to textarea */}
           <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment" cols="40" rows="3" placeholder="Post a Comment" />
 
           <input type="submit" className="BTN__submit--comment" value="Post" />

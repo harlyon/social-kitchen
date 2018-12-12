@@ -1,8 +1,7 @@
 .singleEvent {
     background:rgba(172,172,172,0.1);
     padding: 20px 0;
-    margin: 5px 0; // margin subject to change
-    
+    margin: 5px 0;
 
     .displayEvent {
         float:left;
@@ -23,14 +22,14 @@
     }
 
     .btn--delete {
-        border:1px solid $accentColor;
         transition:0.5s;
-    }
-
-    .btn--delete:hover {
+         &:hover {
         @include hoverButton;
         border:1px solid $primaryColor;
-
+            &:hover i {
+            color: $accentColor;
+            }
+        }
     }
 
     .displayEventName {
