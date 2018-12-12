@@ -13,7 +13,7 @@ class CreateEvent extends Component {
       makePartyDate: '',
       makePartyEmail: [],
       dishes: {},
-      listOfCookingParties: {}
+      listOfCookingParties: {},
     }
   }
   
