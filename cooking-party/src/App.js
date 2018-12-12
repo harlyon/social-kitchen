@@ -66,7 +66,7 @@ class App extends Component {
                   (
                     <nav className="nav clearfix">
                       <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName}</span>!</h2>
-                      <NavLink to="/">
+                      <NavLink to="/" className="mainTitle-link">
                         <button onClick={this.logOut} className="nav__button">Log Out</button>
                       </NavLink>
                     </nav>
