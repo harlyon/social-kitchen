@@ -1,3 +1,6 @@
+.createEvent {
+    margin: 30px 0 50px 0;
+}
 form {
 
 .partyForm {
@@ -19,13 +22,15 @@ form {
         padding:11px 0px;
         border-radius:6px;
         width:23%;
-        transition:0.5s
-    }
-
-    .BTN__submit--createEvent:hover {
-        @include hoverButton;
+        transition:all 0.5s ease-out;
+        &:hover {
+            @include hoverButton;
+            color: #bf9430;
+        }
     }
 }
+
+
 
 
 // MEDIA QUERIES (768 PX)

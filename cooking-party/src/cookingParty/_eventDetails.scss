@@ -1,63 +1,7 @@
-.sub__text--eventDetails {
-    margin-bottom: 5px;
-    @include recipeSubHeading;
-    font-size: 1.8rem;
-}
-
-.eventDetails ul, p {
-    padding: 0;
-    margin: 0;
-}
-
-.eventDetailsSection {
-    background: rgba(172,172,172,0.1);
-    display: block;
-    float: left;
-    width: 100%;
-    border-radius: 6px;
-    margin-right: 30px;
-    max-width: 310px;
-    position: sticky;
-    top: 167.8px;
-}
-
-.eventDetailsSection-wrapper{
-    // border: 1px solid red;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.eventDetails--title {
-    @include mainHeadings;
-    margin: 0 0 10px 0;
-
-}
-
-.event__main {
-    float: left;
-    width: calc(100% - 340px);
-    // margin-top: 30px;
-}
-
-.detail__text {
-    font-size: 1.6rem;
-    &--invited {
-        list-style: none;
-        // padding to be determined
-    }
-    &--date {
-        color: rgba(51,51,51,0.8);
-        padding-left: 30px;
-    }
-}
-
 .eventDishList {
     background: $primaryColor;
-    //padding&margin subject to change
     padding: 20px 0;
     border-radius: 6px;
-    // margin subject to change
     margin: 10px 0;
     position: relative;
     .dishLink {
@@ -84,7 +28,7 @@
 
 .btn--delete {
     background: $accentColor;
-
+    border: none;
     padding: 3px 3px;
     .fa-times {
         padding: 2px 6px;
@@ -94,7 +38,119 @@
 }
 
 .eventDetails {
-    margin: 30px 0;
+    margin: 30px 0 50px 0;
 }
 
+.eventDetailsSection {
+    background: rgba(172,172,172,0.1);
+    display: block;
+    float: left;
+    width: 100%;
+    border-radius: 6px;
+    margin-right: 30px;
+    max-width: 310px;
+    position: sticky;
+    top: 167.8px;
+}
+
+.eventDetailsSection-wrapper{
+    // border: 1px solid red;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.eventDetails--title {
+    @include mainHeadings;
+    margin: 0 0 10px 0;
+}
+
+.sub__text--eventDetails {
+    margin-bottom: 5px;
+    @include recipeSubHeading;
+    font-size: 1.8rem;
+}
+
+.eventDetails ul, p {
+    padding: 0;
+    margin: 0;
+}
+
+.detail__text {
+    font-size: 1.6rem;
+    &--invited {
+        list-style: none;
+    }
+    &--date {
+        color: rgba(51,51,51,0.8);
+        padding-left: 30px;
+    }
+}
+
+.event__main {
+    float: left;
+    width: calc(100% - 340px);
+    h2 {
+        margin: 5px 0 15px 0;
+        font-size: 2.8rem;
+    }
+}
+
+// ------------------------------------------------------
+
+@media (max-width: 755px) {
+    .eventDishName {
+    @include dishList($accentColor);
+    font-size: 1.8rem;
+    }
+    .commentPost {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+@media (max-width: 715px) {
+    .eventDetailsSection {
+    background: rgba(172,172,172,0.1);
+    position: static;
+    display: block;
+    float: none;
+    width: 100%;
+    border-radius: 6px;
+    margin-right: 0px;
+    max-width: 700px;
+    top: 0;
+    }
+
+    .event__main {
+        float: none;
+        width: 100%;
+    }
+
+    .eventDishName {
+    @include dishList($accentColor);
+    font-size: 1.8rem;
+    text-decoration: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .eventDetailsSection-wrapper {
+        padding: 20px 5px;
+    }
+}
+
+@media (max-width: 420px) {
+    .eventDetails--title {
+        @include mainHeadings;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .eventDetailsSection-wrapper {
+    padding: 20px 15px;
+    }
+}
 
