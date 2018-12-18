@@ -45,7 +45,7 @@ class EventCommentSection extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const name = this.props.user.displayName;
+    const name = this.props.user.displayName || 'Anonymous User';
     const nameArray = name.split(' ');
     const tempNewNameArray = []
     for (let i in nameArray) {
@@ -84,10 +84,10 @@ class EventCommentSection extends Component {
                 <div className="commentPost" key={post[0]}>
                   <div className="commentPostDetails">
                     <div className="commentAvatar">
-                      <img src={post[1].avatar} alt={`${post[1].name}`} className="commentAvatar--img" />
+                      {this.props.user.photoURL && <img src={post[1].avatar} alt={`${post[1].name}`} className="commentAvatar--img" />}
                     </div>
                     <div className="commentDetails">
-                      <p className="sub__text">{post[1].name}</p>
+                      {this.props.user.photoURL ? <p className="sub__text">{post[1].name}</p> : <p className="sub__text" style={{paddingLeft:'30px'}}>{post[1].name}</p>}
                       <p className="detail__text detail__text--date">{post[1].date}</p>
                     </div>
                   </div>

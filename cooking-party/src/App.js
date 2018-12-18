@@ -50,6 +50,15 @@ class App extends Component {
       })
   }
 
+  anonymousLogIn = () => {
+    firebase.auth().signInAnonymously().catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -65,7 +74,7 @@ class App extends Component {
                   ?
                   (
                     <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName}</span>!</h2>
+                      <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName ? this.state.user.displayName : 'Anonymous User'}</span>!</h2>
                       <NavLink to="/" className="mainTitle-link">
                         <button onClick={this.logOut} className="nav__button">Log Out</button>
                       </NavLink>
@@ -76,6 +85,7 @@ class App extends Component {
                     <nav className="nav clearfix">
                       <h2 className="nav__greeting">Please log in with Google.</h2>
                         <button onClick={this.logIn} className="nav__button">Log In</button>
+                        <button onClick={this.anonymousLogIn} className="nav__button">Log In Anonymously</button>
                     </nav>
                   )
                 }

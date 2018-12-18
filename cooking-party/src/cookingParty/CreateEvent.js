@@ -35,14 +35,16 @@ class CreateEvent extends Component {
     e.preventDefault();
     const emailArray = this.state.makePartyEmail.replace(/\s/g, "").split(',');
     
-    // Capitalize creator's name
-    const name = this.props.user.displayName;
+    // Capitalize creator's name if signed in
+    const name = this.props.user.displayName || 'Anonymous User';
     const nameArray = name.split(' ');
     const tempNewNameArray = [];
     for (let i in nameArray) {
       tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
     }
     const finalName = tempNewNameArray.join(' ');
+
+    
 
     // Capitalize party name
     const partyName = this.state.makePartyName;
