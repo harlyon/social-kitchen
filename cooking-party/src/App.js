@@ -83,9 +83,9 @@ class App extends Component {
                   :
                   (
                     <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Please log in with Google.</h2>
-                        <button onClick={this.logIn} className="nav__button">Log In</button>
-                        <button onClick={this.anonymousLogIn} className="nav__button">Log In Anonymously</button>
+                      <h2 className="nav__greeting">Please log in.</h2>
+                      <button onClick={this.logIn} className="nav__button">Log In with Google</button>
+                      <button onClick={this.anonymousLogIn} className="nav__button">Log In Anonymously</button>
                     </nav>
                   )
                 }
