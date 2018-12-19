@@ -51,12 +51,7 @@ class App extends Component {
   }
 
   anonymousLogIn = () => {
-    firebase.auth().signInAnonymously().catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    });
+    firebase.auth().signInAnonymously().catch(function (error) {});
   }
 
   render() {
