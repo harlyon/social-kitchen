@@ -7,6 +7,7 @@ import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
+import LogIn from './LogIn';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -15,39 +16,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {},
+      user: null,
     }
   }
-
   componentDidMount() {
     // persisting user login
-    // auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({
-    //       user: user
-    //     })
-    //   }
-    // });
-
-
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
-      .then(function () {
-        // Existing and future Auth states are now persisted in the current
-        // session only. Closing the window would clear any existing state even
-        // if a user forgets to sign out.
-        // ...
-        // New sign-in will be persisted with session persistence.
-        return firebase.auth().GoogleAuthProvider();
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-      });
-
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: user
+        })
+      }
+    });
   }
-
-  // function to login
   logIn = () => {
     auth.signInWithPopup(provider)
       .then((res) => {
@@ -56,8 +37,6 @@ class App extends Component {
         })
       })
   }
-
-  // function to logout
   logOut = () => {
     auth.signOut()
       .then(() => {
@@ -66,16 +45,14 @@ class App extends Component {
         })
       })
   }
-
   anonymousLogIn = () => {
-    firebase.auth().signInAnonymously().catch(function (error) {})
+    firebase.auth().signInAnonymously()
       .then((res) => {
         this.setState({
           user: res.user
         })
       });
   }
-
   render() {
     return (
       <Router>
@@ -91,7 +68,7 @@ class App extends Component {
                   ?
                   (
                     <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName ? this.state.user.displayName : 'Anonymous User'}</span>!</h2>
+                      <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName ? this.state.user.displayName : 'Guest'}</span>!</h2>
                       <NavLink to="/" className="mainTitle-link">
                         <button onClick={this.logOut} className="nav__button">Log Out</button>
                       </NavLink>
@@ -99,23 +76,17 @@ class App extends Component {
                   )
                   :
                   (
-                    <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Please log in.</h2>
-                      <button onClick={this.logIn} className="nav__button">Log In with Google</button>
-                      <button onClick={this.anonymousLogIn} className="nav__button">Log In Anonymously</button>
-                    </nav>
+                    // <nav className="nav clearfix">
+                    //   <h2 className="nav__greeting">Please log in.</h2>
+                    //   <button onClick={this.logIn} className="nav__button">Log in with Google</button>
+                    //   <button onClick={this.anonymousLogIn} className="nav__button">Log in as Guest</button>
+                    // </nav>
+                    <LogIn />
                   )
                 }
               </div>
             </div>
           </header>
-          {
-            !this.state.user &&
-            (
-              <div className="notLoggedIn">
-              </div>
-            )
-          }
           {
             this.state.user &&
             (
@@ -125,6 +96,13 @@ class App extends Component {
                 <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
                 <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
               </main>
+            )
+          }
+          {
+            !this.state.user &&
+            (
+              <div className="notLoggedIn">
+              </div>
             )
           }
         </div>
