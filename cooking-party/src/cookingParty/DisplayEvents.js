@@ -3,6 +3,12 @@ import firebase from '../firebase/firebase';
 import { Link } from "react-router-dom";
 
 class DisplayEvents extends Component {
+  constructor() {
+    super();
+    this.state = ({
+      listOfCookingParties: {}
+    })
+  }
   deleteParty = (e) => {
     const firebaseKey = e.target.id;
     const partyRef = firebase.database().ref(`/${firebaseKey}`);
