@@ -1,11 +1,3 @@
-.dish__back-btn, .dish__directions-btn {
-  transition:0.5s;
-}
-
-.dish__directions-btn:hover, .dish__back-btn:hover {
-  @include hoverButton;
-}
-
 .dish {
   margin-bottom: 50px;
   &__aside {
@@ -45,22 +37,20 @@
   &__servings, &__ingredients-title {
     @include recipeSubHeading;
   }
-  &__back-btn, &__directions-btn {
-    @include linkButton;
-  }
-  &__back-btn {
-    background-color: rgba(172,172,172,0.3);
-    float: left;
-  }
   &__directions-btn {
-    float: left;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
+  &__back-btn, &__directions-btn {
+    float: left;
+    transition:0.5s;
+    @include linkButton;
+    &:hover {
+      @include hoverButton;
+    }
+  }
 }
-
-// MEDIA QUERIES
 
 @media (max-width: 768px) {
   .dish {

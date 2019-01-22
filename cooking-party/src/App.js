@@ -7,9 +7,9 @@ import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
-import LogIn from './LogIn';
+import Login from './Login';
 
-const provider = new firebase.auth.GoogleAuthProvider();
+const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
 class App extends Component {
@@ -20,7 +20,6 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    // persisting user login
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -29,15 +28,15 @@ class App extends Component {
       }
     });
   }
-  logIn = () => {
-    auth.signInWithPopup(provider)
+  loginGoogle = () => {
+    auth.signInWithPopup(providerGoogle)
       .then((res) => {
         this.setState({
           user: res.user
         })
       })
   }
-  logOut = () => {
+  logout = () => {
     auth.signOut()
       .then(() => {
         this.setState({
@@ -45,7 +44,7 @@ class App extends Component {
         })
       })
   }
-  anonymousLogIn = () => {
+  loginGuest = () => {
     firebase.auth().signInAnonymously()
       .then((res) => {
         this.setState({
@@ -64,25 +63,15 @@ class App extends Component {
               </NavLink>
               <div>
                 {
-                  this.state.user
-                  ?
-                  (
-                    <nav className="nav clearfix">
-                      <h2 className="nav__greeting">Hello <span id="username">{this.state.user.displayName ? this.state.user.displayName : 'Guest'}</span>!</h2>
-                      <NavLink to="/" className="mainTitle-link">
-                        <button onClick={this.logOut} className="nav__button">Log Out</button>
-                      </NavLink>
-                    </nav>
-                  )
-                  :
-                  (
-                    // <nav className="nav clearfix">
-                    //   <h2 className="nav__greeting">Please log in.</h2>
-                    //   <button onClick={this.logIn} className="nav__button">Log in with Google</button>
-                    //   <button onClick={this.anonymousLogIn} className="nav__button">Log in as Guest</button>
-                    // </nav>
-                    <LogIn />
-                  )
+                  this.state.user &&
+                    (
+                      <nav className="nav clearfix">
+                        <h2 className="nav__greeting">Hello <span className="username">{this.state.user.displayName ? this.state.user.displayName : 'Guest'}</span>!</h2>
+                        <NavLink to="/" className="mainTitle-link">
+                          <button onClick={this.logout} className="nav__button">Log Out</button>
+                        </NavLink>
+                      </nav>
+                    )
                 }
               </div>
             </div>
@@ -94,15 +83,14 @@ class App extends Component {
                 <Route exact path="/" render={(props) => <CreateEvent {...props} user={this.state.user} />} />
                 <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
                 <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
-                <Route path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+                <Route exact path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
               </main>
             )
           }
           {
             !this.state.user &&
             (
-              <div className="notLoggedIn">
-              </div>
+              <Login loginGoogle={this.loginGoogle} loginGuest={this.loginGuest} />
             )
           }
         </div>

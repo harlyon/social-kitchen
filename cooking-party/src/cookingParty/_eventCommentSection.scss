@@ -1,71 +1,70 @@
 .commentSection {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .commentPost {
-    background: $secondaryColor;
-    box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
-    margin-bottom: 15px;
+	background: $secondaryColor;
+	box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
+	margin-bottom: 15px;
 }
 
 .sub__text {
-    @include recipeSubHeading;
-    font-size: 1.8rem;
-    margin-top: 2px;
+	@include recipeSubHeading;
+	font-size: 1.8rem;
+	margin-top: 2px;
 }
 
 .comment {
-    resize: none;
-    width: 100%;
-    padding: 30px;
-    @include input;
-    border-radius: 6px 6px 0 0;
-    border-bottom: none;
-    display: block;
-    &::placeholder {
-        @include placeholderText;
-    }
+	resize: none;
+	width: 100%;
+	padding: 30px;
+	@include input;
+	border-radius: 6px 6px 0 0;
+	border-bottom: none;
+	display: block;
+	&::placeholder {
+		@include placeholderText;
+	}
 }
 
 .BTN__submit--comment {
-    width: 100%;
-    @include inputSubmit;
-    border-radius: 0 0 6px 6px;
-    transition: all 0.5s;
-    &:hover {
-        background: $primaryColor;
-        color: $accentColor;
-    }
+	width: 100%;
+	@include inputSubmit;
+	border-radius: 0 0 6px 6px;
+	transition: all 0.5s;
+	&:hover {
+		background: $primaryColor;
+		color: $accentColor;
+	}
 }
 
 .commentPosted {
-    padding: 20px 30px;
+	padding: 20px 30px;
 }
 
 .commentPostDetails {
-    background: rgba(172,172,172,0.1);
-    padding: 10px 0 20px 0;
-
+	background: rgba(172,172,172,0.1);
+	padding: 10px 0 20px 0;
 }
 
 .commentAvatar {
-    float: left;
-    padding-left: 30px;
-    margin-right: 10px;
-    &--img {
-        width: 50px;
-        height: 50px;
-        border-radius: 6px;
-    }
+	float: left;
+	padding-left: 30px;
+	margin-right: 10px;
+	&--img {
+		width: 50px;
+		height: 50px;
+		border-radius: 6px;
+	}
 }
 
 .commentNoAvatar {
-    float: left;
-    padding-left: 30px;
-    margin-right: 10px;
-    &--span {
-        width: 50px;
-        height: 50px;
-        border-radius: 6px;
-    }
+	float: left;
+	padding-left: 30px;
+	margin-right: 10px;
+	&--span {
+		width: 50px;
+		height: 50px;
+		border-radius: 6px;
+	}
 }

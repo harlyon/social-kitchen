@@ -1,79 +1,66 @@
 .createEvent {
-    margin: 30px 0 50px 0;
+	margin: 30px 0 50px 0;
 }
-form {
 
-.partyForm {
+.createCookingParty {
+	.partyForm {
     width: 22%;
     margin-right:1%;
     height: 45px;
-    @include input;  
-
-        &::placeholder{
-            @include placeholderText;
-        }
-    }
-
-    .partyEmail {
-        width:30%;
-    }
-
-    .BTN__submit--createEvent {
-        @include inputSubmit;
-        padding:11px 0px;
-        border-radius:6px;
-        width:23%;
-        transition:all 0.5s ease-out;
-        &:hover {
-            @include hoverButton;
-            color: #bf9430;
-        }
-    }
+    @include input;
+		&::placeholder{
+			@include placeholderText;
+		}
+	}
+	.partyEmail {
+		width: 30%;
+	}
+	.BTN__submit--createEvent {
+		@include inputSubmit;
+		padding:11px 0px;
+		border-radius:6px;
+		width:23%;
+		transition:all 0.5s ease-out;
+		&:hover {
+			@include hoverButton;
+			color: #bf9430;
+		}
+	}
 }
 
 
-
-
-// MEDIA QUERIES
-@media (max-width:1292px) {
-    form {
-        .partyForm {
-            padding:11px;
-        }
-    }
+@media (max-width: 1292px) {
+	form {
+		.partyForm {
+			padding: 11px;
+		}
+	}
 }
 
-@media (max-width:858px) {
-form {
-
-    .partyForm {
-        width:calc(50% - 1%);
-        margin:5px 0;
-    }
-
-    .partyName {
-        margin-right:10px;
-    }
-
-    .partyEmail {
-        width:100%;
-    }
-
-    .BTN__submit--createEvent {
-        display:block;
-        margin:0 auto;
-        width:100%;
-    }
-}
+@media (max-width: 858px) {
+	form {
+		.partyForm {
+			width:calc(50% - 1%);
+			margin:5px 0;
+		}
+		.partyName {
+			margin-right:10px;
+		}
+		.partyEmail {
+			width:100%;
+		}
+		.BTN__submit--createEvent {
+			display:block;
+			margin:0 auto;
+			width:100%;
+		}
+	}
 }
 
-@media (max-width:577px) {
-    form {
-        .partyForm {
-            width:100%;
-        }
-    }
+@media (max-width: 577px) {
+	form {
+		.partyForm {
+			width:100%;
+		}
+	}
 }
-
-
-

@@ -1,14 +1,12 @@
 html {
  font-size: 62.5%;
+ background: $secondaryColor;
 }
+
 body {
  font-size: 1.8rem;
  font-family: $primaryFont;
  letter-spacing: 0.5px;
-}
-
-.App {
-  background: $secondaryColor;
 }
 
 h1 {
@@ -34,6 +32,11 @@ input, button {
 h2 {
  @include mainHeadings;
 }
+
+h3 {
+  @include subHeadings;
+}
+
 li {
  @include recipeList;
 }
