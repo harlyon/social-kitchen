@@ -1,5 +1,5 @@
 {
   "projects": {
-    "social-kitchen": "social-kitchen-e80b3"
+    "default": "my-social-kitchen"
   }
 }
