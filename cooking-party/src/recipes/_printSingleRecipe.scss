@@ -1,7 +1,6 @@
 .btn__add--searchRecipe, .searchRecipeLink {
-    transition:0.5s;
-}
-
-.btn__add--searchRecipe:hover, .searchRecipeLink:hover {
-    @include hoverButton;
+	transition:0.5s;
+	&:hover {
+		@include hoverButton;
+	}
 }

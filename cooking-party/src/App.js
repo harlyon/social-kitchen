@@ -8,6 +8,7 @@ import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
 import Login from './Login';
+import guestAvatar from './assets/guest.jpg';
 
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -58,20 +59,22 @@ class App extends Component {
         <div className="App">
           <header className="header">
             <div className="wrapper">
-              <NavLink to="/" className="mainTitle-link">
-                <h1 className="mainTitle">Social Kitchen</h1>
-              </NavLink>
-              <div>
+              <div className="header__container">
+                <NavLink to="/" className="header__title-link">
+                  <h1 className="header__title">Social Kitchen</h1>
+                </NavLink>
                 {
                   this.state.user &&
-                    (
-                      <nav className="nav clearfix">
-                        <h2 className="nav__greeting">Hello <span className="username">{this.state.user.displayName ? this.state.user.displayName : 'Guest'}</span>!</h2>
-                        <NavLink to="/" className="mainTitle-link">
-                          <button onClick={this.logout} className="nav__button">Log Out</button>
-                        </NavLink>
-                      </nav>
-                    )
+                  (
+                    <div className="header__avatar-logout-container">
+                      <img
+                        src={this.state.user.photoURL ? this.state.user.photoURL : guestAvatar}
+                        alt={this.state.user.displayName ? this.state.user.displayName : 'Guest'} className="header__avatar" />
+                      <NavLink to="/" className="title-link">
+                        <button onClick={this.logout} className="header__logout">Log Out</button>
+                      </NavLink>
+                    </div>
+                  )
                 }
               </div>
             </div>

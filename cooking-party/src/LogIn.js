@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Login extends Component {
   render() {
     return (
-      <div className="login">
+      <main className="login">
         <div className="wrapper">
           <div className="login__container">
             <h2 className="login__title">Welcome!</h2>
@@ -12,7 +12,7 @@ class Login extends Component {
             <button onClick={this.props.loginGuest} className="login__button">Log in as Guest</button>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

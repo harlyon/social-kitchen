@@ -1,84 +1,80 @@
 .searchRecipeResult {
-
-    button {
-        margin-bottom: 10px;
-        width: 100%;
-        text-align: left;
-        padding:20px 30px;
-        background: rgba(172,172,172,0.1);
-        border: none;
-        @include dishList($primaryColor);
-        transition:0.2s;
-    }
-
-    button:hover {
-        background: $neutralShade;
-    }
+	button {
+		margin-bottom: 10px;
+		width: 100%;
+		text-align: left;
+		padding:20px 30px;
+		background: rgba(172,172,172,0.1);
+		border: none;
+		@include dishList($primaryColor);
+		transition:0.2s;
+	}
+	button:hover {
+		background: $neutralShade;
+	}
 }
 
 .searchRecipe--card {
-    padding: 30px;
-    background: rgba(239, 186, 61, 0.1);
-    border-radius: 6px;
-    margin-bottom: 20px;
+	padding: 30px;
+	background: rgba(239, 186, 61, 0.1);
+	border-radius: 6px;
+	margin-bottom: 20px;
 }
 
 .searchRecipeHeading {
-    font-size: 2.6rem;
-    margin: 0 0 30px 0;
-    text-align: center;
+	font-size: 2.6rem;
+	margin: 0 0 30px 0;
+	text-align: center;
 }
 
 .searchRecipeImg {
-    border-radius: 6px;
-    margin: 0 auto;
+	border-radius: 6px;
+	margin: 0 auto;
 }
 
 .sub__heading--recipe {
-    margin-bottom: 5px;
-    .sub__text--headingSearch {
-    @include recipeSubHeading;
-    font-size: 1.8rem;
-    }
+	margin-bottom: 5px;
+	.sub__text--headingSearch {
+		@include recipeSubHeading;
+		font-size: 1.8rem;
+	}
 }
 
 .searchRecipeInfo {
-    margin: 30px 0 0 0;
+	margin: 30px 0 0 0;
 }
 
 .container--searchRecipeLink {
-    margin: 15px 0;
+	margin: 15px 0;
 }
 
 .searchRecipeLink {
-    text-decoration: none;
-    @include inputSubmit;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 1.6rem;
-    background: rgba(172,172,172,0.3);
-    text-transform: none;
+	text-decoration: none;
+	@include inputSubmit;
+	padding: 5px 10px;
+	border-radius: 6px;
+	font-size: 1.6rem;
+	background: rgba(172,172,172,0.3);
+	text-transform: none;
 }
 
 .btn__add--searchRecipe {
-    @include inputSubmit;
-    border-radius: 6px;
-    padding: 10px 20px;
+	@include inputSubmit;
+	border-radius: 6px;
+	padding: 10px 20px;
 }
 
-// MEDIA QUERIES
-
 @media (max-width: 755px) {
-    .searchRecipeResult {
-        button {
-            @include dishList($primaryColor);
-            font-size: 1.8rem;
-        }
-    }
+	.searchRecipeResult {
+		button {
+			@include dishList($primaryColor);
+			font-size: 1.8rem;
+		}
+	}
 }
 
 @media (max-width: 715px) {
-    .searchRecipe--card {
-        margin: 20px 0;
-    }
+	.searchRecipe--card {
+		margin: 20px 0;
+	}
 }

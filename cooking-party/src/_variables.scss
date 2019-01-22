@@ -10,65 +10,75 @@ $secondaryFont: 'Abril Fatface', cursive;
 // ----- MIXINS -----
 //h1 SOCIAL KITCHEN LOGO
 @mixin appName {
- font-family: $secondaryFont;
- letter-spacing: 1px;
- color: $primaryColor;
- font-size: 5rem;
- text-shadow: 5px 5px 1px rgba(51,51,51,0.1);
+	font-family: $secondaryFont;
+	letter-spacing: 1px;
+	color: $primaryColor;
+	font-size: 5rem;
+	text-shadow: 5px 5px 1px rgba(51,51,51,0.1);
 }
 
 //HELLO user name font
 @mixin userName {
- font-family: $primaryFont;
- color: $secondaryColor;
- font-size: 2.2rem;
- font-weight: 700;
+	font-family: $primaryFont;
+	color: $secondaryColor;
+	font-size: 2.2rem;
+	font-weight: 700;
 }
 
 //h2: Recipe Name / Create Event / Events
 @mixin mainHeadings {
- color: $primaryColor;
- text-transform: uppercase;
- font-size: 3.4rem;
- font-style: bold;
- text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
- text-align: center;
+	color: $primaryColor;
+	text-transform: uppercase;
+	font-size: 3.4rem;
+	font-style: bold;
+	text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
+	text-align: center;
 }
 
 // h3
 @mixin subHeadings {
- color: $primaryColor;
- text-transform: uppercase;
- font-size: 2.4rem;
- font-style: bold;
- text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
- text-align: center;
+	color: $primaryColor;
+	text-transform: uppercase;
+	font-size: 2.4rem;
+	font-style: bold;
+	text-shadow: 3px 3px 1px rgba(51,51,51,0.2);
+	text-align: center;
 }
 
 //Recipe List
 @mixin recipeList {
- font-size: 1.8rem;
- line-height: 1.5;
- list-style: none;
- color: $primaryColor;
+	font-size: 1.8rem;
+	line-height: 1.5;
+	list-style: none;
+	color: $primaryColor;
 }
 
 @mixin recipeSubHeading {
- font-size: 2rem;
- font-weight: 700;
- color: $primaryColor;
+	font-size: 2rem;
+	font-weight: 700;
+	color: $primaryColor;
 }
 
 //Directions | Create Event
 @mixin linkButton {
- font-weight: 700;
- font-size: 2rem;
- color: $primaryColor;
- background: $accentColor;
- border-radius: 6px;
- text-decoration: none;
- text-transform: uppercase;
- padding: 5px 10px;
+	font-weight: 700;
+	font-size: 2rem;
+	color: $primaryColor;
+	background-color: $accentColor;
+	border-radius: 6px;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	transition: color 0.5s, background-color 0.5s;
+	&:hover {
+		color: $accentColor;	
+		background-color: $primaryColor;
+	}
+}
+
+@mixin linkButtonAlt {
+	@include linkButton;
+	border: 2px solid $primaryColor;
 }
 
 @mixin defaultText {
@@ -76,7 +86,6 @@ $secondaryFont: 'Abril Fatface', cursive;
   color: $primaryColor;
 }
 
-//::placeholder
 @mixin placeholderText {
   font-style: italic;
   font-weight: 700;
@@ -91,8 +100,8 @@ $secondaryFont: 'Abril Fatface', cursive;
 }
 
 @mixin input {
-    padding: 10px 30px;
-    border: 1px solid $neutralShade;
+	padding: 10px 30px;
+	border: 1px solid $neutralShade;
 }
 
 @mixin inputSubmit {

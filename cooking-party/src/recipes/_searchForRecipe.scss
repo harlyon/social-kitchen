@@ -1,44 +1,42 @@
 .recipeSearch {
-    @include input;
-    border-radius: 6px 0 0 6px;
-    width: 70%;
-    padding-left: 30px;
-    border-right: none;
-    &::placeholder{
-        @include placeholderText;
-    }
+	@include input;
+	border-radius: 6px 0 0 6px;
+	width: 70%;
+	padding-left: 30px;
+	border-right: none;
+	&::placeholder{
+		@include placeholderText;
+	}
 }
 
 .BTN__submit--search {
-    @include inputSubmit;
-    border-radius: 0 6px 6px 0;
-    padding: 11px 0;
-    width: 30%;
-    transition:0.5s;
-}
-
-.BTN__submit--search:hover {
-    @include hoverButton;
+	@include inputSubmit;
+	border-radius: 0 6px 6px 0;
+	padding: 11px 0;
+	width: 30%;
+	transition:0.5s;
+	&:hover {
+		@include hoverButton;
+	}
 }
 
 .searchForm {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .toggleSearch {
-    @include linkButton;
-    border: none;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    float: right;
+	@include linkButton;
+	border: none;
+	font-size: 1.8rem;
+	margin-bottom: 15px;
+	float: right;
 }
 
 @media (max-width: 715px) {
-    .searchForm {
-        margin: 20px 0 10px 0;
-    }
-    .toggleSearch {
-        margin-top: 10px;
-    }
-
+	.searchForm {
+		margin: 20px 0 10px 0;
+	}
+	.toggleSearch {
+		margin-top: 10px;
+	}
 }

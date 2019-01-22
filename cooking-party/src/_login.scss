@@ -18,9 +18,14 @@
     background:rgba(255, 255, 255, 0.8);
     border-radius: 6px;
   }
+  &__title {
+    margin-top: 0;
+  }
   &__button {
+    @include linkButton;
     margin: 2rem 0;
-    font-size: 2.4rem;
-    width: 90%;
+    font-weight: 700;
+    border: none;
+    width: 80%;
   }
 }

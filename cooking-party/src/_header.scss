@@ -6,49 +6,34 @@
   right: 0;
   z-index: 100;
   box-shadow: 2px 2px 5px rgba(51,51,51,0.2);
-  .username {
-    text-transform:capitalize;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-}
-
-.mainTitle {
-  display: inline-block;
-  margin: 0;
-  padding: 20px 0;
-  transition: 0.5s;
-  &:hover {
-    color: rgba(254,253,251,0.7);
-  }
-}
-
-.nav {
-  position: relative;
-  padding-bottom: 15px;
-  &__greeting {
-    @include userName;
-    float: left;
+  &__title {
+    display: inline-block;
     margin: 0;
-    color: $secondaryColor;
-    span {
-      text-transform: none;
+    padding: 20px 0;
+    transition: 0.5s;
+    &:hover {
+      color: rgba(254,253,251,0.7);
     }
   }
-  &__button {
-    float: right;
-    padding: 0;
-    color: $primaryColor;
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-shadow: 3px 4px 1px rgba(51,51,51,0.2);
+  &__avatar-logout-container {
+    display: flex;
+    align-items: center;
+  }
+  &__avatar {
+    display: inline;
+    height: 37px;
+    width: 37px;
+    border-radius: 6px;
+  }
+  &__logout {
     border: none;
-    background: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition:0.5s;
-    margin-left: 15px;
-    &:hover {
-      color:rgba(254,253,251,0.7);
-    }
+    @include linkButtonAlt;
+    margin-left: 10px;
   }
 }
 
