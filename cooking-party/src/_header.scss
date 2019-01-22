@@ -25,15 +25,17 @@
     align-items: center;
   }
   &__avatar {
-    display: inline;
+    display: inline-block;
     height: 37px;
     width: 37px;
-    border-radius: 6px;
+    border: 2px solid $primaryColor;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
   }
   &__logout {
-    border: none;
     @include linkButtonAlt;
-    margin-left: 10px;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
   }
 }
 
