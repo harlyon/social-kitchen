@@ -68,8 +68,9 @@ $secondaryFont: 'Abril Fatface', cursive;
 	border-radius: 6px;
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: 5px 10px;
+	padding: 5px 15px;
 	transition: color 0.5s, background-color 0.5s;
+	border: 2px solid $primaryColor;
 	&:hover {
 		color: $accentColor;	
 		background-color: $primaryColor;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import guestAvatar from '../assets/guest.jpg';
 
 class EventCommentSection extends Component {
   constructor() {
@@ -45,7 +46,7 @@ class EventCommentSection extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const name = this.props.user.displayName || 'Anonymous User';
+    const name = this.props.user.displayName || 'Guest';
     const nameArray = name.split(' ');
     const tempNewNameArray = []
     for (let i in nameArray) {
@@ -56,7 +57,7 @@ class EventCommentSection extends Component {
       name: finalName,
       comment: this.state.comment,
       date: this.state.date,
-      avatar: this.props.user.photoURL
+      avatar: this.props.user.photoURL ? this.props.user.photoURL : guestAvatar
     }
     const commentRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`)
     commentRef.push(comment);
@@ -84,7 +85,10 @@ class EventCommentSection extends Component {
                 <div className="commentPost" key={post[0]}>
                   <div className="commentPostDetails">
                     <div className="commentAvatar">
-                      {this.props.user.photoURL && <img src={post[1].avatar} alt={`${post[1].name}`} className="commentAvatar--img" />}
+                      <img
+                        src={post[1].avatar}
+                        alt={this.props.user.photoURL ? post[1].name : 'Guest'}
+                        className="commentAvatar--img"/>
                     </div>
                     <div className="commentDetails">
                       {this.props.user.photoURL ? <p className="sub__text">{post[1].name}</p> : <p className="sub__text" style={{paddingLeft:'30px'}}>{post[1].name}</p>}
