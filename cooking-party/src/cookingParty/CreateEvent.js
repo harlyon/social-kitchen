@@ -107,7 +107,7 @@ class CreateEvent extends Component {
             <label htmlFor="makePartyEmail"></label>
             <input type="submit" value="Create Event" className="BTN__submit--createEvent" />
           </form>
-          <DisplayEvents listOfCookingParties={this.state.listOfCookingParties}/>
+          <DisplayEvents listOfCookingParties={this.state.listOfCookingParties} user={this.props.user}/>
         </div>
       </div>
     )
