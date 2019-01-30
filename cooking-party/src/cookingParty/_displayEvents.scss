@@ -1,49 +1,57 @@
-.singleEvent {
-	background:rgba(172,172,172,0.1);
-	border-radius: 6px;
-	padding: 20px 0;
-	margin: 5px 0;
-	.displayEvent {
-		float:left;
-		padding-left:30px;
-		.displayEventName {
-			transition:0.5s;
-		}
-	}
-	.displayEventName:hover {
-		color: $accentColor;
-	}
-	.eventDelete {
-		float:right;
-		padding-right:30px;
-	}
-	.btn--delete {
-		transition: all 0.5s;
+.event {
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 6px;
 		&:hover {
-			background: rgba(51,51,51, 0);
+			background:rgba(172,172,172,0.1);
 		}
 	}
-	.displayEventName {
-		padding:0;
-		margin:0;
-		text-decoration:none;
-		@include dishList($primaryColor);
+	&__title {
+		text-align: left;
+		margin-top: 0;
+	}
+	&__link {
+		padding: 20px;
+		flex: 1 0 auto;
+		text-decoration: none;
+		text-align: left;
+		color: $primaryColor;
+	}
+	&__delete {
+		padding-right: 20px;
+	}
+	&__delete-btn {
+		@include linkButton;
+		font-size: 1.4rem;
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__creator, &__date {
+		margin-top: 10px;
 	}
 }
 
 @media (max-width: 580px) {
-	.singleEvent {
-		position:relative;
-	}
-	.displayEvent {
-		padding-left:10px;
-		width:calc(80% - 50px);
-	}
-	.eventDelete {
-		width:50px;
-		top:50%;
-		right:10px;
-		position: absolute;
-		transform: translateY(-50%);
+	.event {
+		&__container {
+			position: relative;
+		}
+		&__title {
+			padding-left: 10px;
+			width: calc(80% - 50px);
+		}
+		&__delete {
+			width: 50px;
+			top: 50%;
+			right: 10px;
+			position: absolute;
+			transform: translateY(-50%);
+		}
 	}
 }
