@@ -26,7 +26,7 @@ class EventCommentSection extends Component {
     }
   }
   componentDidMount() {
-    const currentDate = moment().format('dddd, MMM. Do, YYYY');
+    const currentDate = moment().format('dddd, MMMM Do, YYYY');
     this.setState({
       date: currentDate,
     })
@@ -40,7 +40,7 @@ class EventCommentSection extends Component {
     e.preventDefault();
     const name = this.props.user.displayName || 'Guest';
     const nameArray = name.split(' ');
-    const tempNewNameArray = []
+    const tempNewNameArray = [];
     for (let i in nameArray) {
       tempNewNameArray.push(nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1));
     }

@@ -5,6 +5,9 @@ import swal from 'sweetalert';
 
 const dbRef = firebase.database().ref();
 
+const moment = require('moment');
+moment().format();
+
 class CreateEvent extends Component {
   constructor() {
     super();
@@ -51,9 +54,12 @@ class CreateEvent extends Component {
     }
     const finalPartyName = tempNewPartyNameArray.join(' ');
 
+    // Use moment.js to format date
+    const date = moment(this.state.makePartyDate).format('dddd, MMMM Do, YYYY');
+
     const newParty = {
       name: finalPartyName,
-      date: this.state.makePartyDate,
+      date: date,
       email: emailArray,
       dishes: this.state.dishes,
       creator: finalName

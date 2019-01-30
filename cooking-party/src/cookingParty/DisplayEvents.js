@@ -14,7 +14,7 @@ class DisplayEvents extends Component {
     const firebaseKey = e.target.id;
     const partyRef = firebase.database().ref(`/${firebaseKey}`);
     const creator = e.target.getAttribute('data-creator');
-    if (this.props.user.displayName === creator) {
+    if (this.props.user.displayName === creator || creator === 'Guest') {
       partyRef.remove();
     } else {
       swal('You cannot delete this event.');
@@ -24,9 +24,7 @@ class DisplayEvents extends Component {
     return (
       <div className="displayEvents">
         <h2>Events</h2>
-        {Object.entries(this.props.listOfCookingParties).map((party) => {
-          console.log(party);
-          
+        {Object.entries(this.props.listOfCookingParties).map((party) => {          
           return (
             <div key={party[1].key} className="singleEvent clearfix">
 

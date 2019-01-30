@@ -29,10 +29,12 @@
 		background: $secondaryColor;
 		box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
 		margin-bottom: 15px;
+		border-radius: 6px;
 	}
 	&__post-details {
 		background: rgba(172,172,172,0.1);
 		padding: 10px 0 20px 0;
+		border-radius: 6px;
 	}
 	&__avatar {
 		float: left;
