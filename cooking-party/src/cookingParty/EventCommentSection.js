@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import guestAvatar from '../assets/guest.jpg';
 
+const moment = require('moment');
+moment().format();
+
 class EventCommentSection extends Component {
   constructor() {
     super();
@@ -23,27 +26,16 @@ class EventCommentSection extends Component {
     }
   }
   componentDidMount() {
-    const currentDate = this.getDate();
+    const currentDate = moment().format('dddd, MMM. Do, YYYY');
     this.setState({
       date: currentDate,
     })
-  }
-  getDate = () => {
-    const today = new Date();
-    const currentDay = today.getDay();
-    const currentMonth = today.getMonth();
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const year = today.getFullYear();
-    const dayOfMonth = today.getDate();
-    return `${days[currentDay]} ${months[currentMonth]} ${dayOfMonth}, ${year}`
   }
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
-
   handleSubmit = (e) => {
     e.preventDefault();
     const name = this.props.user.displayName || 'Guest';
@@ -66,36 +58,36 @@ class EventCommentSection extends Component {
       comment: ''
     })
   }
-
   render() {
     return (
-      <div className="eventCommentSection">
-        <form action="" className="commentSection" onSubmit={this.handleSubmit}>
+      <div className="comment">
+        <h2>Discussion</h2>
+        <form action="" className="comment__form" onSubmit={this.handleSubmit}>
 
           <label htmlFor="comment" className="visuallyhidden">Comment: </label>
-          <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment" cols="40" rows="3" placeholder="Post a Comment" />
+          <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment__input" cols="40" rows="3" placeholder="Post a Comment" />
 
-          <input type="submit" className="BTN__submit--comment" value="Post" />
+          <input type="submit" className="comment__button" value="Post" />
         </form>
         {
           this.state.newPost &&
           (
             Object.entries(this.state.newPost).map((post) => {
               return (
-                <div className="commentPost" key={post[0]}>
-                  <div className="commentPostDetails">
-                    <div className="commentAvatar">
+                <div className="comment__container" key={post[0]}>
+                  <div className="comment__post-details">
+                    <div className="comment__avatar">
                       <img
                         src={post[1].avatar}
                         alt={this.props.user.photoURL ? post[1].name : 'Guest'}
-                        className="commentAvatar--img"/>
+                        className="comment__image"/>
                     </div>
                     <div className="commentDetails">
-                      {this.props.user.photoURL ? <p className="sub__text">{post[1].name}</p> : <p className="sub__text" style={{paddingLeft:'30px'}}>{post[1].name}</p>}
+                      {this.props.user.photoURL ? <p className="comment__author">{post[1].name}</p> : <p className="sub__text" style={{paddingLeft:'30px'}}>{post[1].name}</p>}
                       <p className="detail__text detail__text--date">{post[1].date}</p>
                     </div>
                   </div>
-                  <div className="commentPosted">
+                  <div className="comment__post">
                     <p>{post[1].comment}</p>
                   </div>
                 </div>
