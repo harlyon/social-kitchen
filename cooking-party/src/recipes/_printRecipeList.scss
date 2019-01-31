@@ -1,16 +1,15 @@
 .searchRecipeResult {
 	button {
-		margin-bottom: 10px;
+		@include dishList($primaryColor);
 		width: 100%;
 		text-align: left;
 		padding:20px 30px;
-		background: rgba(172,172,172,0.1);
 		border: none;
-		@include dishList($primaryColor);
 		transition:0.2s;
-	}
-	button:hover {
-		background: $neutralShade;
+		background: none;
+		&:hover {
+			background: rgba(172,172,172,0.1);
+		}
 	}
 }
 

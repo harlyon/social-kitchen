@@ -103,6 +103,9 @@ $secondaryFont: 'Abril Fatface', cursive;
 @mixin input {
 	padding: 10px 30px;
 	border: 1px solid $neutralShade;
+	&::placeholder{
+		@include placeholderText;
+	}
 }
 
 @mixin inputSubmit {

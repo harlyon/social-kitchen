@@ -4,13 +4,9 @@
 
 .recipeSearch {
 	@include input;
-	border-radius: 6px 0 0 6px;
 	width: 70%;
-	padding-left: 30px;
+	border-radius: 6px 0 0 6px;
 	border-right: none;
-	&::placeholder{
-		@include placeholderText;
-	}
 }
 
 .BTN__submit--search {

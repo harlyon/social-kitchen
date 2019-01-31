@@ -1,20 +1,15 @@
 .comment {
 	margin-top: 25px;
 	&__input {
-		resize: none;
-		width: 100%;
-		padding: 30px;
 		@include input;
+		width: 100%;
 		border-radius: 6px 6px 0 0;
 		border-bottom: none;
 		display: block;
-		&::placeholder {
-			@include placeholderText;
-		}
 	}
 	&__button {
-		width: 100%;
 		@include inputSubmit;
+		width: 100%;
 		border-radius: 0 0 6px 6px;
 		transition: all 0.5s;
 		&:hover {

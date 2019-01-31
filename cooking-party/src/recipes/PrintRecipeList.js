@@ -58,7 +58,7 @@ class PrintRecipeList extends Component {
   render() {
     return (
       <div className="printRecipeList">
-        <section id="recipe">
+        <section>
           {this.props.removeSearchResults === false && (
             <PrintSingleRecipe
               recipeid={this.state.recipeid}
