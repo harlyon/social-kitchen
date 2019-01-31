@@ -5,7 +5,7 @@ import guestAvatar from '../assets/guest.jpg';
 const moment = require('moment');
 moment().format();
 
-class EventCommentSection extends Component {
+class Comments extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,6 +29,12 @@ class EventCommentSection extends Component {
     const currentDate = moment().format('dddd, MMMM Do, YYYY');
     this.setState({
       date: currentDate,
+    })
+    const dbRef = firebase.database().ref(`/${this.props.firebaseKey}/comments`);
+    dbRef.on('value', (snapshot) => {
+      this.setState({
+        newPost: snapshot.val()
+      })
     })
   }
   handleChange = (e) => {
@@ -101,4 +107,4 @@ class EventCommentSection extends Component {
   }
 }
 
-export default EventCommentSection;
+export default Comments;

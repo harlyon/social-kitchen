@@ -6,6 +6,9 @@ import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
 import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
+import PrintDishes from './cookingParty/PrintDishes';
+import SearchForRecipe from './recipes/SearchForRecipe';
+import Comments from './cookingParty/Comments';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
 import Login from './Login';
 import guestAvatar from './assets/guest.jpg';
@@ -85,8 +88,8 @@ class App extends Component {
               <main>
                 <Route exact path="/" render={(props) => <CreateEvent {...props} user={this.state.user} />} />
                 <Route exact path={'/:party_id'} render={(props) => <EventDetails {...props} user={this.state.user} />} />
-                <Route exact path={'/:party_id/dishes/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
-                <Route exact path={'/party/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
+                <Route exact path={'/:party_id/:dish_id'} render={(props) => <ShowDishDetailsInEvent {...props} />} />
+                <Route exact path={'/:party_id/:recipe_id'} render={(props) => <PrintSingleRecipe {...props} />} />
               </main>
             )
           }

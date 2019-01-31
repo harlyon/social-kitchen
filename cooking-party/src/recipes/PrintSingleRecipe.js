@@ -52,11 +52,7 @@ class PrintSingleRecipe extends Component {
   render() {
     return (
       <div className="printSingleRecipe">
-        {this.props.recipeid
-          ?
-          this.printRecipe()
-          :
-          null}
+        {this.props.recipeid && this.printRecipe()}
       </div>
     )
   }
