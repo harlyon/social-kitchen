@@ -43,45 +43,47 @@ class EventDetails extends Component {
     return (
       <div className="event-details">
         <div className="wrapper">
-          <aside className="event-details-aside">
-            <div className="wrapper">
-              <h2 className="event-details-aside__title">{this.state.partyDetails.name}</h2>
-              <p className="event-details-aside__creator"><span>Created by:</span> {this.state.partyDetails.creator}</p>
-              <p className="event-details-aside__date"><span>Date:</span> {this.state.partyDetails.date}</p>
-              <p className="event-details-aside__invitees"><span>Invited:</span></p>
-              {
-                this.state.partyDetails.email && (
-                  <ul className="event-details-aside__list">
-                    {this.state.partyDetails.email.map((person) => {
-                      return (
-                        <li className="event-details-aside__item" key={person}>{person}</li>
-                      )
-                    })}
-                  </ul>
-                )
-              }
-            </div>
-          </aside>
-          <main className="event-details-main"> 
-            <nav className="event-details-main-nav">
-              <ul className="event-details-main-nav__list">
-                <button onClick={this.handleClick} value="dishes">Dishes</button>
-                <button onClick={this.handleClick} value="search">Search for Recipes</button>
-                <button onClick={this.handleClick} value="discussion">Discussion</button>
-              </ul>
-            </nav>
-            {this.state.view === 'dishes' &&
-              <PrintDishes
-                firebaseKey={this.state.firebaseKey}
-                partyDetails={this.state.partyDetails} />}
-            {this.state.view === 'search' &&
-              <SearchForRecipe
-                firebaseKey={this.state.firebaseKey} />}
-            {this.state.view === 'discussion' &&
-              <Comments
-                firebaseKey={this.state.firebaseKey}
-                user={this.props.user} />}
-          </main>
+          <div className="event-details__container">
+            <aside className="event-details-aside">
+              <div className="wrapper">
+                <h2 className="event-details-aside__title">{this.state.partyDetails.name}</h2>
+                <p className="event-details-aside__creator"><span>Created by:</span> {this.state.partyDetails.creator}</p>
+                <p className="event-details-aside__date"><span>Date:</span> {this.state.partyDetails.date}</p>
+                <p className="event-details-aside__invitees"><span>Invited:</span></p>
+                {
+                  this.state.partyDetails.email && (
+                    <ul className="event-details-aside__list">
+                      {this.state.partyDetails.email.map((person) => {
+                        return (
+                          <li className="event-details-aside__item" key={person}>{person}</li>
+                        )
+                      })}
+                    </ul>
+                  )
+                }
+              </div>
+            </aside>
+            <main className="event-details-main"> 
+              <nav className="event-details-main-nav">
+                <ul className="event-details-main-nav__list">
+                  <button onClick={this.handleClick} value="dishes">Dishes</button>
+                  <button onClick={this.handleClick} value="search">Search for Recipes</button>
+                  <button onClick={this.handleClick} value="discussion">Discussion</button>
+                </ul>
+              </nav>
+              {this.state.view === 'dishes' &&
+                <PrintDishes
+                  firebaseKey={this.state.firebaseKey}
+                  partyDetails={this.state.partyDetails} />}
+              {this.state.view === 'search' &&
+                <SearchForRecipe
+                  firebaseKey={this.state.firebaseKey} />}
+              {this.state.view === 'discussion' &&
+                <Comments
+                  firebaseKey={this.state.firebaseKey}
+                  user={this.props.user} />}
+            </main>
+          </div>
         </div>
       </div>
     )

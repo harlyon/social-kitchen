@@ -1,10 +1,14 @@
 .event-details {
 	border: 1px solid green;
+	&__container {
+		display: flex;
+		align-items: flex-start;
+	}
 }
 
 .event-details-aside {
+	width: 300px;
 	background: rgba(172,172,172,0.1);
-	width: 100%;
 	margin-right: 30px;
 	position: sticky;
 	border: 1px solid red;
@@ -30,57 +34,13 @@
 }
 
 .event-details-main {
+	width: calc(100% - 330px);
 	border: 1px solid blue;
 	&__title {
 		margin: 5px 0 15px 0;
 		font-size: 2.8rem;
 	}
 }
-
-
-// To be moved to another sheet
-.eventDishList {
-	background: $primaryColor;
-	padding: 20px 0;
-	border-radius: 6px;
-	margin: 10px 0;
-	position: relative;
-	.dishDelete {
-		width: 50px;
-		top: 50%;
-		right: 10px;
-		position: absolute;
-		transform: translateY(-50%);
-	}
-}
-
-.eventDishName {
-	@include dishList($accentColor);
-	text-decoration: none;
-	&:hover {
-		color: lighten($accentColor, 15);
-	}
-}
-
-.btn--delete {
-	background: $accentColor;
-	border: 0px solid $accentColor;
-	padding: 3px 3px;
-	transition: all 0.5s;
-	&:hover {
-		@include hoverButton;
-		border: 0px solid rgba(239,186,61,0);
-	}
-	&:hover i {
-		color:$accentColor;
-	}
-	.fa-times {
-		padding: 2px 6px;
-		font-size: 1.8rem;
-		color: $primaryColor;
-	}
-}
-
 
 @media (max-width: 755px) {
 	.eventDishName {

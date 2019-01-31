@@ -1,0 +1,42 @@
+// To be moved to another sheet
+.eventDishList {
+	background: $primaryColor;
+	padding: 20px 0;
+	border-radius: 6px;
+	margin: 10px 0;
+	position: relative;
+	.dishDelete {
+		width: 50px;
+		top: 50%;
+		right: 10px;
+		position: absolute;
+		transform: translateY(-50%);
+	}
+}
+
+.eventDishName {
+	@include dishList($accentColor);
+	text-decoration: none;
+	&:hover {
+		color: lighten($accentColor, 15);
+	}
+}
+
+.btn--delete {
+	background: $accentColor;
+	border: 0px solid $accentColor;
+	padding: 3px 3px;
+	transition: all 0.5s;
+	&:hover {
+		@include hoverButton;
+		border: 0px solid rgba(239,186,61,0);
+	}
+	&:hover i {
+		color:$accentColor;
+	}
+	.fa-times {
+		padding: 2px 6px;
+		font-size: 1.8rem;
+		color: $primaryColor;
+	}
+}
