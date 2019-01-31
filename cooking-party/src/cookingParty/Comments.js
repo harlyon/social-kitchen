@@ -67,7 +67,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="comment">
-        <h2>Discussion</h2>
+        <h2 className="event-details-main__title">Discussion</h2>
         <form action="" className="comment__form" onSubmit={this.handleSubmit}>
 
           <label htmlFor="comment" className="visuallyhidden">Comment: </label>

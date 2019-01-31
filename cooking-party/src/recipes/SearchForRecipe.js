@@ -47,7 +47,8 @@ class SearchForRecipe extends Component {
   }
   render() {
     return (
-      <div className="searchForRecipe">
+      <section className="searchForRecipe">
+        <h2 className="event-details-main__title">Search</h2>
         <form action="" onSubmit={this.handleSubmit} className="searchForm">
           <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} className="recipeSearch" placeholder="Search for recipes" />
           <label htmlFor="recipeSearch"></label>
@@ -59,7 +60,7 @@ class SearchForRecipe extends Component {
           recipeList={this.state.recipeList}
           firebaseKey={this.props.firebaseKey}
           removeSearchResults={this.state.removeSearchResults} /> 
-      </div>
+      </section>
     )
   }
 }

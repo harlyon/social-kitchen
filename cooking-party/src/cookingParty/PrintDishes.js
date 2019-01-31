@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../firebase/firebase.js';
-import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class PrintDishes extends Component {
   handleClick = (e) => {
@@ -12,17 +12,13 @@ class PrintDishes extends Component {
     return (
       Object.entries(this.props.partyDetails.dishes).map((dish) => {
         return (
-          <div className="eventDishList clearfix" key={dish[0]}>
-            <div className="dishLink">
-              <Link
-                to={`/${this.props.firebaseKey}/${dish[0]}`}
-                className="eventDishName">
-                  {dish[1].name}
-              </Link>
-            </div>
-            <div className="dishDelete">
-              <button onClick={this.handleClick} id={dish[0]} className="btn--delete"><i className="fas fa-times" id={dish[0]}></i></button>
-            </div>
+          <div className="dish-list__dish" key={dish[0]}>
+            <Link
+              to={`/${this.props.firebaseKey}/${dish[0]}`}
+              className="dish-list__link">
+                {dish[1].name}
+            </Link>
+            <button onClick={this.handleClick} id={dish[0]} className="dish-list__delete-button"><i className="fas fa-times dish-list__delete__icon" id={dish[0]}></i></button>
           </div>
         )
       })
@@ -30,7 +26,7 @@ class PrintDishes extends Component {
   }
   render() {
     return (
-      <div>
+      <section className="dish-list">
         <h2 className="event-details-main__title">Dishes</h2>
         {
           this.props.partyDetails.dishes
@@ -39,7 +35,7 @@ class PrintDishes extends Component {
           :
           (<p>There aren't any dishes yet! Let's add some!</p>)
         }
-      </div>
+      </section>
     )
   }
 }

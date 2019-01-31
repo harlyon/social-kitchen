@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import firebase from '../firebase/firebase.js';
-import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
 import PrintDishes from './PrintDishes';
 import SearchForRecipe from '../recipes/SearchForRecipe';
 import Comments from './Comments';
@@ -66,9 +65,30 @@ class EventDetails extends Component {
             <main className="event-details-main"> 
               <nav className="event-details-main-nav">
                 <ul className="event-details-main-nav__list">
-                  <button onClick={this.handleClick} value="dishes">Dishes</button>
-                  <button onClick={this.handleClick} value="search">Search for Recipes</button>
-                  <button onClick={this.handleClick} value="discussion">Discussion</button>
+                  <li className="event-details-main-nav__item">
+                    <button
+                      onClick={this.handleClick}
+                      className="event-details-main-nav__button"
+                      value="dishes">
+                      Dishes
+                    </button>
+                  </li>
+                  <li className="event-details-main-nav__item">
+                    <button
+                      onClick={this.handleClick}
+                      className="event-details-main-nav__button"
+                      value="search">
+                      Search for Recipes
+                    </button>
+                  </li>
+                  <li className="event-details-main-nav__item">
+                    <button
+                      onClick={this.handleClick}
+                      className="event-details-main-nav__button"
+                      value="discussion">
+                      Discussion
+                    </button>
+                  </li>
                 </ul>
               </nav>
               {this.state.view === 'dishes' &&
