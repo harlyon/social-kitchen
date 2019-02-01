@@ -1,20 +1,18 @@
 .dish-list {
 	margin-top: 25px;
 	&__dish {
-		border-radius: 6px;
 		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		&:hover {
-			background:rgba(172,172,172,0.1);
-		}
-	}
-	&__link {
 		@include dishList($primaryColor);
+	}
+		&__link {
+		border-radius: 6px;
 		text-decoration: none;
 		flex: 1 0 auto;
 		padding: 20px;
+		color: $primaryColor;
 	}
 	&__delete-button {
 		@include linkButton;

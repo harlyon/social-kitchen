@@ -21,39 +21,36 @@ class PrintSingleRecipe extends Component {
     recipeRef.push(selectedRecipe);
     swal( `${this.props.recipeName}`, 'has been added to your event');
   }
-  
   printRecipe = () => {
     const filteredIngredientList = new Set(this.props.ingredients);
     const newIngredients = Array.from(filteredIngredientList);
     return (
-      <div className="searchRecipe--card">
-        <h2 className="searchRecipeHeading">{this.props.recipeName}</h2>
-        <img className="searchRecipeImg" src={this.props.image} alt={this.props.recipeName}/>
-        <div className="searchRecipeInfo">
-          <p className="sub__heading--recipe"><span className="sub__text--headingSearch">Servings:</span> {this.props.numberOfServings}</p>
-          <p className="sub__heading--recipe"><span className="sub__text--headingSearch">Ingredients:</span></p>
-          <ul>
-            {newIngredients.map((ingredient) => {
-              return (
-                <li key={ingredient}>
-                  {ingredient}
-                </li>
-              )
-            })}
-          </ul>
-          <div className="container--searchRecipeLink">
-            <a href={this.props.source} target="_blank" rel="noopener noreferrer" className="searchRecipeLink">Directions</a>
+      <React.Fragment>
+        <div className="print-recipe-single">
+          <h2 className="print-recipe-single__title">{this.props.recipeName}</h2>
+          <img className="print-recipe-single__image" src={this.props.image} alt={this.props.recipeName}/>
+          <div className="print-recipe-single__info">
+            <p className="print-recipe-single__servings"><span>Servings:</span> {this.props.numberOfServings}</p>
+            <p className="print-recipe-single__ingredients"><span>Ingredients:</span></p>
+            <ul>
+              {newIngredients.map((ingredient) => {
+                return (
+                  <li key={ingredient}>
+                    {ingredient}
+                  </li>
+                )
+              })}
+            </ul>
+            <a href={this.props.source} target="_blank" rel="noopener noreferrer" className="print-recipe-single__directions">Directions</a>
+            <button onClick={this.handleClick} className="print-recipe-single__add-dish">Add Dish</button>
           </div>
-          <button onClick={this.handleClick} className="btn__add--searchRecipe">Add Dish</button>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
   render() {
     return (
-      <div className="printSingleRecipe">
-        {this.props.recipeid && this.printRecipe()}
-      </div>
+      this.props.recipeid && this.printRecipe()
     )
   }
 }

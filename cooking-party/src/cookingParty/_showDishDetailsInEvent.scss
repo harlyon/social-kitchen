@@ -46,9 +46,6 @@
     float: left;
     transition:0.5s;
     @include linkButton;
-    &:hover {
-      @include hoverButton;
-    }
   }
 }
 

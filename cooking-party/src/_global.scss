@@ -9,10 +9,6 @@ body {
  letter-spacing: 0.5px;
 }
 
-h1 {
- @include appName;
-}
-
 .wrapper {
  max-width: 1280px;
  width: 80%;

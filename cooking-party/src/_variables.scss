@@ -8,22 +8,6 @@ $primaryFont: 'Assistant', sans-serif;
 $secondaryFont: 'Abril Fatface', cursive;
 
 // ----- MIXINS -----
-//h1 SOCIAL KITCHEN LOGO
-@mixin appName {
-	font-family: $secondaryFont;
-	letter-spacing: 1px;
-	color: $primaryColor;
-	font-size: 5rem;
-	text-shadow: 5px 5px 1px rgba(51,51,51,0.1);
-}
-
-//HELLO user name font
-@mixin userName {
-	font-family: $primaryFont;
-	color: $secondaryColor;
-	font-size: 2.2rem;
-	font-weight: 700;
-}
 
 //h2: Recipe Name / Create Event / Events
 @mixin mainHeadings {
@@ -97,7 +81,10 @@ $secondaryFont: 'Abril Fatface', cursive;
 @mixin dishList($color){
   font-size: 2.2rem;
   font-weight: 700;
-  color: $color;
+	color: $color;
+	&:hover {
+		background: rgba(172,172,172,0.1);
+	}
 }
 
 @mixin input {
@@ -113,11 +100,11 @@ $secondaryFont: 'Abril Fatface', cursive;
   text-transform: uppercase;
   font-weight: 700;
   color: $primaryColor;
-  background: $accentColor;
-  border: none;
-}
-
-@mixin hoverButton {
-  background: $primaryColor;
-  color: $accentColor;
+  background-color: $accentColor;
+	border: none;
+	transition: color 0.5s, background-color 0.5s;
+	&:hover {
+		color: $accentColor;
+		background-color: $primaryColor;
+	}
 }

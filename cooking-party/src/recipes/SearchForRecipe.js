@@ -7,8 +7,7 @@ class SearchForRecipe extends Component {
     super();
     this.state = {
       recipeSearch: '',
-      recipeList: [],
-      removeSearchResults: false
+      recipeList: []
     }
   }
   // search for recipes based on search query
@@ -34,28 +33,21 @@ class SearchForRecipe extends Component {
     e.preventDefault();
     const recipe = this.state.recipeSearch;
     this.setState({
-      recipeSearch: '',
-      removeSearchResults: false
+      recipeSearch: ''
     }, () => {
       this.searchForRecipes(recipe);
     })
   }
-  toggleSearchAndSingle = () => {
-    this.setState({
-      removeSearchResults: !this.state.removeSearchResults
-    })
-  }
   render() {
     return (
-      <section className="searchForRecipe">
+      <section className="search-for-recipe">
         <h2 className="event-details-main__title">Search</h2>
-        <form action="" onSubmit={this.handleSubmit} className="searchForm">
-          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} className="recipeSearch" placeholder="Search for recipes" />
+        <form action="" onSubmit={this.handleSubmit} className="search-for-recipe__form">
+          <input type="text" id="recipeSearch" value={this.state.recipeSearch} onChange={this.handleChange} className="search-for-recipe__input" placeholder="Search for recipes" />
           <label htmlFor="recipeSearch"></label>
-          <input type="submit" id="submit" value="Search" className="BTN__submit--search" />
+          <input type="submit" id="submit" value="Search" className="search-for-recipe__submit" />
           <label htmlFor="submit"></label>
         </form>
-        <button onClick={this.toggleSearchAndSingle} className="toggleSearch">{this.state.removeSearchResults === false ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}</button>
         <PrintRecipeList
           recipeList={this.state.recipeList}
           firebaseKey={this.props.firebaseKey}

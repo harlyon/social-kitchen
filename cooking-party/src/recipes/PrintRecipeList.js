@@ -12,7 +12,7 @@ class PrintRecipeList extends Component {
       ingredients: [],
       source: '',
       firebaseKey: '',
-      image: '',
+      image: ''
     }
   }
   componentDidUpdate(prevProps) {
@@ -42,42 +42,36 @@ class PrintRecipeList extends Component {
   }
   printRecipes = () => {
     return(
-      this.props.recipeList
-      ?
+      this.props.recipeList && 
       this.props.recipeList.map((recipe) => {
         return (
-          <div key={recipe.id} className="searchRecipeResult">
-            <button className="coolbutton" value={recipe.id} onClick={this.handleClick}>{recipe.recipeName}</button>
-          </div>
+          <li key={recipe.id} className="print-recipe-list__item">
+            <button
+              className="print-recipe-list__button"
+              value={recipe.id}
+              onClick={this.handleClick}>
+                {recipe.recipeName}
+            </button>
+          </li>
         )
       })
-      :
-      null
     )
   }
   render() {
     return (
-      <div className="printRecipeList">
-        <section>
-          {this.props.removeSearchResults === false && (
-            <PrintSingleRecipe
-              recipeid={this.state.recipeid}
-              recipeName={this.state.recipeName}
-              numberOfServings={this.state.numberOfServings}
-              ingredients={this.state.ingredients}
-              source={this.state.source}
-              firebaseKey={this.props.firebaseKey}
-              image={this.state.image} />  
-          )}
-        </section>
-  
-        <section className="recipe-list">
-          {this.props.removeSearchResults === false && (
-            this.printRecipes()
-          )}
-        </section>
+      <div className="print-recipe">
+        <PrintSingleRecipe
+          recipeid={this.state.recipeid}
+          recipeName={this.state.recipeName}
+          numberOfServings={this.state.numberOfServings}
+          ingredients={this.state.ingredients}
+          source={this.state.source}
+          firebaseKey={this.props.firebaseKey}
+          image={this.state.image} /> 
+        <ul className="print-recipe-list">
+          {this.printRecipes()}
+        </ul>
       </div>
-
     )
   }
 }

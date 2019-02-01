@@ -1,35 +1,18 @@
-.searchForRecipe {
+.search-for-recipe {
 	margin-top: 25px;
-}
-
-.recipeSearch {
-	@include input;
-	width: 70%;
-	border-radius: 6px 0 0 6px;
-	border-right: none;
-}
-
-.BTN__submit--search {
-	@include inputSubmit;
-	border-radius: 0 6px 6px 0;
-	padding: 11px 0;
-	width: 30%;
-	transition:0.5s;
-	&:hover {
-		@include hoverButton;
+	&__input {
+		@include input;
+		width: 70%;
+		border-radius: 6px 0 0 6px;
+		border-right: none;
 	}
-}
-
-.searchForm {
-	margin-bottom: 10px;
-}
-
-.toggleSearch {
-	@include linkButton;
-	border: none;
-	font-size: 1.8rem;
-	margin-bottom: 15px;
-	float: right;
+	&__submit {
+		@include inputSubmit;
+		border-radius: 0 6px 6px 0;
+		padding: 11px 0;
+		width: 30%;
+		transition:0.5s;
+	}
 }
 
 @media (max-width: 715px) {
