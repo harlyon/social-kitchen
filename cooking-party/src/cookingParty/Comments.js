@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import guestAvatar from '../assets/guest.jpg';
+import swal from 'sweetalert';
 
 const moment = require('moment');
 moment().format();
@@ -44,6 +45,10 @@ class Comments extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    if (this.state.comment === '') {
+      swal(`Why don't you say what's on your mind?`);
+      return null;
+    }
     const name = this.props.user.displayName || 'Guest';
     const nameArray = name.split(' ');
     const tempNewNameArray = [];
@@ -71,36 +76,34 @@ class Comments extends Component {
         <form action="" className="comment__form" onSubmit={this.handleSubmit}>
 
           <label htmlFor="comment" className="visuallyhidden">Comment: </label>
-          <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment__input" cols="40" rows="3" placeholder="Post a Comment" />
+          <textarea type="textarea" id="comment" value={this.state.comment} onChange={this.handleChange} className="comment__input" cols="40" rows="3" placeholder="What's happening?" />
 
           <input type="submit" className="comment__button" value="Post" />
         </form>
-        {
-          this.state.newPost &&
-          (
-            Object.entries(this.state.newPost).map((post) => {
-              return (
-                <div className="comment__container" key={post[0]}>
-                  <div className="comment__post-details">
-                    <div className="comment__avatar">
+        <ul className="comment__list">
+          {
+            this.state.newPost &&
+            (
+              Object.entries(this.state.newPost).map((post) => {
+                return (
+                  <li className="comment__item" key={post[0]}>
+                    <div className="comment__post-details">
                       <img
                         src={post[1].avatar}
                         alt={this.props.user.photoURL ? post[1].name : 'Guest'}
-                        className="comment__image"/>
+                        className="comment__avatar"/>
+                      <div className="comment__details-container">
+                        <p className="comment__author">{post[1].name}</p>
+                        <p className="comment__date">{post[1].date}</p>
+                      </div>
                     </div>
-                    <div className="commentDetails">
-                      {this.props.user.photoURL ? <p className="comment__author">{post[1].name}</p> : <p className="sub__text" style={{paddingLeft:'30px'}}>{post[1].name}</p>}
-                      <p className="detail__text detail__text--date">{post[1].date}</p>
-                    </div>
-                  </div>
-                  <div className="comment__post">
-                    <p>{post[1].comment}</p>
-                  </div>
-                </div>
-              )
-            })
-          )
-        }
+                    <p className="comment__post">{post[1].comment}</p>
+                  </li>
+                )
+              })
+            )
+          }
+        </ul>
 
       </div>
     )
