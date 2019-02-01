@@ -13,16 +13,12 @@
 	padding: 10px;
 	border-radius: 6px;
 	&__title {
-		@include mainHeadings;
 		margin: 0 0 10px 0;
 	}
 	&__creator, &__date, &__invitees {
 		font-size: 1.8rem;
 		margin: 0;
 		margin-bottom: 5px;
-		span {
-			font-weight: 700;
-		}
 	}
 	&__list	{
 		margin: 0;
@@ -54,7 +50,7 @@
 		margin: 0 5px;
 	}
 	&__button {
-		@include subHeadings;
+		@include heading(2.4rem);
 		background: none;
 		border: none;
 	}
@@ -101,7 +97,6 @@
 
 @media (max-width: 420px) {
 	.event-details--title {
-		@include mainHeadings;
 		font-size: 3rem;
 	}
 }

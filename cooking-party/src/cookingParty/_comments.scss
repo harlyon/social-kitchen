@@ -1,7 +1,6 @@
 .comment {
 	margin-top: 25px;
 	&__input {
-		@include input;
 		width: 100%;
 		border-radius: 6px 6px 0 0;
 		border-bottom: none;
@@ -39,7 +38,7 @@
 		border-radius: 6px;
 	}
 	&__author {
-		@include recipeSubHeading;
+		// @include recipeSubHeading;
 		font-size: 1.8rem;
 		margin-top: 2px;
 	}

@@ -35,7 +35,7 @@
     position: relative;
   }
   &__servings, &__ingredients-title {
-    @include recipeSubHeading;
+    // @include recipeSubHeading;
   }
   &__directions-btn {
     position: absolute;

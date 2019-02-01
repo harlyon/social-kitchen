@@ -1,17 +1,18 @@
 .search-for-recipe {
 	margin-top: 25px;
 	&__input {
-		@include input;
 		width: 70%;
 		border-radius: 6px 0 0 6px;
+		border: 2px solid $primaryColor;
 		border-right: none;
 	}
 	&__submit {
 		@include inputSubmit;
 		border-radius: 0 6px 6px 0;
-		padding: 11px 0;
+		padding: 10px 0;
 		width: 30%;
-		transition:0.5s;
+		border: 2px solid $primaryColor;
+		border-left: none;
 	}
 }
 

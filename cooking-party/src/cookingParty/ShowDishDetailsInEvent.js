@@ -24,7 +24,7 @@ class ShowDishDetailsInEvent extends Component {
           <h2 className="dish__title">{this.state.currentDish.name}</h2>
           <aside className="dish__aside">
             <img src={this.state.currentDish.image} alt={this.state.currentDish.name} className="dish__image" />
-            <p className="dish__servings">Number of servings: <span>{this.state.currentDish.servings}</span></p>
+            <p className="dish__servings"><span>Number of servings: </span> {this.state.currentDish.servings}</p>
             <div className="dish__buttons-container">
               <Link to={`/${this.props.match.params.party_id}`} className="dish__back-btn"><i className="fas fa-arrow-left"></i></Link>
               <a href={this.state.currentDish.source} target="_blank" rel="noopener noreferrer" className="dish__directions-btn">Directions</a>

@@ -7,7 +7,6 @@
     width: 22%;
     margin-right:1%;
     height: 45px;
-    @include input;
 		&::placeholder{
 			@include placeholderText;
 		}

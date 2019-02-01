@@ -1,14 +1,14 @@
 .dish-list {
 	margin-top: 25px;
 	&__dish {
+		@include dishList($primaryColor);
 		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		@include dishList($primaryColor);
+		border-radius: 6px;
 	}
 		&__link {
-		border-radius: 6px;
 		text-decoration: none;
 		flex: 1 0 auto;
 		padding: 20px;

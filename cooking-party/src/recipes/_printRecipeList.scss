@@ -1,5 +1,4 @@
 .print-recipe {
-	border: 1px solid red;
 	margin-top: 15px;
 }
 
@@ -14,17 +13,5 @@
 		border: none;
 		transition:0.2s;
 		background: none;
-	}
-	
-}
-
-@media (max-width: 755px) {
-	.print-recipe {
-		&__item {
-			button {
-				@include dishList($primaryColor);
-				font-size: 1.8rem;
-			}
-		}
-	}
+	}	
 }
