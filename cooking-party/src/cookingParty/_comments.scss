@@ -24,12 +24,11 @@
 	}
 	&__item {
 		background: $secondaryColor;
-		box-shadow: 3px 3px 1px rgba(172,172,172,0.4);
 		margin-bottom: 15px;
 		border-radius: 6px;
+		background: rgba(172,172,172,0.1);
 	}
 	&__post-details {
-		background: rgba(172,172,172,0.1);
 		border-radius: 6px 6px 0 0;
 		padding: 10px;
 		display: flex;

@@ -13,12 +13,16 @@
 	padding: 10px;
 	border-radius: 6px;
 	&__title {
-		margin: 0 0 10px 0;
+		margin-top: 0;
+		margin-bottom: 15px;
 	}
 	&__creator, &__date, &__invitees {
 		font-size: 1.8rem;
 		margin: 0;
-		margin-bottom: 5px;
+		span {
+			display: block;
+			margin-top: 15px;
+		}
 	}
 	&__list	{
 		margin: 0;

@@ -1,21 +1,22 @@
 .dish {
-  margin-bottom: 50px;
-  &__aside {
-    float: left;
-    width: 310px;
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
-  &__image {
-    width: 100%;
-  }
   &__title {
     margin: 30px 0;
     text-align: left;
   }
+  &__container {
+    display: flex;
+  }
+  &__aside {
+    width: 300px;
+    margin-right: 30px;
+    text-align: center;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 6px;
+  }
   &__main {
-    width: calc(100% - 340px);
-    float: right;
+    flex: 1 0 auto;
     padding: 20px 50px;
     border-radius: 6px;
     background: rgba(172,172,172,0.1);
@@ -23,36 +24,27 @@
   &__ingredients-list {
     padding: 0;
   }
-  &__aside {
-    text-align: center;
-    img {
-      margin: 0 auto;
-      border-radius: 6px;
-    }
-  }
-  &__buttons-container, &__servings {
-    margin-top: 20px;
+  &__buttons-container {
+    display: flex;
+    justify-content: space-between;
     position: relative;
   }
-  &__servings, &__ingredients-title {
-    // @include recipeSubHeading;
+  &__back-button, &__directions-button {
+    @include linkButton;
   }
-  &__directions-btn {
+  &__directions-button {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-  &__back-btn, &__directions-btn {
-    float: left;
-    transition:0.5s;
-    @include linkButton;
+  &__ingredients-title {
+    margin-top: 0;
   }
 }
 
 @media (max-width: 768px) {
   .dish {
     &__title, &__aside, &__main {
-      float: none;
       position: static;
     }
     &__aside {
