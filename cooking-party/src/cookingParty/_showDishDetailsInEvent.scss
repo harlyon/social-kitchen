@@ -41,39 +41,3 @@
     margin-top: 0;
   }
 }
-
-@media (max-width: 768px) {
-  .dish {
-    &__title, &__aside, &__main {
-      position: static;
-    }
-    &__aside {
-      width: 85%;
-      margin: 0 auto;
-    }
-    &__title {
-      width: 100%;
-      text-align: center;
-    }
-    &__main {
-      width: 85%;
-      margin: 99px auto 30px auto;
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .dish {
-    &__main {
-      padding: 15px;
-    }
-  }
-}
-
-@media (max-width: 420px) {
-  .dish {
-    &__title, &__aside, &__main {
-      width: 100%;
-    }
-  }
-}

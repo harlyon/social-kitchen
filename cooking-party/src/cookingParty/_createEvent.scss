@@ -1,64 +1,36 @@
-.createEvent {
-	margin: 30px 0 50px 0;
-}
-
-.createCookingParty {
-	.partyForm {
-    width: 22%;
-    margin-right:1%;
-    height: 45px;
-		&::placeholder{
-			@include placeholderText;
+.create-event {
+	width: 30%;
+	margin-right: 30px;
+	&__form {
+		margin: 0 auto;
+	}
+	&__form-container {
+		padding: 15px;
+		border-radius: 6px 6px 0 0;
+		border: 2px solid $primaryColor;
+	}
+	&__label {
+		@include heading(1.8rem);
+		display: inline-block;
+		margin-bottom: 15px;
+	}
+	&__input {
+		display: flex;
+		width: 100%;
+		margin-bottom: 15px;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
-	.partyEmail {
-		width: 30%;
-	}
-	.BTN__submit--createEvent {
-		@include inputSubmit;
-		padding:11px 0px;
-		border-radius:6px;
-		width:23%;
-		transition:all 0.5s ease-out;
-		&:hover {
-			color: #bf9430;
-		}
-	}
-}
-
-
-@media (max-width: 1292px) {
-	form {
-		.partyForm {
-			padding: 11px;
-		}
+	&__submit {
+		@include linkButton;
+		width: 100%;
+		border-radius: 0 0 6px 6px;
+		border: 2px solid $primaryColor;
+		border-top: none;
 	}
 }
 
-@media (max-width: 858px) {
-	form {
-		.partyForm {
-			width:calc(50% - 1%);
-			margin:5px 0;
-		}
-		.partyName {
-			margin-right:10px;
-		}
-		.partyEmail {
-			width:100%;
-		}
-		.BTN__submit--createEvent {
-			display:block;
-			margin:0 auto;
-			width:100%;
-		}
-	}
-}
-
-@media (max-width: 577px) {
-	form {
-		.partyForm {
-			width:100%;
-		}
-	}
+.create-display-event {
+	display: flex;
 }

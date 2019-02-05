@@ -22,8 +22,8 @@ class DisplayEvents extends Component {
   }
   render() {
     return (
-      <div className="events">
-        <h2 className="events__heading">Events</h2>
+      <div className="display-event">
+        <h2 className="display-event__heading">Events</h2>
         {Object.entries(this.props.listOfCookingParties).map((party) => {
           return (
             <div key={party[1].key} className="event__container">

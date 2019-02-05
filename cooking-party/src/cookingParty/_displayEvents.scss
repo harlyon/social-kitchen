@@ -1,3 +1,7 @@
+.display-event {
+	flex: 1 0 auto;
+}
+
 .event {
 	&__container {
 		display: flex;
@@ -34,24 +38,5 @@
 	}
 	&__creator, &__date {
 		margin-top: 10px;
-	}
-}
-
-@media (max-width: 580px) {
-	.event {
-		&__container {
-			position: relative;
-		}
-		&__title {
-			padding-left: 10px;
-			width: calc(80% - 50px);
-		}
-		&__delete {
-			width: 50px;
-			top: 50%;
-			right: 10px;
-			position: absolute;
-			transform: translateY(-50%);
-		}
 	}
 }

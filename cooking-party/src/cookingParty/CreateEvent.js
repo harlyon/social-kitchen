@@ -79,43 +79,49 @@ class CreateEvent extends Component {
   }
   render() {
     return (
-      <div className="createEvent">
+      <React.Fragment>
         <div className="wrapper">
-          <h2>Create Event</h2>
-          <form action="" className="createCookingParty" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              className="partyForm partyName"
-              id="makePartyName"
-              required
-              onChange={this.handleChange}
-              value={this.state.makePartyName}
-              placeholder="Event Name"/>
-            <label htmlFor="makePartyName"></label>
-            <input
-              type="date"
-              className="partyForm"
-              id="makePartyDate"
-              required
-              onChange={this.handleChange}
-              value={this.state.makePartyDate}
-              placeholder="Event Date" />
-            <label htmlFor="makePartyDate"></label>
-            <input
-              type="text"
-              className="partyForm partyEmail"
-              id="makePartyEmail"
-              required
-              onChange={this.handleChange}
-              value={this.state.makePartyEmail}
-              pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"
-              placeholder="Guest Emails (comma seperated)"/>
-            <label htmlFor="makePartyEmail"></label>
-            <input type="submit" value="Create Event" className="BTN__submit--createEvent" />
-          </form>
-          <DisplayEvents listOfCookingParties={this.state.listOfCookingParties} user={this.props.user}/>
+          <div className="create-display-event">
+            <div className="create-event">
+              <h2 className="create-event__title">Create Event</h2>
+              <form action="" className="create-event__form" onSubmit={this.handleSubmit}>
+                <div className="create-event__form-container">
+                  <label htmlFor="makePartyName" className="create-event__label">Event Name</label>
+                  <input
+                    type="text"
+                    className="create-event__input create-event__input--name"
+                    id="makePartyName"
+                    required
+                    onChange={this.handleChange}
+                    value={this.state.makePartyName}
+                    placeholder="Event Name"/>
+                  <label htmlFor="makePartyDate" className="create-event__label">Event Date</label>
+                  <input
+                    type="date"
+                    className="create-event__input create-event__input--date"
+                    id="makePartyDate"
+                    required
+                    onChange={this.handleChange}
+                    value={this.state.makePartyDate}
+                    placeholder="Event Date" />
+                  <label htmlFor="makePartyEmail" className="create-event__label">Guests</label>
+                  <input
+                    type="text"
+                    className="create-event__input create-event__input--email"
+                    id="makePartyEmail"
+                    required
+                    onChange={this.handleChange}
+                    value={this.state.makePartyEmail}
+                    pattern="^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$"
+                    placeholder="Guest Emails (comma seperated)"/>
+                </div>
+                <input type="submit" value="Create Event" className="create-event__submit" />
+              </form>
+            </div>
+            <DisplayEvents listOfCookingParties={this.state.listOfCookingParties} user={this.props.user}/>
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
