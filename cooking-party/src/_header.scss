@@ -20,10 +20,6 @@
     display: inline-block;
     margin: 0;
     padding: 20px 0;
-    transition: 0.3s;
-    &:hover {
-      color: rgba(254,253,251,0.7);
-    }
   }
   &__avatar-logout-container {
     display: flex;
@@ -38,8 +34,25 @@
     border-radius: 6px 0 0 6px;
   }
   &__logout {
-    @include linkButtonAlt;
+    @include linkButton;
     border-left: none;
     border-radius: 0 6px 6px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__title {
+      &--mobile {
+        height: 50px;
+      }
+    }
+    &__avatar {
+      height: 32px;
+      width: 32px;
+    }
+    &__logout {
+      font-size: 1.6rem;
+    }
   }
 }

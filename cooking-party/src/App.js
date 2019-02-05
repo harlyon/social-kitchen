@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { BrowserRouter as Router, Route, NavLink }from "react-router-dom";
-
+import MediaQuery from 'react-responsive';
 import './App.scss';
 import CreateEvent from './cookingParty/CreateEvent';
 import EventDetails from './cookingParty/EventDetails';
@@ -9,6 +9,7 @@ import ShowDishDetailsInEvent from './cookingParty/ShowDishDetailsInEvent';
 import PrintSingleRecipe from './recipes/PrintSingleRecipe';
 import Login from './Login';
 import guestAvatar from './assets/guest.jpg';
+import favicon from './assets/favicon.ico';
 
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -61,7 +62,12 @@ class App extends Component {
             <div className="wrapper">
               <div className="header__container">
                 <NavLink to="/" className="header__title-link">
-                  <h1 className="header__title">Social Kitchen</h1>
+                  <MediaQuery query="(min-width: 769px)">
+                    <h1 className="header__title">Social Kitchen</h1>
+                  </MediaQuery>
+                  <MediaQuery query="(max-width: 768px)">
+                    <h1><img src={favicon} alt="Social Kitchen" className="header__title--mobile"/></h1>
+                  </MediaQuery>
                 </NavLink>
                 {
                   this.state.user &&

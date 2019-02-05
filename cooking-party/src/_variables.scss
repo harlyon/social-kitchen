@@ -42,11 +42,6 @@ $secondaryFont: 'Abril Fatface', cursive;
 	}
 }
 
-@mixin linkButtonAlt {
-	@include linkButton;
-	border: 2px solid $primaryColor;
-}
-
 @mixin placeholderText {
   font-style: italic;
   font-weight: 700;
