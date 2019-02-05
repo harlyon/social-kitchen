@@ -34,3 +34,12 @@
 .create-display-event {
 	display: flex;
 }
+
+@media (max-width: 768px) {
+	.create-display-event {
+		flex-direction: column;
+	}
+	.create-event {
+		width: 100%;
+	}
+}

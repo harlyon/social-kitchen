@@ -23,13 +23,11 @@
 		text-align: left;
 		color: $primaryColor;
 	}
-	&__delete {
-		padding-right: 20px;
-	}
-	&__delete-btn {
+	&__delete-button {
 		@include linkButton;
 		font-size: 1.4rem;
 		padding: 0;
+		margin-right: 20px;
 		width: 30px;
 		height: 30px;
 		display: flex;
@@ -38,5 +36,19 @@
 	}
 	&__creator, &__date {
 		margin-top: 10px;
+	}
+}
+
+@media (max-width: 450px) {
+	.event {
+		&__container {
+			align-items: flex-start;
+		}
+		&__creator, &__date {
+			font-size: 1.6rem;
+		}
+		&__delete-button {
+			margin-top: 20px;
+		}
 	}
 }
