@@ -55,3 +55,29 @@
 		border: none;
 	}
 }
+
+@media (max-width: 786px) {
+	.event-details {
+		&__container {
+			flex-direction: column;
+		}
+	}
+	.event-details-aside, .event-details-main {
+		width: 100%;
+	}
+	.event-details-main {
+		margin-top: 30px;
+	}
+}
+
+@media (max-width: 400px) {
+	.event-details-main-nav {
+		&__list {
+			flex-direction: column;
+			margin-bottom: 0;
+		}
+		&__item {
+			margin-bottom: 10px;
+		}
+	}
+}

@@ -78,7 +78,7 @@ class EventDetails extends Component {
                       onClick={this.handleClick}
                       className="event-details-main-nav__button"
                       value="search">
-                      Search for Recipes
+                      Recipes
                     </button>
                   </li>
                   <li className="event-details-main-nav__item">

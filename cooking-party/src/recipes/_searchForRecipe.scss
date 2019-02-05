@@ -1,5 +1,8 @@
 .search-for-recipe {
 	margin-top: 25px;
+	&__form {
+		display: flex;
+	}
 	&__input {
 		width: 70%;
 		border-radius: 6px 0 0 6px;
@@ -7,6 +10,7 @@
 		border-right: none;
 	}
 	&__submit {
+		-webkit-appearance:default-button;
 		@include inputSubmit;
 		border-radius: 0 6px 6px 0;
 		padding: 10px 0;

@@ -8,6 +8,7 @@
   }
   &__aside {
     width: 300px;
+    min-width: 300px;
     margin-right: 30px;
     text-align: center;
   }
@@ -16,7 +17,7 @@
     border-radius: 6px;
   }
   &__main {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     padding: 20px 50px;
     border-radius: 6px;
     background: rgba(172,172,172,0.1);
@@ -39,5 +40,35 @@
   }
   &__ingredients-title {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dish {
+    &__container {
+      flex-direction: column;
+    }
+    &__aside {
+      max-width: 300px;
+      margin: 0 auto 30px auto;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .dish {
+    &__main {
+      padding: 15px;
+    }
+    &__aside {
+      max-width: 280px;
+      min-width: auto;
+    }
+    &__image {
+      
+    }
+    &__ingredients-item {
+      margin-bottom: 5px;
+    }
   }
 }
